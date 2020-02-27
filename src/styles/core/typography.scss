@@ -3,19 +3,9 @@ html {
 }
 
 body {
-  font-family: $font-body;
-  font-weight: $font-body-weight;
-  font-style: $font-body-style;
+  font-family: 'Favorit Mono';
+  font-weight: normal;
   font-size: 1.6rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-heading;
 }
 
 body,
@@ -29,4 +19,8 @@ select {
 
 a:focus {
   color: inherit;
+}
+
+strong, b {
+  font-weight: normal;
 }
