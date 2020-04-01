@@ -1,30 +1,39 @@
 {
-  "name": "parcel-themekit",
+  "name": "peoples-2020",
   "version": "1.0.0",
   "description": "Parcelized version of Shopify Themekit",
   "main": "index.js",
-  "author": "Chase Ohlson",
+  "author": "Laura Brown",
   "license": "MIT",
   "dependencies": {
-    "autoprefixer": "^9.7.3",
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "concurrently": "^5.0.2",
-    "jquery": "^3.3.1",
-    "parcel-bundler": "^1.12.4",
-    "postcss": "^7.0.26",
-    "terser": "^4.4.2",
-    "uglify-js": "^3.7.2"
+    "@babel/core": "^7.9.0",
+    "@shopify/theme-a11y": "^3.0.3",
+    "@shopify/theme-cart": "^3.0.3",
+    "@shopify/theme-currency": "^3.0.3",
+    "@shopify/theme-product": "^1.0.0",
+    "@shopify/theme-product-form": "^3.0.3",
+    "@shopify/theme-sections": "^3.0.3",
+    "core-js": "^3.6.4",
+    "lazysizes": "^5.2.0",
+    "quicklink": "^2.0.0-alpha",
+    "regenerator-runtime": "^0.13.5",
+    "svbstrate": "^4.1.1"
   },
   "scripts": {
-    "dev": "concurrently \"parcel watch app/scripts/index.js --out-dir ./assets --out-file bundle.min.js\" \"parcel watch app/styles/index.scss --out-dir ./assets --out-file style.min.css\" \"theme watch\" ",
-    "build": "parcel build app/scripts/index.js --out-dir ./assets --out-file bundle.min.js --no-source-maps && parcel build app/styles/index.scss --out-dir ./assets --out-file style.min.css --no-source-maps",
-    "clean": "rm -rf ./node_modules && rm -rf /.cache && rm -rf ./assets/bundle.min.map && rm -rf ./assets/style.min.js && rm -rf ./assets/style.min.map",
-    "deploy": "yarn && yarn build && yarn clean && theme deploy"
+    "dev": "yarn build-dev && concurrently --prefix command \"parcel watch app/scripts/index.js --out-dir ./assets\" \"theme watch\" ",
+    "build-dev": "parcel build app/scripts/index.js --out-dir ./assets --no-minify",
+    "build": "parcel build app/scripts/index.js --out-dir ./assets",
+    "clean": "rm -rf ./assets/index.js.map && rm -rf ./assets/index.css.map && rm -rf ./assets/index.js && rm -rf ./assets/index.css",
+    "deploy": "yarn clean && yarn && yarn build && theme deploy"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.9.0",
+    "autoprefixer": "^9.7.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.5.1",
+    "concurrently": "^5.1.0",
     "cssnano": "^4.1.10",
-    "sass": "^1.23.7"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.3"
   }
 }

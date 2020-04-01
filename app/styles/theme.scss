@@ -6,9 +6,12 @@
 // *************************************
 // ***** Util
 // *************************************
+@import './util/variables';
+@import './util/mixins';
 @import './util/helpers';
 
 // *************************************
 // ***** Theme
 // *************************************
+@import './theme/layout';
 @import './theme/product';

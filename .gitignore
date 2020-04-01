@@ -1,11 +1,13 @@
 .cache/
 node_modules/
 package.lock
-./config.yml
+**/.DS_Store
+/.DS_Store
+/.vscode
+config.yml
 
-assets/bundle.min.js
-assets/bundle.min.map
-assets/style.min.css
-assets/style.min.js
-assets/style.min.map
+assets/index.js
+assets/index.js.map
+assets/index.css
+assets/index.css.map
 

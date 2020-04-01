@@ -1,0 +1,72 @@
+/*============= Grid Layout ================*/
+
+.display-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  > .display-grid__item {
+    grid-column: span 12;
+  }
+}
+
+/*================ Responsive Show/Hide Helper ================*/
+@mixin responsive-display-helper($breakpoint: '') {
+  // sass-lint:disable no-important
+  .#{$breakpoint}show {
+    display: block !important;
+  }
+
+  .#{$breakpoint}hide {
+    display: none !important;
+  }
+}
+
+/*================ Responsive Text Alignment Helper ================*/
+@mixin responsive-text-align-helper($breakpoint: '') {
+  // sass-lint:disable no-important
+  .#{$breakpoint}text-left {
+    text-align: left !important;
+  }
+
+  .#{$breakpoint}text-right {
+    text-align: right !important;
+  }
+
+  .#{$breakpoint}text-center {
+    text-align: center !important;
+  }
+}
+
+/*=============== Responsive Grid Item Widths =================*/
+
+@mixin grid-span-generator($breakpoint: '') {
+  .display-grid {
+    > .display-grid__item {
+      &.#{$breakpoint}span-1 { grid-column: span 1; }
+      &.#{$breakpoint}span-2 { grid-column: span 2; }
+      &.#{$breakpoint}span-3 { grid-column: span 3; }
+      &.#{$breakpoint}span-4 { grid-column: span 4; }
+      &.#{$breakpoint}span-5 { grid-column: span 5; }
+      &.#{$breakpoint}span-6 { grid-column: span 6; }
+      &.#{$breakpoint}span-7 { grid-column: span 7; }
+      &.#{$breakpoint}span-8 { grid-column: span 8; }
+      &.#{$breakpoint}span-9 { grid-column: span 9; }
+      &.#{$breakpoint}span-10 { grid-column: span 10; }
+      &.#{$breakpoint}span-11 { grid-column: span 11; }
+      &.#{$breakpoint}span-12 { grid-column: span 12; }
+    }
+  }
+}
+
+@include responsive-display-helper();
+@include responsive-text-align-helper();
+@include grid-span-generator();
+
+/*================ Build Responsive Grid Classes ================*/
+@each $breakpoint in $breakpoint-has-widths {
+  @include media-query($breakpoint) {
+    @include responsive-display-helper('#{$breakpoint}--');
+    @include responsive-text-align-helper('#{$breakpoint}--');
+    @include grid-span-generator('#{$breakpoint}--');
+  }
+}
+

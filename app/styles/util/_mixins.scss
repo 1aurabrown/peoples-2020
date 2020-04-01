@@ -1,0 +1,104 @@
+/**
+ * Sets a media query for the specified breakpoint
+ *
+ * Accepts:
+ * - $media-query: {String} Breakpoint variable (list found in variables.scss)
+ *
+ * Usage:
+ * .selector {
+ *   @include media-query($medium-up) {
+ *     color: red;
+ *   }
+ * }
+ */
+@mixin media-query($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+
+    @if $media-query == $name and $declaration {
+      $breakpoint-found: true;
+
+      @media only screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+}
+
+/*===============UNDERLINES=================*/
+
+// Faux underline
+@mixin faux-underline() {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: calc(50% - 0.7em);
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid;
+  }
+}
+
+
+// Faux underline
+@mixin faux-strikethrough() {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    height: calc(50% - 1px);
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid;
+  }
+}
+
+/**
+ * Hide element but make it accessible to screen readers
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-hidden;
+ * }
+ */
+@mixin visually-hidden() {
+  // stylelint-disable-next-line
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+/**
+ * Reverse the properties applied by @mixin visually-hidden
+ *
+ * Accepts:
+ * - $position: {String} Positioning method for element
+ *
+ * Usage:
+ * .selector {
+ *   @include visually-shown(relative);
+ * }
+ */
+@mixin visually-shown($position: inherit) {
+  // stylelint-disable-next-line
+  position: $position !important;
+  overflow: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+}
