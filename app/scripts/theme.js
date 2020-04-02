@@ -1,7 +1,3 @@
-// Styles
-import 'svbstrate'
-import '../styles/theme.scss'
-
 // External
 import 'regenerator-runtime/runtime'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
@@ -24,7 +20,6 @@ import './sections/product';
 document.addEventListener("DOMContentLoaded", function(event) {
   load('*');
   search.init();
-
 
   // Common a11y fixes
   focusHash();

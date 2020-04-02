@@ -46,9 +46,9 @@
 
   {{ content_for_header }}
 
-  <link type="text/css" href="{{ 'index.scss.css' | asset_url }}" rel="stylesheet">
-  {{ 'index.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'index.js' | asset_url }}" async></script>
+  {{ 'font.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'theme.js' | asset_url }}" async></script>
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
