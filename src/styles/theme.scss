@@ -2,28 +2,23 @@
 // ***** Vendor
 // *************************************
 // Styles
+@import '~normalize.css';
 @import '~svbstrate';
-@import './vendor/normalize.css';
 
 // *************************************
 // ***** Util
 // *************************************
 @import './util/variables';
 @import './util/mixins';
+@import './util/responsive';
 @import './util/helpers';
 
 // *************************************
 // ***** Theme
 // *************************************
-@import './theme/layout';
-@import './theme/product';
+@import './global/layout';
 
 // *************************************
 // ***** Modules
 // *************************************
-@import './modules/header';
-
-// *************************************
-// ***** Components
-// *************************************
-@import './components/search-form';
+@import './modules/header.scss'

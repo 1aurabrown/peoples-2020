@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
+const SassLintPlugin = require('sass-lint-webpack')
 
 var config = {
   optimization: {
@@ -34,7 +35,8 @@ var config = {
       from: '**/*',
       to: path.join(__dirname, 'dist'),
       ignore: ['styles/', 'scripts/', '*.js', '*.scss', '*.sass', '*.css', ],
-    }], {})
+    }], {}),
+    new SassLintPlugin(),
   ],
 
   output: {
@@ -63,7 +65,7 @@ var config = {
           { loader: MiniCssExtractPlugin.loader, options: { sourceMap: true }},
           { loader: 'css-loader', options: { sourceMap: true }},
           { loader: 'postcss-loader', options: { sourceMap: true }},
-          { loader: 'sass-loader', options: { sourceMap: true }}
+          { loader: 'sass-loader', options: { sourceMap: true } }
         ]
       },
     ],

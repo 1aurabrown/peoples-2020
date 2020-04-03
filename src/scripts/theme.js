@@ -13,8 +13,6 @@ import 'lazysizes/plugins/respimg/ls.respimg'
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y'
 import {load} from '@shopify/theme-sections'
 
-// Modules
-
 // Sections
 import './sections/product'
 import './sections/header'
