@@ -49,7 +49,7 @@
 
   {{ 'font.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'theme.js' | asset_url }}"></script>
+  {{ 'theme.js' | asset_url | script_tag }}
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">

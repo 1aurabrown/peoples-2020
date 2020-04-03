@@ -1,0 +1,15 @@
+# Development environment
+development:
+  password:
+  theme_id:
+  store: your-shop.myshopify.com
+  ignore_files:
+    settings_data.json
+
+# Production environment
+production:
+  password:
+  theme_id:
+  store: your-shop.myshopify.com
+  ignore_files:
+    settings_data.json
