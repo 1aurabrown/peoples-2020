@@ -1,6 +1,8 @@
 $header-desktop-spacing: 64px;
 
 .header {
+  position: sticky;
+  top: 0;
   text-transform: uppercase;
   border-bottom: 1px solid $black;
   display: grid;
