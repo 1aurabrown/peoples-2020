@@ -1,15 +1,18 @@
-.search-form {
-  &__form {
-    display: none;
+.search-form__form {
+  display: none;
+
+  .search-form__button {
+    display: block;
+  }
+}
+
+.no-js,
+.search-form.active {
+  .search-form__form {
+    display: block;
   }
 
-  &--active {
-    &__form {
-      display: block;
-    }
-
-    &__button {
-      display: none;
-    }
+  .search-form__button {
+    display: none;
   }
 }

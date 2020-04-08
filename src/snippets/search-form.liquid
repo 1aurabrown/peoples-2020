@@ -7,15 +7,14 @@
     <input type="search"
     name="q"
     id="Search-{{ section.id }}"
-    value="{{ search.terms | escape }}"
-    placeholder="{{ 'general.search.placeholder' | t }}">
+    value="">
 
 
-    <button class="search-form__clear">
+    <button type="button" class="search-form__clear">
       <span>X</span>
     </button>
 
-    <button type="submit" class="button">
+    <button type="submit" class="no-js button">
       <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
     </button>
 
