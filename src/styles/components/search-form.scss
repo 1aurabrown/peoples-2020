@@ -2,10 +2,12 @@
   &__form {
     display: none;
   }
+
   &--active {
     &__form {
       display: block;
     }
+
     &__button {
       display: none;
     }

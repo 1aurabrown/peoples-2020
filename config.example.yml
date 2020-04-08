@@ -2,14 +2,20 @@
 development:
   password:
   theme_id:
+  directory: dist
   store: your-shop.myshopify.com
   ignore_files:
-    settings_data.json
+    - config/settings_data.json # So you don't overwrite theme settings made from the Shopify Admin
+    - node_modules/
+    - src/
 
 # Production environment
 production:
   password:
   theme_id:
+  directory: dist
   store: your-shop.myshopify.com
   ignore_files:
-    settings_data.json
+    - config/settings_data.json # So you don't overwrite theme settings made from the Shopify Admin
+    - node_modules/
+    - src/

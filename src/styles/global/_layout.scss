@@ -7,13 +7,16 @@ body {
   font-family: 'Favorit Mono', monospace;
 }
 
-img, svg, figure {
-  display: block
+img,
+svg,
+figure {
+  display: block;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+
   &:visited {
     color: inherit;
   }

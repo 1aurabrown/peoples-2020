@@ -33,14 +33,15 @@
 /*===============UNDERLINES=================*/
 
 // Faux underline
-@mixin faux-underline() {
+@mixin faux-underline {
   display: inline-block;
   position: relative;
   text-decoration: none;
-  &:after {
+
+  &::after {
     position: absolute;
     content: '';
-    bottom: calc(50% - 0.7em);
+    bottom: calc(50% - .7em);
     left: 0;
     right: 0;
     border-bottom: 1px solid;
@@ -49,11 +50,12 @@
 
 
 // Faux underline
-@mixin faux-strikethrough() {
+@mixin faux-strikethrough {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  &:after {
+
+  &::after {
     position: absolute;
     content: '';
     top: 0;
@@ -72,7 +74,7 @@
  *   @include visually-hidden;
  * }
  */
-@mixin visually-hidden() {
+@mixin visually-hidden {
   // stylelint-disable-next-line
   position: absolute !important;
   overflow: hidden;
