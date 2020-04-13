@@ -23,6 +23,17 @@
   }
 }
 
+/*============= Flex Layout ================*/
+.flex {
+  display: flex;
+}
+
+.center-both {
+  justify-content: center;
+  align-items: center;
+}
+
+
 /*============= Helpers ================*/
 .visually-hidden {
   @include visually-hidden;

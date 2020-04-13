@@ -1,0 +1,63 @@
+{% assign settings = section.settings %}
+
+<div class="hero flex center-both">
+  <div class="content ta-center">
+    <h1>{{ settings.heading }}</h1>
+    {% if settings.show_button %}
+      <a href="{{ settings.button_url}}">{{ settings.button_text}}</a>
+    {% endif %}
+  </div>
+  {% if settings.background_image %}
+    {% assign img_url = settings.background_image | img_url: 'master' %}
+    <img src="{{ img_url }}">
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_button",
+        "label": "Show Button?",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "Hero"
+      }
+    ]
+  }
+{% endschema %}
