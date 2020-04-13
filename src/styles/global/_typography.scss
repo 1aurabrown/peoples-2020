@@ -22,6 +22,8 @@
 h1 {
   text-transform: uppercase;
   line-height: 1.5;
-  // Need to change this
   font-size: 48px;
+  @include media-query($small) {
+    font-size: 24px;
+  }
 }

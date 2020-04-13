@@ -1,6 +1,9 @@
 .hero {
   background-color: $gray;
   background-size: cover;
+  @include media-query($small) {
+    padding: 16px;
+  }
 }
 
 .hero .content {

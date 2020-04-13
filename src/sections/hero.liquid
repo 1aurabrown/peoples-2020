@@ -1,7 +1,7 @@
 {% assign settings = section.settings %}
 {% assign img_url = settings.background_image | img_url: 'master' %}
 
-<section>
+<section class="section">
   <div class="hero flex-column center-both full-height" style="{% if settings.background_image %} background-image: url({{ img_url}}; {% endif %}">
     <div class="content ta-center tc-white flex-column center-both">
       <h1>{{ settings.heading }}</h1>
