@@ -1,17 +1,16 @@
 {% assign settings = section.settings %}
+{% assign img_url = settings.background_image | img_url: 'master' %}
 
-<div class="hero flex center-both">
-  <div class="content ta-center">
-    <h1>{{ settings.heading }}</h1>
-    {% if settings.show_button %}
-      <a href="{{ settings.button_url}}">{{ settings.button_text}}</a>
-    {% endif %}
+<section>
+  <div class="hero flex-column center-both full-height" style="{% if settings.background_image %} background-image: url({{ img_url}}; {% endif %}">
+    <div class="content ta-center tc-white flex-column center-both">
+      <h1>{{ settings.heading }}</h1>
+      {% if settings.show_button %}
+        <a class="button-white" href="{{ settings.button_url}}">{{ settings.button_text}}</a>
+      {% endif %}
+    </div>
   </div>
-  {% if settings.background_image %}
-    {% assign img_url = settings.background_image | img_url: 'master' %}
-    <img src="{{ img_url }}">
-  {% endif %}
-</div>
+</section>
 
 {% schema %}
   {

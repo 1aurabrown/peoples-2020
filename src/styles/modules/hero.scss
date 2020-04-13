@@ -1,3 +1,13 @@
 .hero {
-  background-color: #fff;
+  background-color: $gray;
+  background-size: cover;
+}
+
+.hero .content {
+  max-width: 500px;
+}
+
+.button {
+  width: 72px;
+  margin-top: 32px;
 }

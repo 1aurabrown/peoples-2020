@@ -1,3 +1,27 @@
+/*============= Helpers ================*/
+
 .ta-center {
   text-align: center;
+}
+
+.tt-uppercase {
+  text-transform: uppercase;
+}
+
+.tc-white {
+  color: $white;
+}
+
+.tc-black {
+  color: $black;
+}
+
+
+/*============= Elements ================*/
+
+h1 {
+  text-transform: uppercase;
+  line-height: 1.5;
+  // Need to change this
+  font-size: 48px;
 }

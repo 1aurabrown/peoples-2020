@@ -24,13 +24,25 @@
 }
 
 /*============= Flex Layout ================*/
-.flex {
+.flex-row {
   display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .center-both {
   justify-content: center;
   align-items: center;
+}
+
+/*============== Layout ================*/
+
+.full-height {
+  height: 100vh;
 }
 
 
