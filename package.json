@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "yarn build-dev && theme deploy && yarn watch",
-    "watch": "concurrently \"theme watch\" \"webpack --watch --mode development\" --prefix",
-    "build-dev": "webpack --mode development --verbose",
+    "start": "yarn dev",
+    "watch": "concurrently \"theme watch\" \"webpack --watch --mode development\" --prefix name",
+    "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
+    "build": "yarn build-prod",
     "deploy": "yarn build-prod && theme deploy"
   },
   "dependencies": {
