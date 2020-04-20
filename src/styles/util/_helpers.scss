@@ -24,20 +24,16 @@
 }
 
 /*============= Flex Layout ================*/
-.flex-row {
+.fdr {
   display: flex;
   flex-direction: row;
 }
 
-.flex-column {
+.fdc {
   display: flex;
   flex-direction: column;
 }
 
-.center-both {
-  justify-content: center;
-  align-items: center;
-}
 
 /*============== Layout ================*/
 

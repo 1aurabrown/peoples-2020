@@ -2,9 +2,12 @@
 {% assign img_url = settings.background_image | img_url: 'master' %}
 
 <section class="section">
-  <div class="hero flex-column center-both full-height" style="{% if settings.background_image %} background-image: url({{ img_url}}; {% endif %}">
-    <div class="content ta-center tc-white flex-column center-both">
-      <h1>{{ settings.heading }}</h1>
+  <div class="hero fdc jcc aic full-height rel">
+    {% if settings.background_image %}
+      <img class="abs fill top x y" src="{{ img_url }}">
+    {% endif %}
+    <div class="content ta-center tc-white f fdc jcc aic z1">
+      <h1 class="h1">{{ settings.heading }}</h1>
       {% if settings.show_button %}
         <a class="button-white" href="{{ settings.button_url}}">{{ settings.button_text}}</a>
       {% endif %}
