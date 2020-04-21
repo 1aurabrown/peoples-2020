@@ -1,0 +1,25 @@
+/*============= Helpers ================*/
+
+.tc-white {
+  color: $white;
+}
+
+.tc-black {
+  color: $black;
+}
+
+
+/*============= Elements ================*/
+
+.h1, .h2, .h3, .h4 {
+  font-weight: 400;
+}
+
+.h1 {
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-size: 48px;
+  @include media-query($small) {
+    font-size: 24px;
+  }
+}
