@@ -5,9 +5,9 @@ $header-desktop-spacing: 64px;
   top: 0;
   text-transform: uppercase;
   border-bottom: 1px solid $black;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto;
+  // display: grid;
+  // grid-template-columns: 1fr auto 1fr;
+  // grid-template-rows: auto;
 
   h1 {
     margin: 0;
@@ -51,6 +51,6 @@ $header-desktop-spacing: 64px;
   }
 
   @include media-query($medium-up) {
-    padding: 20px $padding-desktop;
+    padding: 20px 0;
   }
 }

@@ -22,9 +22,19 @@ a {
   }
 }
 
+.body-wrapper {
+  max-width: 1294px;
+  margin: 0 auto;
+  padding: 0 $padding-desktop;
+
+  @include media-query($small) {
+    padding: 0 $padding-mobile;
+  }
+}
+
 section,
 .section {
-  padding: $padding-desktop;
+  padding: $padding-desktop 0;
 }
 
 .button {
@@ -36,10 +46,16 @@ section,
   text-transform: uppercase;
   text-align: center;
   padding: calc(1rem / 2);
+  margin-top: 24px;
 }
 
 .button-white {
   @extend .button;
   color: $white;
   border: 1px solid $white;
+}
+
+.button-inline {
+  @extend .button;
+  width: fit-content;
 }
