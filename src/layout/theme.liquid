@@ -53,12 +53,12 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-
+  
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {% section 'header' %}
 
-  <main role="main" id="MainContent">
+  <main role="main" id="MainContent" class="body-wrapper">
     {{ content_for_layout }}
   </main>
 

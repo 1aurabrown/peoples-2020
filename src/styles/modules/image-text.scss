@@ -1,0 +1,27 @@
+.image-with-text {
+  @include media-query($small) {
+    height: fit-content;
+  }
+}
+
+.image-with-text__image {
+  background-color: $gray;
+  max-height: 100%;
+  @include media-query($small) {
+    height: 240px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}t
+
+.image-with-text__text {
+  max-width: 512px;
+
+  @include media-query($small) {
+    padding-top: $padding-desktop;
+  }
+}
