@@ -28,7 +28,7 @@ var config = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "assets/[name].css",
+      filename: "[name].css",
       sourceMap: true
     }),
     new CopyWebpackPlugin([{
@@ -40,8 +40,8 @@ var config = {
   ],
 
   output: {
-    path: path.join(__dirname, 'dist/'),
-    filename: 'assets/[name].js',
+    path: path.join(__dirname, 'dist/assets/'),
+    filename: '[name].js',
   },
 
   module: {

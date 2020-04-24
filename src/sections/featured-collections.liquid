@@ -1,0 +1,34 @@
+<section class="featured-collections half-grid">
+  {% for coll in section.settings %}
+    {% assign collection = collections[section.settings[coll]] %}
+    <div class="grid-item full-height rel x y f jcc aic">
+      <h1 class="h1 z1 tc-white">{{ collection.title }}</h1>
+      <img class="abs fill top x y" src="{{ collection.image | img_url: 'master'}}">
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Collections",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection_1",
+        "label": "Collection 1"
+      },
+      {
+        "type": "collection",
+        "id": "collection_2",
+        "label": "Collection 2"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collections",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
