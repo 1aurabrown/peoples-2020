@@ -50,6 +50,20 @@
   }
 }
 
+.half-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $padding-desktop;
+
+  @include media-query($small) {
+    grid-template-columns: 1fr;
+  }
+  
+  > .grid-item {
+    grid-column: span 1;
+  }
+}
+
 /*============= Flex Layout ================*/
 .fdr {
   display: flex;
