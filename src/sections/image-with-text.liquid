@@ -1,9 +1,9 @@
 {% assign layout = section.settings.layout %}
 
-<section class="image-with-text full-height jcb fdc-m {% if layout == 'left' %} fdr {% elsif layout == 'right' %} fdr-rev {% endif %}">
-  <div class="image-with-text__image half-width">
+<section class="image-with-text jcb fdc-m {% if layout == 'left' %} fdr {% elsif layout == 'right' %} fdr-rev {% endif %}">
+  <div class="image-with-text__image full-height half-width">
       {% if section.settings.image != blank %}
-        <img class="x y" src="{{ section.settings.image | img_url: 'master' }}"/>
+      {% include 'responsive-image-img', image_class: "x y", image: section.settings.image %}
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}

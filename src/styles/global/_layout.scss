@@ -2,9 +2,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
   font-family: 'Favorit Mono', monospace;
 
   * {
@@ -46,18 +43,38 @@ a {
 
 .body-wrapper {
   max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 $padding-desktop;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $padding-desktop;
+  padding-right: $padding-desktop;
 
   @include media-query($small) {
     padding: 0 $padding-mobile;
   }
 }
 
+.index-section {
+  padding-top: $padding-mobile;
+  margin-top: 4rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+
+  @include media-query($medium-up) {
+    padding-top: $padding-desktop;
+    margin-top: 7.5rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 main {
-  section,
-  .section {
-    padding: $padding-desktop 0;
+  @include media-query($medium-up) {
+    padding-bottom: 6rem;
   }
 }
 
@@ -69,8 +86,8 @@ main {
   border: 1px solid $black;
   color: $black;
   text-align: center;
-  padding: 0 3em;
-  line-height: 3em;
+  padding: 0 2.4em;
+  line-height: 2.4em;
   margin-top: 1.5em;
 
   &--large {

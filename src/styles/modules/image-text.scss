@@ -6,6 +6,7 @@
   }
 
   svg {
+    width: 100%;
     height: 100%;
   }
 }
@@ -13,15 +14,19 @@
 .image-with-text__text {
   @include media-query($medium-up) {
     font-size: 1.25rem;
-  }
+    padding-bottom: .5em;
 
+    .button {
+      margin-bottom: .5em;
+    }
+  }
   @include media-query($large-up) {
     &.ml-d {
-      padding-left: 9%;
+      padding-left: 8%;
     }
 
     &.mr-d {
-      padding-right: 9%;
+      padding-right: 8%;
     }
   }
 

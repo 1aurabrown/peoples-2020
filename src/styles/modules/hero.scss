@@ -2,10 +2,13 @@
   background-color: $gray;
   background-size: cover;
   @include media-query($small) {
-    padding: 1rem;
+    padding: 3rem;
   }
 }
 
 .hero .content {
   max-width: 500px;
+  @include media-query($small) {
+    max-width: 320px;
+  }
 }

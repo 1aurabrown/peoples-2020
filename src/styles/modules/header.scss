@@ -7,10 +7,12 @@ $header-desktop-spacing: 4rem;
 }
 
 .header {
+  padding-top: 2px;
   height: $header-height-desktop;
   border-bottom: 1px solid $black;
 
   &__inner {
+    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: auto;
