@@ -4,13 +4,11 @@
   "author": "Laura Brown",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn build-dev && theme deploy && yarn watch",
+    "clean": "rm -rf dist/*",
+    "dev": "yarn clean && webpack --colors --mode development && theme deploy && concurrently --prefix name --names 'webpack,theme watch' --prefix-colors yellow,blue \"webpack --watch --colors --mode development\" \"theme watch\"",
     "start": "yarn dev",
-    "watch": "concurrently \"theme watch\" \"webpack --watch --mode development\" --prefix name",
-    "build-dev": "webpack --mode development",
-    "build-prod": "webpack --mode production",
-    "build": "yarn build-prod",
-    "deploy": "yarn build-prod && theme deploy"
+    "build": "webpack --mode production",
+    "deploy": "yarn build && theme deploy"
   },
   "dependencies": {
     "@shopify/theme-a11y": "^3.0.3",
@@ -30,7 +28,6 @@
     "@babel/preset-env": "^7.9.0",
     "autoprefixer": "^9.7.5",
     "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.1.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
