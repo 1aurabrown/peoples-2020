@@ -1,3 +1,12 @@
+/*============= Reset ================*/
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
 /*============= Helpers ================*/
 
 .tc-white {
@@ -13,13 +22,18 @@
 
 .h1, .h2, .h3, .h4 {
   font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.5;
 }
 
 .h1 {
-  text-transform: uppercase;
-  line-height: 1.5;
   font-size: 48px;
   @include media-query($small) {
     font-size: 24px;
   }
+}
+
+.h2 {
+  font-size: 1rem;
+  margin-bottom: 24px;
 }
