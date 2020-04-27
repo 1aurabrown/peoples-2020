@@ -7,7 +7,7 @@
     "clean": "rm -rf dist/*",
     "dev": "yarn clean && webpack --colors --mode development && theme deploy && concurrently --prefix name --names 'webpack,theme watch' --prefix-colors yellow,blue \"webpack --watch --colors --mode development\" \"theme watch\"",
     "start": "yarn dev",
-    "build": "webpack --mode production",
+    "build": "yarn clean && webpack --mode production",
     "deploy": "yarn build && theme deploy"
   },
   "dependencies": {
