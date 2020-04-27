@@ -23,6 +23,28 @@
   }
 }
 
+/*============= Flex Layout ================*/
+.fdr {
+  display: flex;
+  flex-direction: row;
+}
+
+.fdc {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*============== Layout ================*/
+
+.full-height {
+  height: 100vh;
+  @include media-query($small) {
+    height: 378px;
+  }
+}
+
+
 /*============= Helpers ================*/
 .visually-hidden {
   @include visually-hidden;

@@ -21,3 +21,25 @@ a {
     color: inherit;
   }
 }
+
+section,
+.section {
+  padding: $padding-desktop;
+}
+
+.button {
+  @include reset-input;
+  display: block;
+  width: 100%;
+  border: 1px solid $black;
+  color: $black;
+  text-transform: uppercase;
+  text-align: center;
+  padding: calc(1rem / 2);
+}
+
+.button-white {
+  @extend .button;
+  color: $white;
+  border: 1px solid $white;
+}
