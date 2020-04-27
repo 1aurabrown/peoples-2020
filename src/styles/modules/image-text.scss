@@ -1,27 +1,33 @@
-.image-with-text {
-  @include media-query($small) {
-    height: fit-content;
+.image-with-text__image {
+  img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  svg {
+    height: 100%;
   }
 }
 
-.image-with-text__image {
-  background-color: $gray;
-  max-height: 100%;
-  @include media-query($small) {
-    height: 240px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}t
-
 .image-with-text__text {
-  max-width: 512px;
+  @include media-query($medium-up) {
+    font-size: 1.25rem;
+  }
+
+  @include media-query($large-up) {
+    &.ml-d {
+      padding-left: 9%;
+    }
+
+    &.mr-d {
+      padding-right: 9%;
+    }
+  }
 
   @include media-query($small) {
+    font-size: 1rem/.875; // 16px;
     padding-top: $padding-desktop;
   }
+
 }

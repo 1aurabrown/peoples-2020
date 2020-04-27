@@ -14,37 +14,17 @@
 /*================ Responsive Text Alignment Helper ================*/
 @mixin responsive-text-align-helper($breakpoint: '') {
   // sass-lint:disable no-important
-  .#{$breakpoint}text-left {
+  .#{$breakpoint}tl {
     text-align: left !important;
   }
 
-  .#{$breakpoint}text-right {
+  .#{$breakpoint}tr {
     text-align: right !important;
   }
 
-  .#{$breakpoint}text-center {
+  .#{$breakpoint}tc {
     text-align: center !important;
   }
 }
 
-/*=============== Responsive Grid Item Widths =================*/
-
-@mixin grid-span-generator($breakpoint: '') {
-  .display-grid {
-    > .display-grid__item {
-      &.#{$breakpoint}span-1 { grid-column: span 1; }
-      &.#{$breakpoint}span-2 { grid-column: span 2; }
-      &.#{$breakpoint}span-3 { grid-column: span 3; }
-      &.#{$breakpoint}span-4 { grid-column: span 4; }
-      &.#{$breakpoint}span-5 { grid-column: span 5; }
-      &.#{$breakpoint}span-6 { grid-column: span 6; }
-      &.#{$breakpoint}span-7 { grid-column: span 7; }
-      &.#{$breakpoint}span-8 { grid-column: span 8; }
-      &.#{$breakpoint}span-9 { grid-column: span 9; }
-      &.#{$breakpoint}span-10 { grid-column: span 10; }
-      &.#{$breakpoint}span-11 { grid-column: span 11; }
-      &.#{$breakpoint}span-12 { grid-column: span 12; }
-    }
-  }
-}
 

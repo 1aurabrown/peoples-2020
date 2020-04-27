@@ -2,15 +2,10 @@
   background-color: $gray;
   background-size: cover;
   @include media-query($small) {
-    padding: 16px;
+    padding: 1rem;
   }
 }
 
 .hero .content {
   max-width: 500px;
-}
-
-.hero .button {
-  width: 72px;
-  margin-top: 32px;
 }
