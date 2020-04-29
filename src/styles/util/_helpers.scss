@@ -69,6 +69,10 @@
   direction: rtl;
 }
 
+.no-gap {
+  grid-gap: unset;
+}
+
 /*============= Flex Layout ================*/
 .fdr {
   display: flex;
@@ -130,6 +134,7 @@
 
 
 /*============= Helpers ================*/
+
 .visually-hidden {
   @include visually-hidden;
 }
