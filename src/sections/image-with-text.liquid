@@ -1,9 +1,9 @@
 {% assign layout = section.settings.layout %}
 
-<section class="image-with-text full-height jcb fdc-m {% if layout == 'left' %} fdr {% elsif layout == 'right' %} fdr-rev {% endif %}">
-  <div class="image-with-text__image half-width {% if layout == 'left' %} mr-d {% elsif layout == 'right' %} ml-d {% endif %}">
+<section class="image-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %}">
+  <div class="image-with-text__image full-height">
     {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | img_url: 'master' }}"/>
+      <img class="x y" src="{{ section.settings.image | img_url: 'master' }}"/>
       {% comment %} {% include 'responsive-image' with
         image: section.settings.image,
         max_width: 720,
@@ -13,19 +13,21 @@
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}
   </div>
-  <div class="image-with-text__text fdc jcb half-width">
-    {% if section.settings.heading != blank %}
-      <h2 class="h2">{{ section.settings.heading | escape }}</h2>
-    {% endif %}
-    <div class="image-with-text__p">
-      {% if section.settings.text != blank %}
-        <div>{{ section.settings.text }}</div>
+  <div class="image-with-text__text full-height al">
+    <div class="image-with-text__content fdc jcb x y">
+      {% if section.settings.heading != blank %}
+        <h2 class="h2">{{ section.settings.heading | escape }}</h2>
       {% endif %}
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="button-inline">
-          {{ section.settings.button_label | escape }}
-        </a>
-      {% endif %}
+      <div class="image-with-text__p">
+        {% if section.settings.text != blank %}
+          <div>{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button-inline">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
