@@ -48,7 +48,10 @@
   }
 }
 
-
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: .022em;
+}
 // Faux underline
 @mixin faux-strikethrough {
   position: relative;

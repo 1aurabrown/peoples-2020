@@ -10,8 +10,8 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
-<section class="header" data-section-id="{{ section.id }}" data-section-type="header">
-  <div class="body-wrapper f jcb">
+<section class="header uppercase" data-section-id="{{ section.id }}" data-section-type="header">
+  <div class="body-wrapper header__inner y">
     <nav role="navigation" class="header__left">
       <ul>
         {% for link in linklists[section.settings.left_menu].links %}
@@ -42,7 +42,7 @@
       </ul>
     </nav>
 
-    <header role="banner" class="header__center abs-c">
+    <header role="banner" class="header__center">
       {% if template.name == 'index' %}
         <h1>
       {% else %}
@@ -127,6 +127,7 @@
 {% schema %}
   {
     "name": "Header",
+    "class": "header-wrapper z10",
     "settings": [
       {
         "type": "header",
