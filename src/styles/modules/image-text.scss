@@ -20,19 +20,19 @@
       margin-bottom: .5em;
     }
   }
-  @include media-query($large-up) {
-    &.ml-d {
-      padding-left: 8%;
-    }
-
-    &.mr-d {
-      padding-right: 8%;
-    }
-  }
 
   @include media-query($small) {
     font-size: 1rem/.875; // 16px;
     padding-top: $padding-desktop;
-  }
+    height: fit-content;
 
+  @include media-query($large-up) {
+    padding: 0 0 0 120px;
+  }
+}
+
+.grid-reverse .image-with-text__text {
+  @include media-query($large-up) {
+    padding: 0 120px 0 0;
+  }
 }

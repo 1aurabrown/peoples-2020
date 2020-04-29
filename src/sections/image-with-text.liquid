@@ -1,6 +1,6 @@
 {% assign layout = section.settings.layout %}
 
-<section class="image-with-text jcb fdc-m {% if layout == 'left' %} fdr {% elsif layout == 'right' %} fdr-rev {% endif %}">
+<section class="image-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %}">
   <div class="image-with-text__image full-height half-width">
       {% if section.settings.image != blank %}
       {% include 'responsive-image-img', image_class: "x y", image: section.settings.image %}
@@ -8,9 +8,10 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
   </div>
-  <div class="image-with-text__text fdc jcb {% if layout == 'left' %} ml-d {% elsif layout == 'right' %} mr-d {% endif %} half-width">
+  <div class="image-with-text__text full-height al">
+    <div class="image-with-text__content fdc jcb x y">
       {% if section.settings.heading != blank %}
-        <h2 class="uppercase">{{ section.settings.heading | escape }}</h2>
+        <h2 class="h2 uppercase">{{ section.settings.heading | escape }}</h2>
       {% endif %}
       <div class="image-with-text__p">
         {% if section.settings.text != blank %}
@@ -22,7 +23,7 @@
           </a>
         {% endif %}
       </div>
-  </div>
+    </div>
 </section>
 
 {% schema %}

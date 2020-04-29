@@ -50,6 +50,25 @@
   }
 }
 
+.half-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  direction: ltr;
+  grid-gap: $padding-desktop;
+
+  @include media-query($small) {
+    grid-template-columns: 1fr;
+  }
+  
+  > .grid-item {
+    grid-column: span 1;
+  }
+}
+
+.grid-reverse {
+  direction: rtl;
+}
+
 /*============= Flex Layout ================*/
 .fdr {
   display: flex;
