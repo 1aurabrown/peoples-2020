@@ -6,6 +6,8 @@ files:
     - 'node_modules'
     - 'dist'
 rules:
+  # Mixins
+  mixins-before-declarations: 0
   # Extends
   extends-before-mixins: 1
   extends-before-declarations: 1
