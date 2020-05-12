@@ -1,16 +1,16 @@
 .location {
   padding: $padding-desktop * 2 0;
 
-  h1:first-child {
+  div:first-child {
     margin-right: $padding-desktop * 2;
   }
 
-  h1:last-child {
+  div:last-child {
     margin-left: $padding-desktop * 2;
   }
 
   @include media-query($medium) {
-    h1 {
+    div {
       font-size: 2rem;
     }
   }
@@ -18,7 +18,7 @@
   @include media-query($small) {
     grid-template-columns: repeat(2, 1fr);
     
-    h1 {
+    div {
       font-size: 1rem;
 
       &:first-child {
