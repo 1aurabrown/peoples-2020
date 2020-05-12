@@ -17,7 +17,7 @@
 
   @include media-query($small) {
     grid-template-columns: repeat(2, 1fr);
-    
+
     div {
       font-size: 1rem;
 

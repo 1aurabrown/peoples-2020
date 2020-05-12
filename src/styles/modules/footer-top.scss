@@ -34,7 +34,7 @@
 
   @include media-query($small) {
     border-right: none;
-    
+
     .links {
       margin-bottom: $padding-desktop;
     }
