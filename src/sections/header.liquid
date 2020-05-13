@@ -12,6 +12,15 @@
 {%- endcomment -%}
 <section class="header uppercase" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="body-wrapper header__inner y">
+    {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
+    <div class="header__hamburger f aic">
+      <button class="hamburger reset-input order-first z-40 md:hidden" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+    
     <nav role="navigation" class="header__left">
       <ul>
         {% for link in linklists[section.settings.left_menu].links %}

@@ -29,6 +29,24 @@ $header-desktop-spacing: 4rem;
     align-items: center;
   }
 
+  @include media-query($small) {
+    &__left {
+      display: none;
+    }
+
+    &__center {
+      width: 7rem;
+    }
+
+    &__right {
+      display: flex;
+      justify-content: flex-end;
+
+      li:not(:last-child){
+        display: none;
+      }
+    }
+  }
 
   @include media-query($medium-up) {
     height: $header-height-desktop;
@@ -45,6 +63,10 @@ $header-desktop-spacing: 4rem;
       li:not(:last-child) {
         margin-right: $header-desktop-spacing;
       }
+    }
+
+    .header__hamburger {
+      display: none;
     }
   }
 
