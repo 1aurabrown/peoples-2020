@@ -1,10 +1,13 @@
 <section class="featured-collections half-grid">
-  {% for coll in section.settings %}
-    {% assign collection = collections[section.settings[coll]] %}
+  {% for block in section.blocks %}
+    {% assign collection = collections[block.settings[coll]] %}
     <a href="{{ collection.url }}">
-      <div class="grid-item full-height rel x y f jcc aic">
-        <h2 class="h1 z1 tc-white">{{ collection.title }}</h2>
-        <img class="abs fill top x y" src="{{ collection.image | img_url: 'master'}}">
+      <div class="grid-item rel x max-full-height">
+        <div class="abs f jcc aic z1 fill x y">
+          <h2 class="h1 tc-white">{{ block.settings.text }}</h2>
+        </div>
+        {% include 'responsive-image-img', image_class: "x y", image: block.settings.image %}
+
       </div>
     </a>
   {% endfor %}
@@ -14,22 +17,48 @@
   {
     "name": "Featured Collections",
     "class": "index-section",
-    "settings": [
+    "max_blocks": 2,
+    "blocks": [
       {
         "type": "collection",
-        "id": "collection_1",
-        "label": "Collection 1"
-      },
-      {
-        "type": "collection",
-        "id": "collection_2",
-        "label": "Collection 2"
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "text"
+          }
+        ]
       }
     ],
     "presets": [
       {
         "name": "Featured Collections",
-        "category": "Collection"
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection",
+            "settings": {
+              "text": "Shop Men"
+            }
+          },
+          {
+            "type": "collection",
+            "settings": {
+              "text": "Shop Women"
+            }
+          }
+        ]
       }
     ]
   }

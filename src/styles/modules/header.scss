@@ -29,23 +29,26 @@ $header-desktop-spacing: 4rem;
     align-items: center;
   }
 
-  &__left {
-    li:not(:first-child) {
-      margin-left: $header-desktop-spacing;
+
+  @include media-query($medium-up) {
+    height: $header-height-desktop;
+
+    &__left {
+      li:not(:first-child) {
+        margin-left: $header-desktop-spacing;
+      }
     }
-  }
 
-  &__right {
-    justify-content: flex-end;
+    &__right {
+      justify-content: flex-end;
 
-    li:not(:last-child) {
-      margin-right: $header-desktop-spacing;
+      li:not(:last-child) {
+        margin-right: $header-desktop-spacing;
+      }
     }
   }
 
   @include media-query($medium) {
-
-    height: $header-height-desktop;
 
     &__left {
       li:not(:first-child) {

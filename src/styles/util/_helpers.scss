@@ -105,12 +105,16 @@
   transform: translateX(-50%);
 }
 
+.min-full-height {
+  @include min-full-height;
+}
+
+.max-full-height {
+  @include max-full-height;
+}
+
 .full-height {
-  height: 100vh;
-  max-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
-  @include media-query($small) {
-    max-height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
-  }
+  @include full-height;
 }
 
 .half-width {

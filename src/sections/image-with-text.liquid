@@ -2,13 +2,10 @@
 
 <section class="image-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %}">
 
-  <div class="image-with-text__image full-height">
-    {% if section.settings.image != blank %}
+  <div class="image-with-text__image max-full-height">
     {% include 'responsive-image-img', image_class: "x y", image: section.settings.image %}
-    {% else %}
-      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-    {% endif %}
   </div>
+
   <div class="image-with-text__text al">
     <div class="image-with-text__content fdc jcb x y">
 

@@ -124,3 +124,25 @@
   line-height: normal;
   text-align: left;
 }
+
+
+@mixin min-full-height {
+  min-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
+  @include media-query($small) {
+    min-height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
+  }
+}
+
+@mixin max-full-height {
+  max-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
+  @include media-query($small) {
+    max-height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
+  }
+}
+
+@mixin full-height {
+  height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
+  @include media-query($small) {
+    height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
+  }
+}
