@@ -3,8 +3,8 @@
 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  grid-gap: 3.5rem;
   grid-template-rows: auto;
+  grid-gap: 3.5rem;
 
   @include media-query($widescreen) {
     font-size: 3rem;
@@ -15,7 +15,6 @@
   }
 
   @include media-query($small) {
-    grid-gap: 1rem;
     font-size: 1rem;
   }
 }
