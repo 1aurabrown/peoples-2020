@@ -1,0 +1,35 @@
+<div class="footer-top">
+  <div class="half-grid no-gap body-wrapper">
+    <div class="footer-nav fdr fdc-m">
+      {% if linklists[nav].links.size > 0 %}
+        <ul class="links inline-block half-width">
+          {% for link in linklists[nav].links %}
+            <li class="mb05"><a href="{{ link.url }}" class="uppercase">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+      <ul class="inline-block half-width">
+        {% for social in social_accounts %}
+          {%- assign social_handle = social | handleize -%}
+          {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+          {% if settings[social_link] != blank %}
+            <li class="mb05">
+              <a class="uppercase" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                {{ social }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-newsletter">
+      <form class="inline-block">
+        <label for="email" class="block mb05 uppercase">Sign Up</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,48 +1,22 @@
 <footer>
-
-  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-  <ul>
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
-
-      {% if settings[social_link] != blank %}
-        <li>
-          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-            {% include social_icon %}
-            <span class="icon-fallback-text">{{ social }}</span>
-          </a>
-        </li>
-      {% endif %}
-
-    {% endfor %}
-  </ul>
-
-  {% if section.settings.show_payment_icons %}
-    {% unless shop.enabled_payment_types == empty %}
-      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-      <ul class="payment-icons">
-        {% for type in shop.enabled_payment_types %}
-          <li>
-            {{ type | payment_type_svg_tag: class: 'icon' }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endunless %}
-  {% endif %}
-
   {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  {% include 'footer-top' with nav: footer_linklist %}
 
-  <div>
-    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
+  <div class="footer-bottom tc-white bg-black">
+    <div class="location body-wrapper half-grid">
+      <div class="h1 ar">New York</div>
+      <div class="h1 abs-c">⟷</div>
+      <div class="h1">Copenhagen</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="copyright tc-white bg-black f aic jcb fdc-m">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}</p>
+    <div class="copyright__nav">
+      {% for link in linklists.copyright-menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}.</a>
+      {% endfor %}
+    </div>
   </div>
 </footer>
 

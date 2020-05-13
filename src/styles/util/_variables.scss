@@ -11,15 +11,18 @@ $black: #000;
 $white: #fff;
 $gray: #9a9a9a;
 
+// Borders
+$standard-border: 1px solid $black;
+
 // Transitions
 $transition-duration: 250ms;
 $transition-timing: ease-in-out;
 
 // Grid
-$grid-medium: 46.85em;
-$grid-large: 61.85em;
-$grid-widescreen: 87.5em;
-$grid-max-width: 73.75em;
+$grid-medium: 640px;
+$grid-large: 768px;
+$grid-widescreen: 1024px;
+$grid-max-width: 1280px;
 $grid-gutter: 30px;
 
 // Breakpoints used with the media-query mixin

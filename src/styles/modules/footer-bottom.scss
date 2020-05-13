@@ -1,0 +1,54 @@
+.location {
+  padding: $padding-desktop * 2 0;
+
+  div:first-child {
+    margin-right: $padding-desktop * 2;
+  }
+
+  div:last-child {
+    margin-left: $padding-desktop * 2;
+  }
+
+  @include media-query($large-down) {
+    div {
+      font-size: 2rem;
+    }
+  }
+
+  @include media-query($small) {
+    grid-template-columns: repeat(2, 1fr);
+
+    div {
+      font-size: 1rem;
+
+      &:first-child {
+        margin-right: $padding-desktop;
+      }
+
+      &:last-child {
+        margin-left: $padding-desktop;
+      }
+    }
+  }
+}
+
+.copyright {
+  padding: $padding-desktop / 2 $padding-desktop;
+
+  @include media-query($small) {
+    flex-direction: column-reverse;
+  }
+
+  @include media-query($small) {
+    .copyright__nav {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.divider {
+  display: block;
+  width: 100vw;
+  height: 1px;
+  background-color: $white;
+}
