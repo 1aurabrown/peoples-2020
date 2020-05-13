@@ -1,29 +1,35 @@
 {% assign layout = section.settings.layout %}
 
 <section class="image-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %}">
-  <div class="image-with-text__image full-height half-width">
-      {% if section.settings.image != blank %}
-      {% include 'responsive-image-img', image_class: "x y", image: section.settings.image %}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      {% endif %}
+
+  <div class="image-with-text__image full-height">
+    {% if section.settings.image != blank %}
+    {% include 'responsive-image-img', image_class: "x y", image: section.settings.image %}
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
   </div>
-  <div class="image-with-text__text full-height al">
+  <div class="image-with-text__text al">
     <div class="image-with-text__content fdc jcb x y">
+
       {% if section.settings.heading != blank %}
-        <h2 class="h2 uppercase">{{ section.settings.heading | escape }}</h2>
+        <h2 class="image-with-text__heading uppercase">{{ section.settings.heading | escape }}</h2>
       {% endif %}
+
       <div class="image-with-text__p">
         {% if section.settings.text != blank %}
           <div>{{ section.settings.text }}</div>
         {% endif %}
+
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
           <a href="{{ section.settings.button_link }}" class="button">
             {{ section.settings.button_label | escape }}
           </a>
         {% endif %}
+
       </div>
     </div>
+  </div>
 </section>
 
 {% schema %}

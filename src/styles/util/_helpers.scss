@@ -59,7 +59,7 @@
   @include media-query($small) {
     grid-template-columns: 1fr;
   }
-  
+
   > .grid-item {
     grid-column: span 1;
   }

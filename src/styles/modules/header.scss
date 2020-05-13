@@ -8,8 +8,8 @@ $header-desktop-spacing: 4rem;
 
 .header {
   padding-top: 2px;
-  height: $header-height-desktop;
   border-bottom: 1px solid $black;
+  height: $header-height-mobile;
 
   &__inner {
     overflow: hidden;
@@ -45,6 +45,7 @@ $header-desktop-spacing: 4rem;
 
   @include media-query($medium) {
 
+    height: $header-height-desktop;
 
     &__left {
       li:not(:first-child) {

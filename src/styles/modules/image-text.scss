@@ -11,6 +11,10 @@
   }
 }
 
+.image-with-text__heading {
+  margin-bottom: 1.5em;
+}
+
 .image-with-text__text {
   @include media-query($medium-up) {
     font-size: 1.25rem;
@@ -20,20 +24,20 @@
       margin-bottom: .5em;
     }
   }
+  @include media-query($large-up) {
+
+    padding-left: 15%;
+
+    .grid-reverse & {
+      padding-right: 15%;
+      padding-left: 0;
+    }
+
+  }
 
   @include media-query($small) {
     font-size: 1rem/.875; // 16px;
     padding-top: $padding-desktop;
-    height: fit-content;
-
-  @include media-query($large-up) {
-    padding: 0 0 0 120px;
-    }
   }
-}
 
-.grid-reverse .image-with-text__text {
-  @include media-query($large-up) {
-    padding: 0 120px 0 0;
-  }
 }
