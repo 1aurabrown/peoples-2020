@@ -1,0 +1,8 @@
+<div class="footer__copyright tc-white bg-black f aic jcb fdc-m">
+  <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}</p>
+  <div class="footer__copyright-nav">
+    {% for link in linklists.copyright-menu.links %}
+      <a href="{{ link.url }}">{{ link.title }}.</a>
+    {% endfor %}
+  </div>
+</div>

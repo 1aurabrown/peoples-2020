@@ -19,18 +19,3 @@
     font-size: 1rem;
   }
 }
-
-.footer__copyright {
-  border-top: 1px solid $white;
-  padding: .7rem $padding-desktop;
-
-  @include media-query($small) {
-    flex-direction: column-reverse;
-  }
-
-  @include media-query($small) {
-    .copyright__nav {
-      margin-bottom: 0.5rem;
-    }
-  }
-}

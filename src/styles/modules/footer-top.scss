@@ -51,10 +51,7 @@
 
 .footer__newsletter form {
   width: 100%;
-
-  @include media-query($medium-up) {
-    width: 300px;
-  }
+  max-width: 300px;
 
   input {
     @include reset-input;
