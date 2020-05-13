@@ -9,7 +9,7 @@
     margin-left: $padding-desktop * 2;
   }
 
-  @include media-query($medium) {
+  @include media-query($large-down) {
     div {
       font-size: 2rem;
     }

@@ -18,7 +18,7 @@
     padding: $padding-desktop * 2;
   }
 
-  @include media-query($medium) {
+  @include media-query($large-down) {
     padding: $padding-mobile * 2 0;
   }
 }
@@ -47,10 +47,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  @include media-query($small) {
-    margin-bottom: $padding-desktop;
-  }
 }
 
 .footer-newsletter form {
@@ -61,5 +57,13 @@
     width: 100%;
     border-bottom: $standard-border;
     padding-bottom: 4px;
+  }
+
+  @include media-query($medium-down) {
+    padding-left: $padding-mobile;
+  }
+
+  @include media-query($small) {
+    padding-left: 0;
   }
 }
