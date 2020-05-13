@@ -19,10 +19,12 @@ h5 {
   margin: 0;
   font-size: inherit;
   line-height: inherit;
+  font-weight: inherit;
 }
 
 .placeholder-svg {
   background-color: #aaa;
+  width: 100%;
 }
 
 img,
@@ -55,7 +57,7 @@ a {
 
 .index-section {
   padding-top: $padding-mobile;
-  margin-top: 4rem;
+  margin-top: 3rem;
 
   &:first-child {
     margin-top: 0;
@@ -86,8 +88,8 @@ main {
   border: 1px solid $black;
   color: $black;
   text-align: center;
-  padding: 0 2.4em;
-  line-height: 2.4em;
+  padding: .1em 2.4em 0;
+  line-height: 2.3em;
   margin-top: 1.5em;
 
   &--large {

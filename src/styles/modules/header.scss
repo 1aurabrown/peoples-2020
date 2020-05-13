@@ -8,8 +8,8 @@ $header-desktop-spacing: 4rem;
 
 .header {
   padding-top: 2px;
-  height: $header-height-desktop;
   border-bottom: 1px solid $black;
+  height: $header-height-mobile;
 
   &__inner {
     overflow: hidden;
@@ -29,22 +29,26 @@ $header-desktop-spacing: 4rem;
     align-items: center;
   }
 
-  &__left {
-    li:not(:first-child) {
-      margin-left: $header-desktop-spacing;
+
+  @include media-query($medium-up) {
+    height: $header-height-desktop;
+
+    &__left {
+      li:not(:first-child) {
+        margin-left: $header-desktop-spacing;
+      }
     }
-  }
 
-  &__right {
-    justify-content: flex-end;
+    &__right {
+      justify-content: flex-end;
 
-    li:not(:last-child) {
-      margin-right: $header-desktop-spacing;
+      li:not(:last-child) {
+        margin-right: $header-desktop-spacing;
+      }
     }
   }
 
   @include media-query($medium) {
-
 
     &__left {
       li:not(:first-child) {

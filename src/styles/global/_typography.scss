@@ -2,6 +2,8 @@
 
 body {
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   @include media-query($small) {
     font-size: 87.5%; // 14px
