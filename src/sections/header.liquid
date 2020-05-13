@@ -83,32 +83,35 @@
             </li>
           {% endif %}
         {% endif %}
-        <li>
-          {% include 'search-form' %}
-        </li>
         {% for link in linklists[section.settings.right_menu].links %}
-          {% if link.links != blank %}
+          {% if link.title == 'Search' %}
             <li>
-              <a href="{{ link.url }}">
-                {{ link.title }}
-                {% include 'icon-arrow-down' %}
-              </a>
-              <ul>
-                {% for childlink in link.links %}
-                  <li>
-                    <a href="{{ childlink.url }}">
-                      {{ childlink.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
+              {% include 'search-form' %}
             </li>
           {% else %}
-            <li>
-              <a href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            </li>
+            {% if link.links != blank %}
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                  {% include 'icon-arrow-down' %}
+                </a>
+                <ul>
+                  {% for childlink in link.links %}
+                    <li>
+                      <a href="{{ childlink.url }}">
+                        {{ childlink.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endif %}
           {% endif %}
         {% endfor %}
 
@@ -142,8 +145,7 @@
       {
         "type": "link_list",
         "id": "right_menu",
-        "label": "Right Menu",
-        "default": "main-menu"
+        "label": "Right Menu"
       }
     ]
   }
