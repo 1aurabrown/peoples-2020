@@ -1,18 +1,16 @@
-<footer>
+<footer class="footer">
   {%- assign footer_linklist = section.settings.footer_linklist -%}
   {% include 'footer-top' with nav: footer_linklist %}
 
-  <div class="footer-bottom tc-white bg-black">
-    <div class="location body-wrapper half-grid">
-      <div class="h1 ar">New York</div>
-      <div class="h1 abs-c">⟷</div>
-      <div class="h1">Copenhagen</div>
-    </div>
+  <div class="footer__location body-wrapper uppercase tc-white bg-black">
+    <div class="ar">New York</div>
+    <div>⟷</div>
+    <div>Copenhagen</div>
   </div>
-  <div class="divider"></div>
-  <div class="copyright tc-white bg-black f aic jcb fdc-m">
+
+  <div class="footer__copyright tc-white bg-black f aic jcb fdc-m">
     <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}</p>
-    <div class="copyright__nav">
+    <div class="footer__copyright-nav">
       {% for link in linklists.copyright-menu.links %}
         <a href="{{ link.url }}">{{ link.title }}.</a>
       {% endfor %}
