@@ -30,8 +30,8 @@
   }
 
   @include media-query($small) {
-    font-size: 1rem/.875; // 16px;
-    padding-top: $padding-desktop;
+    font-size: calc(1rem); // 16px;
+    padding-top: $padding-mobile;
   }
 
 }

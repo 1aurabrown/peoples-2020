@@ -1,8 +1,8 @@
 <section class="featured-collections half-grid">
   {% for block in section.blocks %}
     {% assign collection = collections[block.settings[coll]] %}
-    <a href="{{ collection.url }}">
-      <div class="grid-item rel x max-full-height">
+    <a class="y" href="{{ collection.url }}">
+      <div class="grid-item rel x y max-full-height">
         <div class="abs f jcc aic z1 fill x y">
           <h2 class="h1 tc-white">{{ block.settings.text }}</h2>
         </div>
