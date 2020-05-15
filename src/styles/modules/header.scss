@@ -48,7 +48,7 @@ $header-desktop-spacing: 4rem;
     }
   }
 
-  @include media-query($medium-up) {
+  @include media-query($large-up) {
     height: $header-height-desktop;
 
     &__left {
@@ -70,7 +70,7 @@ $header-desktop-spacing: 4rem;
     }
   }
 
-  @include media-query($medium) {
+  @include media-query($large-down) {
 
     &__left {
       li:not(:first-child) {
@@ -83,6 +83,20 @@ $header-desktop-spacing: 4rem;
 
       li:not(:last-child) {
         margin-right: $header-desktop-spacing / 2;
+      }
+    }
+  }
+
+  @include media-query($medium-down) {
+    &__left {
+      li:not(:first-child) {
+        margin-left: $padding-mobile;
+      }
+    }
+
+    &__right {
+      li:not(:last-child) {
+        margin-right: $padding-mobile;
       }
     }
   }
