@@ -48,7 +48,7 @@ $header-desktop-spacing: 4rem;
     }
   }
 
-  @include media-query($large-up) {
+  @include media-query($medium-up) {
     height: $header-height-desktop;
 
     &__left {
