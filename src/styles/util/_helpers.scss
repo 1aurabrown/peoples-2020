@@ -112,6 +112,10 @@
   background-color: $black;
 }
 
+.bg-white {
+  background-color: $white;
+}
+
 .visually-hidden {
   @include visually-hidden;
 }

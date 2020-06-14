@@ -6,22 +6,34 @@
  * @namespace header
  */
 import SearchForm from '../components/search-form'
-import {register} from '@shopify/theme-sections';
+import {register} from '@shopify/theme-sections'
+import modalController from '../components/modal-controller'
+import Vue from 'vue'
 
-const classes = {
-  active: 'active',
-};
 
 const selectors = {
   searchForm: '.search-form',
 };
 
 register('header', {
-  async onLoad() {
+  onLoad() {
     const searchFormEls = this.container.querySelectorAll(selectors.searchForm)
-    console.log(searchFormEls)
     this.searchForms = Array.from(searchFormEls).map(el => {
       new SearchForm(el)
+    })
+
+    this.vue = new Vue( {
+      el: this.container,
+      data: {
+        modalController: modalController
+      },
+      delimiters: ['${', '}'],
+      methods: {
+        toggleModal: function(modal) {
+          this.modalController.toggleModal(modal)
+        }
+      },
+
     })
   },
 

@@ -22,7 +22,8 @@
     "lazysizes": "^5.2.0",
     "quicklink": "^2.0.0-alpha",
     "regenerator-runtime": "^0.13.5",
-    "svbstrate": "^4.1.1"
+    "svbstrate": "^4.1.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

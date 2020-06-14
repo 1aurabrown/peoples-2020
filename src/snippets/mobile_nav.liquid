@@ -1,0 +1,8 @@
+<transition name="slide-right">
+  <div v-if="modalController.visibleModal === 'mobileNav'" class="mobile-nav z10 x right left bottom fix bg-white">
+    <div class="mobile-nav__inner">
+      {% include 'header_left_menu' %}
+      {% include 'header_right_menu' %}
+    </div>
+  </div>
+</transition>
