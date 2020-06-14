@@ -6,9 +6,11 @@
   border-top: $standard-border;
   direction: rtl;
   text-align: left;
+  grid-gap: 0;
   @include media-query($small) {
     padding: 3em $padding-mobile;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     grid-gap: 2em;
   }
 }
@@ -26,18 +28,14 @@
 }
 
 .footer__nav {
-
   @include media-query($medium-up) {
     border-right: $standard-border;
   }
 
   @include media-query($medium-down) {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     grid-gap: 2em;
-  }
-
-  @include media-query($small) {
-    grid-gap: $padding-desktop;
   }
 }
 
