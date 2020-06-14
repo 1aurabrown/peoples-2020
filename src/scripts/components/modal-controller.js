@@ -1,3 +1,5 @@
+import { freezeScroll, releaseScroll } from './freeze-scroll'
+
 class ModalController  {
   constructor () {
     this.visibleModal = null
@@ -5,12 +7,14 @@ class ModalController  {
 
   invokeModal(modal) {
     this.visibleModal = modal
+    freezeScroll()
   }
 
   dismissModal(modal) {
     if (modal === this.visibleModal) {
       this.visibleModal = null
     }
+    releaseScroll()
   }
 
   toggleModal(modal) {
