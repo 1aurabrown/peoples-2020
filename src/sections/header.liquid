@@ -13,7 +13,7 @@
 <section data-section-id="{{ section.id }}" data-section-type="header">
   {% include 'mobile_nav' %}
   <div class="header">
-    <div class="body-wrapper header__inner y">
+    <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
       <div class="header__hamburger f aic">
         <button class="hamburger reset-input order-first z-40 md:hidden" type="button" v-on:click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
