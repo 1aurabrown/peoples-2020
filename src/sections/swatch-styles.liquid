@@ -1,0 +1,34 @@
+<style>
+  {% for block in section.blocks %}
+    {% assign color_name = block.settings.color_name | downcase | handleize %}
+    {% assign hex = block.settings.hex %}
+    .swatch.{{ color_name }}::after {
+      background-color: {{ hex }};
+    }
+  {% endfor %}
+</style>
+
+{% schema %}
+  {
+    "name": "Swatch Styles",
+    "blocks": [
+      {
+        "type": "swatch",
+        "name": "Swatch",
+        "settings": [
+          {
+            "label": "Color",
+            "id": "hex",
+            "type": "color"
+          },
+          {
+            "type": "text",
+            "id": "color_name",
+            "label": "Color Option Title",
+            "info": "This must match the title of the color defined in the product's variants."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

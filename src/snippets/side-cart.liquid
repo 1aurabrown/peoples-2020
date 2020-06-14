@@ -11,7 +11,9 @@
     <div class="side-cart__inner x f-1">
       <div v-for="item in cart.items" class="cart-item p1">
         <div class="cart-item__inner">
-
+          {% include 'swatch', color: 'red', size: 'sm' %}
+          {% include 'swatch', color: 'blue', size: 'sm' %}
+          {% include 'swatch', color: 'green', size: 'sm' %}
         </div>
       </div>
 

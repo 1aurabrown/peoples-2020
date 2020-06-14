@@ -50,6 +50,7 @@
   {{ 'font.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   {{ 'theme.js' | asset_url | script_tag }}
+  {% section 'swatch-styles' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">

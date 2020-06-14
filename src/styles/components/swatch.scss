@@ -1,0 +1,41 @@
+.swatch {
+  width: 18px;
+  position: relative;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+  }
+
+  &::before {
+    padding-top: 100%;
+    width: 100%;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 1px solid $black;
+  }
+
+  &.active {
+    border: 1px solid $black;
+    &::after {
+      inset: 2px;
+    }
+  }
+
+  &.medium {
+    width: 24px;
+  }
+
+  &.large {
+    width: 36px;
+  }
+}
