@@ -10,9 +10,18 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
-<section class="header uppercase" data-section-id="{{ section.id }}" data-section-type="header">
+<section class="header" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="body-wrapper header__inner y">
-    <nav role="navigation" class="header__left">
+    {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
+    <div class="header__hamburger f aic">
+      <button class="hamburger reset-input order-first z-40 md:hidden" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <nav role="navigation" class="header__left uppercase">
       <ul>
         {% for link in linklists[section.settings.left_menu].links %}
           {% if link.links != blank %}
@@ -59,7 +68,7 @@
 
     </header>
 
-    <nav class="header__right" role="navigation">
+    <nav class="header__right uppercase" role="navigation">
       <ul>
         {% if shop.customer_accounts_enabled %}
           {% if customer %}
@@ -83,32 +92,35 @@
             </li>
           {% endif %}
         {% endif %}
-        <li>
-          {% include 'search-form' %}
-        </li>
         {% for link in linklists[section.settings.right_menu].links %}
-          {% if link.links != blank %}
+          {% if link.title == 'Search' %}
             <li>
-              <a href="{{ link.url }}">
-                {{ link.title }}
-                {% include 'icon-arrow-down' %}
-              </a>
-              <ul>
-                {% for childlink in link.links %}
-                  <li>
-                    <a href="{{ childlink.url }}">
-                      {{ childlink.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
+              {% include 'search-form' %}
             </li>
           {% else %}
-            <li>
-              <a href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            </li>
+            {% if link.links != blank %}
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                  {% include 'icon-arrow-down' %}
+                </a>
+                <ul>
+                  {% for childlink in link.links %}
+                    <li>
+                      <a href="{{ childlink.url }}">
+                        {{ childlink.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endif %}
           {% endif %}
         {% endfor %}
 
@@ -142,8 +154,7 @@
       {
         "type": "link_list",
         "id": "right_menu",
-        "label": "Right Menu",
-        "default": "main-menu"
+        "label": "Right Menu"
       }
     ]
   }
