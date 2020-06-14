@@ -10,7 +10,7 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
-<section class="header uppercase" data-section-id="{{ section.id }}" data-section-type="header">
+<section class="header" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="body-wrapper header__inner y">
     {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
     <div class="header__hamburger f aic">
@@ -20,8 +20,8 @@
         </span>
       </button>
     </div>
-    
-    <nav role="navigation" class="header__left">
+
+    <nav role="navigation" class="header__left uppercase">
       <ul>
         {% for link in linklists[section.settings.left_menu].links %}
           {% if link.links != blank %}
@@ -68,7 +68,7 @@
 
     </header>
 
-    <nav class="header__right" role="navigation">
+    <nav class="header__right uppercase" role="navigation">
       <ul>
         {% if shop.customer_accounts_enabled %}
           {% if customer %}
