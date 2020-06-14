@@ -33,7 +33,6 @@ register('header', {
           this.modalController.toggleModal(modal)
         }
       },
-
     })
   },
 

@@ -1,0 +1,11 @@
+.side-cart {
+  @include mobile-modal-slider;
+  padding: 2.5rem 3rem;
+  font-size: 1.25rem;
+  line-height: 2;
+
+  &.slide-left-enter,
+  &.slide-left-leave-to {
+    transform: translateX(100%);
+  }
+}

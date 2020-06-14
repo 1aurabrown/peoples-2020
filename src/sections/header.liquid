@@ -11,7 +11,8 @@
   - Home page only: only shows on the home page
 {%- endcomment -%}
 <section data-section-id="{{ section.id }}" data-section-type="header">
-  {% include 'mobile_nav' %}
+  {% include 'mobile-nav' %}
+  {% include 'side-cart' %}
   <div class="header">
     <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}

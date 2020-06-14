@@ -1,0 +1,11 @@
+.mobile-nav {
+  @include mobile-modal-slider;
+  padding: 2.5rem 3rem;
+  font-size: 1.25rem;
+  line-height: 2;
+
+  &.slide-right-enter,
+  &.slide-right-leave-to {
+    transform: translateX(-100%);
+  }
+}
