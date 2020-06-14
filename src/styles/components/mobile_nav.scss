@@ -3,6 +3,9 @@
   top: $header-height-mobile;
   transition: transform $transition-duration $transition-timing;
   transform: translateX(0);
+  padding: 2.5rem 3rem;
+  font-size: 1.25rem;
+  line-height: 2;
 
   &.slide-right-enter,
   &.slide-right-leave-to {
