@@ -25,6 +25,9 @@ register('header', {
     this.vue = new Vue( {
       el: this.container,
       data: {
+        cart: {
+          items: [{},{},{}]
+        },
         modalController: modalController
       },
       delimiters: ['${', '}'],

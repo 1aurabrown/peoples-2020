@@ -1,17 +1,22 @@
 <transition name="slide-left">
-  <div v-if="modalController.visibleModal === 'cart'" class="side-cart z10 x y fill fix bg-white">
+  <div v-if="modalController.visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc">
     <div class="side-cart__header f aic jcb">
       <h2 class="uppercase">Cart</h2>
       <button class="hamburger is-active" type="button" v-on:click="modalController.dismissModal('cart')">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </button>
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
     </div>
-    <div class="side-cart__inner x y f fdc jcb">
-      Cart
+    <div class="side-cart__inner x f-1">
+      <div v-for="item in cart.items" class="cart-item p1">
+        <div class="cart-item__inner">
+
+        </div>
+      </div>
+
     </div>
-    <div class="side-cart__bottom x right left bottom fix p1">
+    <div class="side-cart__bottom x right left bottom p1 z1 bg-white">
       <div class="f aic jcb"><span>Subtotal</span><span>$100.00</span></div>
       <button class="button button--full">Checkout</button>
     </div>

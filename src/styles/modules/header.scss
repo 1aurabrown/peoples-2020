@@ -51,6 +51,10 @@ $header-desktop-spacing: 4rem;
   @include media-query($large-up) {
     height: $header-height-desktop;
 
+    &__inner {
+      padding: 0 $padding-desktop;
+    }
+
     &__left {
       li:not(:first-child) {
         margin-left: $header-desktop-spacing / 2;
@@ -87,17 +91,9 @@ $header-desktop-spacing: 4rem;
     }
   }
 
-
   ul {
     display: flex;
-    list-style: none;
     align-items: center;
-  }
-
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
   }
 
   li {
