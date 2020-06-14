@@ -1,11 +1,25 @@
 .side-cart {
-  @include mobile-modal-slider;
-  padding: 2.5rem 3rem;
-  font-size: 1.25rem;
-  line-height: 2;
+  transition: transform $transition-duration $transition-timing;
+  transform: translateX(0);
+  border: 1px solid $black;
 
   &.slide-left-enter,
   &.slide-left-leave-to {
     transform: translateX(100%);
+  }
+  &__header {
+    border-bottom: 1px solid $black;
+    height: $header-height-mobile;
+    padding: 0 $padding-mobile;
+  }
+  &__inner {
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+  &__bottom {
+    border-top: 1px solid $black;
+    .button {
+      margin-top: 1em;
+    }
   }
 }

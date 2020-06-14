@@ -147,9 +147,3 @@
   }
 }
 
-@mixin mobile-modal-slider {
-  height: calc(100vh - #{$header-height-mobile});
-  top: $header-height-mobile;
-  transition: transform $transition-duration $transition-timing;
-  transform: translateX(0);
-}

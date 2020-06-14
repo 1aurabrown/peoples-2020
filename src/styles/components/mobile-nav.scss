@@ -1,5 +1,8 @@
 .mobile-nav {
-  @include mobile-modal-slider;
+  height: calc(100vh - #{$header-height-mobile});
+  top: $header-height-mobile;
+  transition: transform $transition-duration $transition-timing;
+  transform: translateX(0);
   padding: 2.5rem 3rem;
   font-size: 1.25rem;
   line-height: 2;
