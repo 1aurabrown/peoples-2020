@@ -22,7 +22,7 @@
         </li>
       {% endif %}
     {% endif %}
-    {% include 'navigation_menu' with section.settings.right_menu %}
+    {% include 'navigation-menu', nav: section.settings.right_menu %}
 
     <li>
       <a href="/cart" class="header__cart" v-on:click.prevent="toggleModal('cart')">
@@ -31,5 +31,4 @@
       </a>
     </li>
   </ul>
-
 </nav>

@@ -1,5 +1,5 @@
-{% for link in linklists[section.settings.right_menu].links %}
-  {% if link.title == 'Search' %}
+{% for link in linklists[nav].links %}
+  {% if link.title == 'Search' or link.title == 'search' %}
     <li>
       {% include 'search-form' %}
     </li>
