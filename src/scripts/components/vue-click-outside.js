@@ -5,18 +5,18 @@ let handleOutsideClick
 Vue.directive('click-outside', {
   bind (el, binding, vnode) {
     handleOutsideClick = (e) => {
-      console.log(vnode, vnode.context, vnode.context.$refs)
       e.stopPropagation()
       const { handler, exclude } = binding.value
       let clickedOnExcludedEl = false
-      exclude.forEach(refName => {
-        if (!clickedOnExcludedEl) {
-          const excludedEl = vnode.context.$refs[refName]
-          clickedOnExcludedEl = excludedEl.contains(e.target)
-        }
-      })
+      if (exclude != undefined) {
+        exclude.forEach(refName => {
+          if (!clickedOnExcludedEl) {
+            const excludedEl = vnode.context.$refs[refName]
+            clickedOnExcludedEl = excludedEl.contains(e.target)
+          }
+        })
+      }
       if (!el.contains(e.target) && !clickedOnExcludedEl) {
-        debugger;
         if (typeof(handler) === 'string') {
           vnode.context[handler]()
         } else if (typeof(handler) === 'function') {

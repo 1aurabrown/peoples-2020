@@ -1,6 +1,9 @@
 import '../components/vue-click-outside'
 import Vue from 'vue'
+import UniqueId from 'vue-unique-id'
 import modalController from '../components/modal-controller'
+
+Vue.use(UniqueId)
 
 class App {
   constructor(selector) {

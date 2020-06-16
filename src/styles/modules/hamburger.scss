@@ -15,7 +15,6 @@ $hamburger-delay: .05s;
   height: $outer-height;
   width: $outer-width;
   display: inline-block;
-  cursor: pointer;
   transition-property: opacity, filter;
   transition-duration: $hamburger-duration;
   transition-timing-function: linear;

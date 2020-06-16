@@ -125,7 +125,6 @@
   text-align: left;
 }
 
-
 @mixin min-full-height {
   min-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
   @include media-query($small) {

@@ -91,12 +91,12 @@ $header-desktop-spacing: 4rem;
     }
   }
 
-  ul {
+  .header__list {
     display: flex;
     align-items: center;
-  }
 
-  li {
-    white-space: nowrap;
+    li {
+      white-space: nowrap;
+    }
   }
 }

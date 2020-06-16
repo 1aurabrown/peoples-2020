@@ -11,20 +11,20 @@
   - Home page only: only shows on the home page
 {%- endcomment -%}
 <section data-section-id="{{ section.id }}" data-section-type="header">
-  {% include 'mobile-nav' %}
-  {% include 'side-cart' %}
   <div class="header">
     <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
-      <div ref="hamburger" class="header__hamburger f aic">
-        <button class="hamburger reset-input order-first z-40 md:hidden" type="button" v-on:click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
+      <div class="header__hamburger f aic">
+        <button ref="hamburger" class="cursor-pointer hamburger order-first z-40 md:hidden" type="button" v-on:click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
         </button>
       </div>
 
-      {% include 'header_left_menu', class: 'header__left f jcs' %}
+      {% include 'mobile-nav' %}
+
+      {% include 'header_left_menu', class: 'header__left f jcs', position: 'header' %}
 
       <header role="banner" class="header__center f jcc aic">
         {% if template.name == 'index' %}
@@ -32,7 +32,7 @@
         {% else %}
           <div class="h1">
         {% endif %}
-            <a href="/" class="logo-image">
+            <a href="/" class="logo-image block">
               <img src="{{ 'logo.svg' | asset_url }}" />
             </a>
         {% if template.name == 'index' %}
@@ -44,6 +44,7 @@
       </header>
 
       {% include 'header_right_menu', class: 'header__right f jce', position: 'header' %}
+      {% include 'side-cart' %}
     </div>
   </div>
 </section>

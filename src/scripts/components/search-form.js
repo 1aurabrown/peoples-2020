@@ -1,81 +1,68 @@
 import Vue from 'vue';
 
-Vue.component('button-counter', {
+Vue.component('search-form', {
   data: function () {
     return {
-      active: false
+      id: null,
+      active: false,
+      searchText: '',
+      searchPlaceholder: theme.strings.searchPlaceholder,
+      searchSubmit: theme.strings.searchSubmit
     }
   },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-})
+  template: `
+    <div class="search-form" v-click-outside="{ handler: close }">
+      <form v-show="active" class="search-form__form" action="/search" method="get" role="search">
+        <label :for="'search-input-' + this.uid" class="label-hidden">
+          {{ searchPlaceholder }}
+        </label>
+
+        <input type="search"
+        name="q"
+        :id="'search-input-' + this.uid"
+        v-model="searchText">
 
 
-const selectors = {
-  button: '.search-form__button',
-  input: 'input[type=search]',
-  form: '.search-form__form',
-  clear: '.search-form__clear'
-}
+        <button type="button" class="cursor-pointer search-form__clear" @click="clickedClear">X</button>
 
-class SearchForm {
-  constructor (el) {
-    this.el = el
-    this.clickedCTA = this._clickedCTA.bind(this)
-    this.clickedOutside = this._clickedOutside.bind(this)
-    this.clickedClear = this._clickedClear.bind(this)
-    this.clickedInside = this._clickedInside.bind(this)
+        <button type="submit" class="no-js button">
+          <span class="icon-fallback-text">{{ searchSubmit }}</span>
+        </button>
 
-    this.button = this.el.querySelector(selectors.button)
-    this.form = this.el.querySelector(selectors.form)
-    this.input = this.el.querySelector(selectors.input)
-    this.clear = this.el.querySelector(selectors.clear)
-    this.el.addEventListener('click', this.clickedInside)
-    this.button.addEventListener('click', this.clickedCTA)
-    this.clear.addEventListener('click', this.clickedClear)
-  }
+      </form>
 
-  show() {
-    this.clearInput()
-    this.el.classList.add('active')
-    window.addEventListener('click', this.clickedOutside)
-  }
+      <a v-show="!active" class="search-form__button" href="/search" @click.prevent="open">
+        <span class="icon-fallback-text">{{ searchSubmit }}</span>
+      </a>
+    </div>
+  `,
 
-  hide() {
-    this.el.classList.remove('active')
-    window.removeEventListener('click', this.clickedOutside)
-  }
-
-  clearInput() {
-    this.input.value = '';
-  }
-
-  destroy() {
-    this.button.removeEventListener('click', this.clickedCTA)
-    window.removeEventListener('click', this.clickedOutside)
-  }
-
-  _clickedInside(e) {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
-  _clickedClear(e) {
-    if (this.input.value.length > 0) {
+  watch: {
+    active() {
       this.clearInput()
-    } else {
-      this.hide()
+    }
+  },
+
+  methods: {
+    clearInput() {
+      this.searchText = '';
+    },
+
+    open() {
+      this.active = true
+    },
+
+    close() {
+      this.active = false;
+    },
+
+    clickedClear() {
+      if (this.searchText.length > 0) {
+        this.clearInput()
+      } else {
+        this.active = false
+      }
     }
   }
+})
 
-  _clickedCTA(e) {
-    e.preventDefault()
-    e.stopPropagation()
-    this.show()
-  }
-
-
-  _clickedOutside(e) {
-    e.preventDefault()
-    this.hide()
-  }
-}
