@@ -7,9 +7,6 @@
  */
 import SearchForm from '../components/search-form'
 import {register} from '@shopify/theme-sections'
-import modalController from '../components/modal-controller'
-import Vue from 'vue'
-
 
 const selectors = {
   searchForm: '.search-form',
@@ -22,21 +19,7 @@ register('header', {
       new SearchForm(el)
     })
 
-    this.vue = new Vue( {
-      el: this.container,
-      data: {
-        cart: {
-          items: [{},{},{}]
-        },
-        modalController: modalController
-      },
-      delimiters: ['${', '}'],
-      methods: {
-        toggleModal: function(modal) {
-          this.modalController.toggleModal(modal)
-        }
-      },
-    })
+
   },
 
   onUnload() {

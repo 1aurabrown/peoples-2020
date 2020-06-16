@@ -13,9 +13,8 @@ import 'lazysizes/plugins/respimg/ls.respimg'
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y'
 import {load} from '@shopify/theme-sections'
 
-
 // Global
-
+import {app} from './components/vue-app'
 import './components/search-form'
 
 // Sections
