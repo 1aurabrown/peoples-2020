@@ -25,7 +25,7 @@
     {% include 'navigation-menu', nav: section.settings.right_menu %}
 
     <li>
-      <a href="/cart" class="header__cart" v-on:click.prevent="toggleModal('cart')">
+      <a href="/cart" {% if position == "header" %}ref="cart-button"{% endif %} class="header__cart" @click.prevent="toggleModal('cart')">
         {{ 'layout.cart.title' | t }}
         [{{ cart.item_count }}]
       </a>

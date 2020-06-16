@@ -32,11 +32,6 @@
   .side-cart {
     width: fit-content;
 
-    &__header {
-      height: $header-height-desktop - 1px;
-      padding: 0 $padding-desktop;
-    }
-
     &__inner {
       display: grid;
       grid-template-rows: auto auto;
@@ -44,11 +39,19 @@
       direction: rtl;
     }
   }
+
   .cart-item {
     direction: ltr;
     border: 1px solid $black;
     width: 200px;
-    &__inner {
+  }
+}
+
+@include media-query($large-up) {
+  .side-cart {
+    &__header {
+      height: $header-height-desktop - 1px;
+      padding: 0 $padding-desktop;
     }
   }
 }

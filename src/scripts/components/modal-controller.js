@@ -13,8 +13,8 @@ class ModalController  {
   dismissModal(modal) {
     if (modal === this.visibleModal) {
       this.visibleModal = null
+      releaseScroll()
     }
-    releaseScroll()
   }
 
   toggleModal(modal) {

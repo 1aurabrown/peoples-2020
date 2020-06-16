@@ -1,3 +1,15 @@
+import Vue from 'vue';
+
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      active: false
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+
+
 const selectors = {
   button: '.search-form__button',
   input: 'input[type=search]',
@@ -5,7 +17,7 @@ const selectors = {
   clear: '.search-form__clear'
 }
 
-export default class SearchForm {
+class SearchForm {
   constructor (el) {
     this.el = el
     this.clickedCTA = this._clickedCTA.bind(this)

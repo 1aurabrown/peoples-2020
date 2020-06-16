@@ -48,7 +48,9 @@
   {{ content_for_header }}
 
   {{ 'font.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'vendor.css' | asset_url | stylesheet_tag }}
   {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ 'vendor.js' | asset_url | script_tag }}
   {{ 'theme.js' | asset_url | script_tag }}
   {% section 'swatch-styles' %}
 </head>

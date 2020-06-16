@@ -42,7 +42,7 @@ $header-desktop-spacing: 4rem;
       display: flex;
       justify-content: flex-end;
 
-      li:not(:last-child){
+      li:not(:last-child) {
         display: none;
       }
     }

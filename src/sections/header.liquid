@@ -16,7 +16,7 @@
   <div class="header">
     <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
-      <div class="header__hamburger f aic">
+      <div ref="hamburger" class="header__hamburger f aic">
         <button class="hamburger reset-input order-first z-40 md:hidden" type="button" v-on:click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -43,7 +43,7 @@
 
       </header>
 
-      {% include 'header_right_menu', class: 'header__right f jce' %}
+      {% include 'header_right_menu', class: 'header__right f jce', position: 'header' %}
     </div>
   </div>
 </section>
