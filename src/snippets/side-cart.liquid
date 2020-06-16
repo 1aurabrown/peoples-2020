@@ -1,28 +1,29 @@
 <transition name="slide-left">
-  <div v-cloak v-if="visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc">
-    <div v-click-outside="{exclude: ['cart-button'], handler: function() { modalController.dismissModal('cart')} }">
-      <div class="side-cart__header f aic jcb">
-        <h2 class="uppercase">Cart</h2>
-        <button class="hamburger is-active" type="button" v-on:click="dismissModal('cart')">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </button>
-      </div>
-      <div class="side-cart__inner x f-1">
-        <div v-for="item in cart.items" class="cart-item p1">
-          <div class="cart-item__inner">
-            {% include 'swatch', color: 'red', size: 'sm' %}
-            {% include 'swatch', color: 'blue', size: 'sm' %}
-            {% include 'swatch', color: 'green', size: 'sm' %}
-          </div>
-        </div>
-
-      </div>
-      <div class="side-cart__bottom x right left bottom p1 z1 bg-white">
-        <div class="f aic jcb"><span>Subtotal</span><span>$100.00</span></div>
-        <button class="button button--full">Checkout</button>
-      </div>
+  <div v-cloak v-if="visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc" v-click-outside="{exclude: ['cart-button'], handler: function() { modalController.dismissModal('cart')} }">
+    <div class="side-cart__header f aic jcb">
+      <h2 class="uppercase">Cart</h2>
+      <button class="cursor-pointer hamburger is-active" type="button" v-on:click="dismissModal('cart')">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
     </div>
+
+    <div class="side-cart__inner x f-1">
+      <template v-if="cart.state && cart.state.items.length > 0">
+        <cart-item
+          v-for="(item, index) in cart.state.items"
+          v-bind:item="item"
+          v-bind:index="index"
+          v-bind:key="item.id"></cart-item>
+      </template>
+    </div>
+
+    <div class="side-cart__bottom x right left bottom p1 z1 bg-white">
+      <div class="f aic jcb"><span>Subtotal</span><span>$100.00</span></div>
+      <button class="button button--full">Checkout</button>
+    </div>
+
   </div>
 </transition>
+

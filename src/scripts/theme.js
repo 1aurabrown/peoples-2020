@@ -15,7 +15,6 @@ import {load} from '@shopify/theme-sections'
 
 // Global
 import {app} from './components/vue-app'
-import './components/search-form'
 
 // Sections
 import './sections/product'

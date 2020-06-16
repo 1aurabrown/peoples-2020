@@ -27,7 +27,7 @@
     <li>
       <a href="/cart" {% if position == "header" %}ref="cart-button"{% endif %} class="header__cart" @click.prevent="toggleModal('cart')">
         {{ 'layout.cart.title' | t }}
-        [{{ cart.item_count }}]
+        [<span :text='cart.state.item_count'>{{ cart.item_count }}</span>]
       </a>
     </li>
   </ul>

@@ -1,4 +1,8 @@
 import '../components/vue-click-outside'
+import '../components/search-form'
+import '../components/cart-item'
+import cart from '../components/cart'
+
 import Vue from 'vue'
 import UniqueId from 'vue-unique-id'
 import modalController from '../components/modal-controller'
@@ -18,9 +22,7 @@ class App {
     this.vue = new Vue( {
       el: document.querySelector(this.selector),
       data: {
-        cart: {
-          items: [{},{},{}]
-        },
+        cart: cart,
         modalController: modalController
       },
       computed: {
@@ -39,7 +41,7 @@ class App {
         dismissModal: function(modal) {
           this.modalController.dismissModal(modal)
         }
-      }
+      },
     })
   }
 }
