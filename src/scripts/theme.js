@@ -16,10 +16,6 @@ import {load} from '@shopify/theme-sections'
 // Global
 import {app} from './components/vue-app'
 
-// Sections
-import './sections/product'
-import './sections/header'
-
 document.addEventListener("DOMContentLoaded", function(event) {
   load('*');
   // Common a11y fixes

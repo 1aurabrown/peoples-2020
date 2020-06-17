@@ -13,8 +13,3 @@ Vue.component('cart-item', {
     </div>
   `
 })
-
-
- // {% include 'swatch', color: 'red', size: 'sm' %}
- //        {% include 'swatch', color: 'blue', size: 'sm' %}
- //        {% include 'swatch', color: 'green', size: 'sm' %}

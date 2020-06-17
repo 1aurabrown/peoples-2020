@@ -1,10 +1,12 @@
 import { getState, addItem, removeItem } from '@shopify/theme-cart'
+import modalController from './modal-controller'
 
 class Cart {
   constructor() {
     this.state = {}
     this.getState()
   }
+
   getState() {
     getState().then( state => {
       console.log(state)
@@ -13,8 +15,10 @@ class Cart {
   }
 
   addItem(id, options) {
-    addItem(id, options).then( () => {
-      this.getState()
+    addItem(id, options)
+    .then(this.getState)
+    .then( () => {
+      modalController.invokeModal('cart')
     })
   }
 

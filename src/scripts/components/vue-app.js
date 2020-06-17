@@ -1,6 +1,8 @@
 import '../components/vue-click-outside'
 import '../components/search-form'
 import '../components/cart-item'
+import '../components/add-to-cart-button'
+import '../components/product-form'
 import cart from '../components/cart'
 
 import Vue from 'vue'
