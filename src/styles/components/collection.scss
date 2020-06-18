@@ -1,13 +1,13 @@
 .collection {
-  @include media-query($medium) {
+  @include media-query($medium-up) {
     &__grid {
       display: grid;
+      grid-gap: 2.25rem;
       grid-template-columns: 1fr 1fr;
     }
   }
   @include media-query($large-up) {
     &__grid {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }
 
