@@ -6,6 +6,7 @@ import '../components/product-form'
 import '../components/color-options'
 import '../components/size-options'
 import '../components/product-card-details'
+import '../components/product-price'
 
 import cart from '../components/cart'
 
