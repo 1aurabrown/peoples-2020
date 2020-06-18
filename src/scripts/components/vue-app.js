@@ -3,6 +3,7 @@ import '../components/search-form'
 import '../components/cart-item'
 import '../components/add-to-cart-button'
 import '../components/product-form'
+import '../components/color-options'
 import cart from '../components/cart'
 
 import Vue from 'vue'

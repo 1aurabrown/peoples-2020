@@ -10,23 +10,24 @@ Vue.component('product-form', {
   },
 
   methods: {
-    optionChanged(event, option) {
-      debugger;
+    selectedOptionValue(option) {
+      return this.selectedOptions['option' + option.position]
+    },
+
+    optionChanged(option, value) {
       const newOptions = Object.assign({}, this.selectedOptions)
       const key = 'option' + option.position
-      newOptions[key] = event.target.value
+      newOptions[key] = value
       console.log(newOptions)
       const selectedVariant = this.getVariantByOptions(newOptions)
       if (selectedVariant !== undefined) this.selectedVariant = selectedVariant
     },
 
     getVariantByID(id){
-      debugger
       return find(this.product.variants, v => { return v.id.toString() === id.toString() })
     },
 
     getVariantByOptions(options){
-      debugger
       return find(this.product.variants, options)
     }
 
@@ -64,8 +65,14 @@ Vue.component('product-form', {
             {{ option.name }}
           </label>
 
+          <color-options
+            v-if="option.name.toLowerCase() == 'color'"
+            :option="option"
+            :selectedValue="selectedOptionValue(option)"
+            @change="optionChanged">
+          </color-options>
 
-          <select @change="optionChanged($event, option)">
+          <select v-else @change="optionChanged(option, $event.target.value)">
             <option v-for="value in option.values" :value="value">
               {{ value }}
             </option>
