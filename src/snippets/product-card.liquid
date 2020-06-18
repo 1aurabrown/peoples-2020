@@ -1,0 +1,11 @@
+<div class="product-card">
+  <a href="{{ product.url | within: collection }}">
+    <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+  </a>
+  <div>
+    <product-card-details
+      :product='{{ product | json }}'
+      :options='{{ product.options_with_values | json }}'>
+    </product-car-details>
+  </div>
+</div>

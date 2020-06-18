@@ -26,7 +26,6 @@ Vue.component('size-options', {
           <size :value="value" :selected="selectedValue === value"></size>
         </label>
       </template>
-
     </div>
   `
 })

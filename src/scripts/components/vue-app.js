@@ -5,6 +5,8 @@ import '../components/add-to-cart-button'
 import '../components/product-form'
 import '../components/color-options'
 import '../components/size-options'
+import '../components/product-card-details'
+
 import cart from '../components/cart'
 
 import Vue from 'vue'

@@ -2,11 +2,16 @@ import Vue from 'vue';
 import { find } from 'lodash';
 
 Vue.component('product-form', {
-  props: ['product', 'cart', 'initialVariantId', 'options'],
+  props: ['product', 'initialVariantId', 'options'],
   data: function () {
     return {
-      selectedVariant: this.getVariantByID(this.initialVariantId)
+      selectedVariant:{}
     }
+  },
+
+  mounted: function() {
+    // set after mounting to emit change event
+    this.selectedVariant =  this.initialVariantId ? this.getVariantByID(this.initialVariantId) : this.product.variants[0]
   },
 
   methods: {
@@ -31,6 +36,12 @@ Vue.component('product-form', {
       return find(this.product.variants, options)
     }
 
+  },
+
+  watch: {
+    selectedVariant(variant) {
+      this.$emit('variantChanged', variant)
+    }
   },
 
   computed: {
@@ -62,8 +73,8 @@ Vue.component('product-form', {
   },
   template: `
     <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-      <div class="js product-form__options" v-if="product.variants.length > 1">
-        <div v-for="option in options">
+      <div class="js product-form__options f aic f-wrap jcb" v-if="product.variants.length > 1">
+        <template v-for="option in options">
           <color-options
             v-if="option.name.toLowerCase() == 'color'"
             :option="option"
@@ -84,7 +95,7 @@ Vue.component('product-form', {
             </option>
           </select>
 
-        </div>
+        </template>
       </div>
 
       <noscript>

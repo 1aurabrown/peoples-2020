@@ -36,7 +36,6 @@
   <p>{{ product.vendor }}</p>
 
   <product-form
-    :cart="cart"
     :product='{{ product | json }}'
     :options='{{ product.options_with_values | json }}'
     initial-variant-id="{{ current_variant.id }}">

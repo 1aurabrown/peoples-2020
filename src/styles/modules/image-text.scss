@@ -10,6 +10,9 @@
 }
 
 .image-with-text__text {
+  .button {
+    margin-top: 1.5em;
+  }
   @include media-query($medium-up) {
     font-size: 1.25rem;
     padding-bottom: .5em;

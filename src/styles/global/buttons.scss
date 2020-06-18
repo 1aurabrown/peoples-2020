@@ -29,12 +29,10 @@ input,
   text-align: center;
   padding: .1em 2.4em 0;
   line-height: 2.3em;
-  margin-top: 1.5em;
 
   &--large {
     @include media-query($medium-up) {
       font-size: 2.25rem;
-      margin-top: 2em;
       padding: 0 2em;
       line-height: 2em;
       border-width: 2px;
