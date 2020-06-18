@@ -77,17 +77,6 @@ input[type=radio]:checked + label {
   }
 }
 
-@media (hover: hover) {
-  input[type=radio] + label:hover {
-    .size, .swatch {
-      --option-border-color: gray;
-      &::after {
-        border: 1px solid var(--option-border-color);
-      }
-    }
-  }
-}
-
 input[type=radio]:checked + label {
   .swatch {
     border: 1px solid var(--option-border-color);
