@@ -9,7 +9,6 @@ class Cart {
 
   getState() {
     getState().then( state => {
-      console.log(state)
       this.state = state
     })
   }

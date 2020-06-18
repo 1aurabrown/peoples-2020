@@ -1,12 +1,28 @@
+@mixin swatch-medium() {
+  .swatch, .size {
+    font-size: .875rem;
+    width: 1.5rem;
+    margin-right: .5rem;
+  }
+}
+
+@mixin swatch-large() {
+  .swatch, .size {
+    font-size: 1rem;
+    width: 2.25rem;
+    margin-right: .75rem;
+  }
+}
 
 .swatch, .size {
   --option-border-color: #{$black};
-  width: 24px;
-  margin-right: 6px;
-  margin-bottom: 6px;
+  font-size: .6875rem;
+  width: 1.125rem;
+  margin-right: .25rem;
   position: relative;
   border-radius: 50%;
   display: block;
+  cursor: pointer;
 
   &::before,
   &::after {
@@ -26,14 +42,6 @@
     bottom: 0;
     border-radius: 50%;
   }
-
-
-
-  &.large {
-    width: 36px;
-    margin-right: 12px;
-    margin-bottom: 12px;
-  }
 }
 
 .swatch {
@@ -47,7 +55,8 @@
 }
 
 .size {
-  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
   &::before {
     content: '';
   }
@@ -64,6 +73,17 @@ input[type=radio]:checked + label {
   .size {
     &::after {
       border: 1px solid var(--option-border-color);
+    }
+  }
+}
+
+@media (hover: hover) {
+  input[type=radio] + label:hover {
+    .size, .swatch {
+      --option-border-color: gray;
+      &::after {
+        border: 1px solid var(--option-border-color);
+      }
     }
   }
 }

@@ -1,0 +1,15 @@
+.collection {
+  @include media-query($medium) {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @include media-query($large-up) {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+  }
+}

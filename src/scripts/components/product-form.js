@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { find } from 'lodash';
 
 Vue.component('product-form', {
-  props: ['product', 'initialVariantId', 'options'],
+  props: ['product', 'initialVariantId', 'options', 'buttonClass'],
   data: function () {
     return {
       selectedVariant:{}
@@ -68,9 +68,6 @@ Vue.component('product-form', {
       }
     }
   },
-  created() {
-    console.log(this.product)
-  },
   template: `
     <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       <div class="js product-form__options f aic f-wrap jcb" v-if="product.variants.length > 1">
@@ -111,7 +108,7 @@ Vue.component('product-form', {
       </noscript>
 
       <add-to-cart-button
-        className="product-form__button"
+        :className="buttonClass + ' product-form__button'"
         :disabled="!selectedVariant.available"
         :buttonText="buttonText"></add-to-cart-button>
     </form>

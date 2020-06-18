@@ -1,13 +1,16 @@
-{% paginate collection.products by 48 %}
-  <div>
-    {% for product in collection.products %}
-      {% include 'product-card', product: product %}
-    {% else %}
-      <p>no matches</p>
-    {% endfor %}
-  </div>
+<div class="collection">
+  {% paginate collection.products by 48 %}
+    <div class="collection__grid">
+      {% for product in collection.products %}
+        <product-card :product='{{ product | json }}' :options='{{ product.options_with_values | json }}'></product-card>
+      {% else %}
+        <p>no matches</p>
+      {% endfor %}
+    </div>
 
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
+    {% if paginate.pages > 1 %}
+      {{ paginate | default_pagination }}
+    {% endif %}
+  {% endpaginate %}
+
+</div>
