@@ -1,20 +1,14 @@
 import Vue from 'vue';
 
 Vue.component('add-to-cart-button', {
-  props: ['selectedVariant'],
-
-  computed: {
-    buttonText() {
-      return this.selectedVariant.available ? theme.strings.addToCart : theme.strings.soldOut
-    }
-  },
+  props: ['className', 'buttonText', 'disabled'],
 
   template: `
     <button
-      class="button"
+      :class="'button ' + className"
       type="submit"
       data-submit-button
-      :disabled="selectedVariant.available !== true"
+      :disabled="disabled"
       >
         <span data-submit-button-text>
           {{ buttonText }}

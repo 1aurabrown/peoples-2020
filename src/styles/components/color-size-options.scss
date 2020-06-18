@@ -1,0 +1,12 @@
+.color-options, .size-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  label {
+    display: block;
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,12 +1,15 @@
-.swatch {
-  width: 18px;
+
+.swatch, .size {
+  --option-border-color: #{$black};
+  width: 24px;
+  margin-right: 6px;
+  margin-bottom: 6px;
   position: relative;
   border-radius: 50%;
   display: block;
 
   &::before,
   &::after {
-    content: '';
     display: block;
   }
 
@@ -22,22 +25,61 @@
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    border: 1px solid $black;
   }
 
-  &.active {
-    border: 1px solid $black;
 
+
+  &.large {
+    width: 36px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+.swatch {
+  &::before,
+  &::after {
+    content: '';
+  }
+  &::after {
+    border: 1px solid var(--option-border-color);
+  }
+}
+
+.size {
+  font-size: 0.875rem;
+  &::before {
+    content: '';
+  }
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: attr(data-size)
+  }
+}
+
+input[type=radio]:focus + label,
+input[type=radio]:checked + label {
+  .size {
+    &::after {
+      border: 1px solid var(--option-border-color);
+    }
+  }
+}
+
+input[type=radio]:checked + label {
+  .swatch {
+    border: 1px solid var(--option-border-color);
     &::after {
       inset: 2px;
     }
   }
+}
 
-  &.medium {
-    width: 24px;
-  }
-
-  &.large {
-    width: 36px;
+input[type=radio]:focus + label {
+  .swatch,
+  .size {
+    --option-border-color: gray;
   }
 }

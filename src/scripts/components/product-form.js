@@ -34,6 +34,9 @@ Vue.component('product-form', {
   },
 
   computed: {
+    buttonText() {
+      return this.selectedVariant.available ? theme.strings.addToCart : theme.strings.soldOut
+    },
 
     selectedOptions() {
       return this.options.reduce((acc, option) => {
@@ -58,19 +61,22 @@ Vue.component('product-form', {
     console.log(this.product)
   },
   template: `
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-      <div class="js" v-if="product.variants.length > 1">
+    <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      <div class="js product-form__options" v-if="product.variants.length > 1">
         <div v-for="option in options">
-          <label :for="'Option' + option.position">
-            {{ option.name }}
-          </label>
-
           <color-options
             v-if="option.name.toLowerCase() == 'color'"
             :option="option"
             :selectedValue="selectedOptionValue(option)"
             @change="optionChanged">
           </color-options>
+
+          <size-options
+            v-else-if="option.name.toLowerCase() == 'size'"
+            :option="option"
+            :selectedValue="selectedOptionValue(option)"
+            @change="optionChanged">
+          </size-options>
 
           <select v-else @change="optionChanged(option, $event.target.value)">
             <option v-for="value in option.values" :value="value">
@@ -93,22 +99,10 @@ Vue.component('product-form', {
         </select>
       </noscript>
 
-      <input type="number" id="Quantity" name="quantity" value="1" min="1">
-
-      <div data-price-wrapper>
-        <span data-product-price>
-          {{ selectedVariant.price }}
-        </span>
-
-        <template v-if="product.compare_at_price_max > product.price">
-          <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
-          <s data-compare-price>
-              {{ selectedVariant.compare_at_price  }}
-          </s>
-        </template>
-      </div>
-
-      <add-to-cart-button :selectedVariant=selectedVariant></add-to-cart-button>
+      <add-to-cart-button
+        className="product-form__button"
+        :disabled="!selectedVariant.available"
+        :buttonText="buttonText"></add-to-cart-button>
     </form>
   `
 })

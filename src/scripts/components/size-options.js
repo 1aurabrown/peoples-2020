@@ -1,8 +1,8 @@
-import './swatch'
+import './size'
 import Vue from 'vue';
 import slugify from 'slugify';
 
-Vue.component('color-options', {
+Vue.component('size-options', {
   props: ['selectedValue', 'id', 'option'],
   data: function () {
     return {}
@@ -11,7 +11,7 @@ Vue.component('color-options', {
     slugify: slugify
   },
   template: `
-    <div class="color-options">
+    <div class="size-options">
       <template v-for="value in option.values">
         <input type="radio"
           @change="$emit('change', option, value)"
@@ -23,7 +23,7 @@ Vue.component('color-options', {
         <label
           :for="$id('option' + option.position + '-' + slugify(value))"
           >
-          <swatch :value="value" :selected="selectedValue === value"></swatch>
+          <size :value="value" :selected="selectedValue === value"></size>
         </label>
       </template>
 
