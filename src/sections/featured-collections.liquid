@@ -1,15 +1,19 @@
 <section class="featured-collections half-grid">
   {% for block in section.blocks %}
-    {% assign collection = collections[block.settings[coll]] %}
-    <a class="y" href="{{ collection.url }}">
+    {% assign block_collection = collections[block.settings['collection']] %}
+    {% assign image = block.settings.image %}
+    {% if image == blank %}
+      {% assign image = block_collection.image %}
+    {% endif %}
+    <a class="y" href="{{ block_collection.url }}">
       <div class="grid-item rel x y max-full-height">
         <div class="abs f jcc aic z1 fill x y">
           <h2 class="ac h1 tc-white">{{ block.settings.text }}</h2>
         </div>
         <responsive-img-tag
-          alt="{{ collection.title }}"
+          alt="{{ block_collection.title }}"
           class-name="x y"
-          :src='{{ block.settings.image | json }}'>
+          :src='{{ image | json }}'>
         </responsive-img-tag>
       </div>
     </a>
