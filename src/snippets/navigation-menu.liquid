@@ -5,14 +5,14 @@
     </li>
   {% elsif link.links != blank %}
     <li>
-      <a href="{{ link.url }}">
+      <a class="nav-link {% if link.child_active or link.active %}nav-link--active{% endif %}" href="{{ link.url }}">
         {{ link.title }}
         {% include 'icon-arrow-down' %}
       </a>
       <ul>
         {% for childlink in link.links %}
           <li>
-            <a href="{{ childlink.url }}">
+            <a class="nav-link {% if link.active %}nav-link--active{% endif %}" href="{{ childlink.url }}">
               {{ childlink.title }}
             </a>
           </li>
@@ -21,7 +21,7 @@
     </li>
   {% else %}
     <li>
-      <a href="{{ link.url }}">
+      <a class="nav-link {% if link.active %}nav-link--active{% endif %}" href="{{ link.url }}">
         {{ link.title }}
       </a>
     </li>

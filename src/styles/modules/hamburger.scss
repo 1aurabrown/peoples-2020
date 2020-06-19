@@ -1,17 +1,16 @@
 $bar-height: 2px;
 $inner-height: 14px;
 $inner-width: 18px;
-$outer-padding: 0;
+$outer-height: $inner-width;
+$outer-width: $inner-width;
 
 $bar-gap: ($inner-height - ($bar-height * 3)) / 2;
 $bar-margin: $bar-gap + $bar-height;
-$outer-height: $inner-height + ($outer-padding * 2);
-$outer-width: $inner-width + ($outer-padding * 2);
 $hamburger-duration: .1s;
 $hamburger-delay: .05s;
 
 .hamburger {
-  padding: $outer-padding;
+  padding: 0;
   height: $outer-height;
   width: $outer-width;
   display: inline-block;
@@ -29,9 +28,9 @@ $hamburger-delay: .05s;
 }
 
 .hamburger-box {
+  display: block;
   width: $inner-width;
   height: $inner-height;
-  display: block;
   position: relative;
 }
 

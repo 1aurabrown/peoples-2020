@@ -1,0 +1,16 @@
+.nav-link {
+  @extend .enlarge-click;
+  display: inline-block;
+  line-height: 1;
+  &::after {
+    inset: -.6em -.6em -.6em -.6em;
+  }
+}
+
+.nav-link--active {
+  @extend .nav-link;
+
+  &::after {
+    border: 1px solid $black;
+  }
+}

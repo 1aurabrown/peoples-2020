@@ -196,3 +196,16 @@
 .hidden {
   visibility: hidden;
 }
+
+.enlarge-click {
+  @include enlarge-click;
+}
+
+.faux-underline {
+  @include faux-underline;
+}
+
+
+.strikethrough {
+  @include faux-strikethrough;
+}

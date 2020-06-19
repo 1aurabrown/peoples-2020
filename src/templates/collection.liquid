@@ -1,4 +1,5 @@
 <div class="collection">
+  {% section 'collection-nav' %}
   {% paginate collection.products by 48 %}
     <div class="collection__grid">
       {% for product in collection.products %}

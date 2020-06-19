@@ -39,10 +39,10 @@
   position: relative;
   text-decoration: none;
 
-  &::after {
+  &::before {
     position: absolute;
     content: '';
-    bottom: calc(50% - .7em);
+    bottom: calc(50% - .6em);
     left: 0;
     right: 0;
     border-bottom: 1px solid;
@@ -60,7 +60,7 @@
   display: inline-block;
   text-decoration: none;
 
-  &::after {
+  &::before {
     position: absolute;
     content: '';
     top: 0;
@@ -145,6 +145,26 @@
   height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
   @include media-query($small) {
     height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
+  }
+}
+
+@mixin enlarge-click {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -.6em;
+  }
+}
+
+@mixin focus-outline {
+  &:focus {
+  @include enlarge-click;
+    outline: none;
+    &::after {
+      border: 1px solid gray;
+    }
   }
 }
 

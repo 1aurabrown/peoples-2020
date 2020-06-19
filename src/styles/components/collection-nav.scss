@@ -1,0 +1,26 @@
+.collection-nav {
+  padding: 1.5em 0;
+
+  &__tag-link {
+    line-height: 1;
+    display: inline-block;
+    margin: 0 0 0 2em;
+    &:focus {
+      @include faux-underline;
+      &::before {
+        border-color: gray;
+      }
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  @include media-query($medium-up) {
+    padding: 1.5em 0;
+
+    &__tag-link {
+      margin: 0 2em 0 0;
+    }
+  }
+}

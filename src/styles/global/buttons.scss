@@ -5,10 +5,7 @@ button {
 
 button,
 a {
-  &:focus {
-    outline-offset: 3px;
-    outline: 1px solid gray;
-  }
+  @include focus-outline;
 }
 
 input,

@@ -1,0 +1,41 @@
+<div class="collection-nav uppercase f fdr aic jcb">
+  <div class="medium-up--hide collection-nav__title">{{ collection.title }}</div>
+  <ul class="f fdr aic">
+    {% for block in section.blocks %}
+      {% if collection.all_tags contains block.settings.tag %}
+        <li>
+          <a class="collection-nav__tag-link {% if current_tags contains block.settings.tag %}faux-underline{% endif %}"
+            href="{{ collection.url | append: '/' | append: block.settings.tag }}"
+            rel="nofollow"
+            >
+            {{ block.settings.text }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% schema %}
+  {
+    "name": "Collection Filters",
+    "blocks": [
+      {
+        "type": "nav_item",
+        "name": "Nav Item",
+        "settings": [
+          {
+            "label": "Display Text",
+            "id": "text",
+            "type": "text"
+          },
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Product Tag",
+            "info": "Enter a product tag to filter collections by tag."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
