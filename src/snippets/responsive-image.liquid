@@ -27,25 +27,26 @@
 {%- assign aspect_ratio_fallback = crop_aspect_ratio | default: image.aspect_ratio | default: 1 -%}
 
 
-{%- capture wrapper_styles -%}
+{%- capture styles -%}
 padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
 {%- endcapture -%}
 
-{% assign image_class = image_class | append: ' abs x y fill' %}
 {%- comment -%} data-aspectratio: aspect ratio of image file {%- endcomment -%}
 {%- comment -%} visual aspect ratio shoud be set via image wrapper's padding-bottom {%- endcomment -%}
 <div id="ImageWrapper-{{ image.id }}-{{ responsive_image_counter }}"
-  data-image-id="{{ image.id }}"
   height="0"
   class="overflow-hidden rel p0 {{ wrapper_class }}"
-  {% if wrapper_styles != blank %}style="{{ wrapper_styles }}"{% endif %}>
-  {% include 'responsive-image-img-tag',
-    placeholder_key:
-    placeholder_key,
-    image: image,
-    crop_aspect_ratio: crop_aspect_ratio,
-    fit: fit
-    image_class: image_class %}
+  style="{{ styles }}">
+
+  <responsive-img-tag
+    :src='{{ image | json }}'
+    :crop-aspect-ratio='{{ crop_aspect_ratio | json }}'
+    fit="{{ fit }}"
+    alt="{{ alt }}"
+    :default-width='{{ defaultWidth | json }}'
+    class-name="x y fill abs {{ image_class }}"
+  ></responsive-img-tag>
+
 </div>
 
 {%- assign placeholder_key = blank -%}
@@ -55,3 +56,4 @@ padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
 {%- assign wrapper_class = blank -%}
 {%- assign image = blank -%}
 {%- assign fit = blank -%}
+{%- assign styles = blank -%}

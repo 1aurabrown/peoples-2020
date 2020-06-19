@@ -4,10 +4,13 @@
     <a class="y" href="{{ collection.url }}">
       <div class="grid-item rel x y max-full-height">
         <div class="abs f jcc aic z1 fill x y">
-          <h2 class="h1 tc-white">{{ block.settings.text }}</h2>
+          <h2 class="ac h1 tc-white">{{ block.settings.text }}</h2>
         </div>
-        {% include 'responsive-image-img-tag', image_class: "x y", image: block.settings.image %}
-
+        <responsive-img-tag
+          alt="{{ collection.title }}"
+          class-name="x y"
+          :src='{{ block.settings.image | json }}'>
+        </responsive-img-tag>
       </div>
     </a>
   {% endfor %}

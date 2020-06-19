@@ -757,6 +757,11 @@
   resolved "https://registry.yarnpkg.com/@shopify/theme-currency/-/theme-currency-3.0.3.tgz#01d284e692d1e13f2e086b93b26d80a3eca43636"
   integrity sha512-2VFK9IDBlKdYjhEvEEJnI3XO2pAP4jlVt5rtEvY9WKaAaoo0aPRlfPav4zw1ymvJq87OacRaGry1753tYiEvsA==
 
+"@shopify/theme-images@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-images/-/theme-images-4.0.0.tgz#906eb7ceb35ba41bc0def49a81f4ae502c7b7f38"
+  integrity sha512-Jqizgjk+oK4CygetcnSw5BuSKLs4eR2WYPi1jiDlOiUxeKwfEwYl15Rgz7Wf5anEy6qSOMOE2neagI9MRgfmkQ==
+
 "@shopify/theme-product-form@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@shopify/theme-product-form/-/theme-product-form-3.0.3.tgz#3f3a1c7baf500eb0751c5e7f66fc039b5a63150b"
