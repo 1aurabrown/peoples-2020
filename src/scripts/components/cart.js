@@ -10,12 +10,13 @@ class Cart {
   getState() {
     getState().then( state => {
       this.state = state
+      return state
     })
   }
 
   addItem(id, options) {
     addItem(id, options)
-    .then(this.getState)
+    .then( () => this.getState())
     .then( () => {
       modalController.invokeModal('cart')
     })

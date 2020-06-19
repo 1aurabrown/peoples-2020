@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import { find } from 'lodash';
+import cart from './cart';
 
 Vue.component('product-form', {
-  props: ['product', 'initialVariantId', 'options', 'buttonClass'],
+  props: ['disabled', 'product', 'initialVariantId', 'options', 'buttonClass'],
   data: function () {
     return {
       selectedVariant:{}
@@ -15,6 +16,11 @@ Vue.component('product-form', {
   },
 
   methods: {
+    submit() {
+      this.$emit('submit')
+      cart.addItem(this.selectedVariant.id, { quantity: 1 })
+    },
+
     selectedOptionValue(option) {
       return this.selectedOptions['option' + option.position]
     },
@@ -23,7 +29,6 @@ Vue.component('product-form', {
       const newOptions = Object.assign({}, this.selectedOptions)
       const key = 'option' + option.position
       newOptions[key] = value
-      console.log(newOptions)
       const selectedVariant = this.getVariantByOptions(newOptions)
       if (selectedVariant !== undefined) this.selectedVariant = selectedVariant
     },
@@ -69,7 +74,15 @@ Vue.component('product-form', {
     }
   },
   template: `
-    <form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+    <form
+      class="product-form"
+      :disabled="disabled"
+      @submit.prevent="submit"
+      :class="{ 'pointer-none': disabled }"
+      action="/cart/add"
+      method="post"
+      enctype="multipart/form-data"
+      id="AddToCartForm">
       <div class="js product-form__options f aic f-wrap jcb" v-if="product.variants.length > 1">
         <template v-for="option in options">
           <color-options
@@ -109,7 +122,7 @@ Vue.component('product-form', {
 
       <add-to-cart-button
         :className="buttonClass + ' product-form__button'"
-        :disabled="!selectedVariant.available"
+        :disabled="disabled || !selectedVariant.available"
         :buttonText="buttonText"></add-to-cart-button>
     </form>
   `

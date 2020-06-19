@@ -12,7 +12,4 @@
       margin-top: 1em;
     }
   }
-  @include media-query($widescreen) {
-    @include swatch-medium()
-  }
 }

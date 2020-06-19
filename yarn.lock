@@ -6383,6 +6383,11 @@ vue-unique-id@^3.1.0:
   resolved "https://registry.yarnpkg.com/vue-unique-id/-/vue-unique-id-3.1.0.tgz#ec374572d0b7e8efd753f7fade783b6f20454fd4"
   integrity sha512-ItkUDdkzqziwm5DqvZHEWlpNquwkeDlMMFwfTD7/zyjQa43bTzzf9KzaKQUH7yl5YXT4PRSn2SSDDCP4Tq/qdA==
 
+vue2-touch-events@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/vue2-touch-events/-/vue2-touch-events-2.2.1.tgz#fe29846a3dfc44e166f198077fa8edc898465242"
+  integrity sha512-tdAWuPhFWm2C4nuTRYDb1LtP2288LVDUXgGDAtQgYcMgF9K/Igns0r61NYgPHrRxN548U4wUdYgIDy4+XCxu2w==
+
 vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"

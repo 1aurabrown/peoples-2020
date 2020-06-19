@@ -13,10 +13,12 @@ import '../components/responsive-crop-image'
 import cart from '../components/cart'
 
 import Vue from 'vue'
+import Vue2TouchEvents from 'vue2-touch-events'
 import UniqueId from 'vue-unique-id'
 import modalController from '../components/modal-controller'
 
 Vue.use(UniqueId)
+Vue.use(Vue2TouchEvents)
 
 class App {
   constructor(selector) {

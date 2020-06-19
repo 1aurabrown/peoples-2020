@@ -188,3 +188,11 @@
 .object-contain {
   object-fit: contain;
 }
+
+.pointer-none {
+  pointer-events: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
