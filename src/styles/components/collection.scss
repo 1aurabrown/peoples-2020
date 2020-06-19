@@ -1,7 +1,7 @@
 .collection {
     &__grid {
       display: grid;
-      grid-gap: $padding-mobile;
+      grid-gap: $padding-mobile * 1.5;
       grid-template-columns: 1fr;
     }
 

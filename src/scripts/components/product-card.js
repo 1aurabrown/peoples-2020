@@ -25,19 +25,19 @@ Vue.component('product-card', {
   },
   methods: {
     touchInfo() {
-      if (isTouch) this.hover = !this.hover
+      if (isTouch()) this.hover = !this.hover
     },
 
     clickOutsideInfo() {
-      if (isTouch) this.hover = false
+      if (isTouch()) this.hover = false
     },
 
     mouseLeave() {
-      if (!isTouch) this.hover = false
+      if (!isTouch()) this.hover = false
     },
 
     mouseEnter() {
-      if (!isTouch) this.hover = true
+      if (!isTouch()) this.hover = true
     },
 
     submit() {
@@ -69,7 +69,7 @@ Vue.component('product-card', {
           <product-price :variant="currentVariant"></product-price>
         </div>
 
-        <div class="product-card__form">
+        <div aria-hidden="true" class="product-card__form" :class="{ 'hidden': !hover }">
           <product-form
             @submit="submit"
             :disabled="formDisabled"
