@@ -8,6 +8,7 @@ import '../components/size-options'
 import '../components/product-card'
 import '../components/product-price'
 import '../components/responsive-image-img-tag'
+import '../components/responsive-crop-image'
 
 import cart from '../components/cart'
 

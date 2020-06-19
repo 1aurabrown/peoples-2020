@@ -2,7 +2,7 @@
   @include media-query($medium-up) {
     &__grid {
       display: grid;
-      grid-gap: 2.25rem;
+      grid-gap: $padding-desktop;
       grid-template-columns: 1fr 1fr;
     }
   }

@@ -8,7 +8,8 @@ Vue.component('responsive-img-tag', {
     'src',
     'cropAspectRatio',
     'alt',
-    'defaultWidth'
+    'defaultWidth',
+    'placeholderKey'
   ],
   methods: {
     imageUrl({ w, h }) {
@@ -21,9 +22,23 @@ Vue.component('responsive-img-tag', {
         }
       }
       return getSizedImageUrl(this.src, str)
+    },
+  },
+  watch: {
+    src() {
+      // this.$recompute('classes')
     }
   },
   computed: {
+    classes() {
+      // force class list to re-render to re-trigger lazysizes when src changes by adding a unique string.
+      const src = this.src
+      const date = Date.now().toString(36)
+      return [date, 'lazyload', this.className, `object-${ this.fit ? this.fit : 'cover' }`].join(' ')
+    },
+    placeholder() {
+      return 'data:image/svg+xml;utf8,' + theme.placeholders[this.placeholderKey ? this.placeholderKey : 'image']
+    },
     urlTemplate() {
       return this.imageUrl({ w: '{width}', h: '{height}'})
     },
@@ -31,19 +46,15 @@ Vue.component('responsive-img-tag', {
     defaultURL() {
       const defaultWidth = this.defaultWidth ? this.defaultWidth : 500;
       if (this.cropAspectRatio) {
-        var defaultHeight = defaultWidth * this.cropAspectRatio
+        var defaultHeight = Math.round(defaultWidth / this.cropAspectRatio)
       }
       return this.imageUrl({ w: defaultWidth, h: defaultHeight })
     },
-
-    classes() {
-      return [this.className, `object-${ this.fit ? this.fit : 'cover' }`].join(' ')
-    }
   },
   template: `
     <img
       v-if="src"
-      :class="'lazyload ' + classes"
+      :class="classes"
       :src="defaultURL"
       :data-src="urlTemplate"
       :data-aspectratio="cropAspectRatio"
@@ -55,6 +66,7 @@ Vue.component('responsive-img-tag', {
       v-else
       style="background-color: #aaa"
       :class="classes"
+      :src="placeholder"
     />
   `
 })

@@ -1,0 +1,28 @@
+{% assign placeholder_keys = "image, collection-1, collection-2, collection-3, collection-4, collection-5, collection-6, lifestyle-1, lifestyle-2, product-1, product-2, product-3, product-4, product-5, product-6" | split: ', ' %}
+{% assign svgs = '' %}
+{%- for key in placeholder_keys -%}
+  {%- capture svg -%}
+    {{ key | placeholder_svg_tag }}
+  {%- endcapture -%}
+  {%- if forloop.index > 1 -%}{%- assign svgs = svgs | append: ',' -%}{%- endif -%}
+  {%- capture key_value -%}
+    {{ key | json }}: {{ svg | json }}
+  {%- endcapture -%}
+  {%- assign svgs = svgs | append: key_value -%}
+{%- endfor -%}
+<script>
+
+  window.theme = {
+    strings: {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      searchPlaceholder: {{ 'general.search.placeholder' | t | json }},
+      searchSubmit: {{ 'general.search.submit' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }}
+    },
+    moneyFormat: {{ shop.money_format | json }},
+    placeholders: {
+      {{ svgs }}
+    }
+  }
+</script>
