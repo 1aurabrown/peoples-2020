@@ -5,8 +5,8 @@
   <div class="hero fdc jcc aic full-height rel lazyload" data-bgset="{% include 'responsive-bg-image', image: settings.background_image %}">
     <div class="content ac tc-white z1">
       <h2 class="h1">{{ settings.heading }}</h2>
-      {% if settings.show_button %}
-        <a class="button-white button--large" href="{{ settings.button_url}}">{{ settings.button_text}}</a>
+      {% if settings.button_text != blank and settings.button_url != blank %}
+        <a class="button-white button--large" href="{{ settings.button_url }}">{{ settings.button_text}}</a>
       {% endif %}
     </div>
   </div>
@@ -25,12 +25,6 @@
         "type": "text",
         "id": "heading",
         "label": "Heading"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_button",
-        "label": "Show Button?",
-        "default": false
       },
       {
         "type": "text",

@@ -11,12 +11,7 @@
     {% endcapture %}
 
     {% include 'responsive-image' with
-      image: image,
-      max_width: 700,
-      max_height: 800,
-      image_attributes: "data-product-featured-image",
-      wrapper_class: wrapper_class,
-      wrapper_attributes: "data-product-image-wrapper",
+      image: image
     %}
   {% endfor %}
 
