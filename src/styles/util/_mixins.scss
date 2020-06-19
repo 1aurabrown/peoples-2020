@@ -34,6 +34,7 @@
 
 // Faux underline
 @mixin faux-underline {
+  line-height: 1;
   display: inline-block;
   position: relative;
   text-decoration: none;
@@ -54,6 +55,7 @@
 }
 // Faux underline
 @mixin faux-strikethrough {
+  line-height: 1;
   position: relative;
   display: inline-block;
   text-decoration: none;
