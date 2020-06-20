@@ -1,35 +1,5 @@
 @import './variables';
 
-/**
- * Sets a media query for the specified breakpoint
- *
- * Accepts:
- * - $media-query: {String} Breakpoint variable (list found in variables.scss)
- *
- * Usage:
- * .selector {
- *   @include media-query($medium-up) {
- *     color: red;
- *   }
- * }
- */
-@mixin media-query($media-query) {
-  $breakpoint-found: false;
-
-  @each $breakpoint in $breakpoints {
-    $name: nth($breakpoint, 1);
-    $declaration: nth($breakpoint, 2);
-
-    @if $media-query == $name and $declaration {
-      $breakpoint-found: true;
-
-      @media only screen and #{$declaration} {
-        @content;
-      }
-    }
-  }
-}
-
 /*===============UNDERLINES=================*/
 
 // Faux underline
@@ -121,31 +91,9 @@
   border: 0;
   border-radius: 0;
   width: auto;
-  margin: 0;
   padding: 0;
   line-height: normal;
   text-align: left;
-}
-
-@mixin min-full-height {
-  min-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
-  @include media-query($small) {
-    min-height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
-  }
-}
-
-@mixin max-full-height {
-  max-height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
-  @include media-query($small) {
-    max-height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
-  }
-}
-
-@mixin full-height {
-  height: calc(100vh - #{$header-height-desktop} - #{2 * $padding-desktop});
-  @include media-query($small) {
-    height: calc(100vh - #{$header-height-mobile} - #{2 * $padding-mobile});
-  }
 }
 
 @mixin enlarge-click {

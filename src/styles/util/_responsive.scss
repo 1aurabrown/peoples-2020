@@ -33,106 +33,109 @@
   // sass-lint:disable no-important
 
   // four sides
-  .#{$breakpoint}m-desk {
-    margin: $padding-desktop;
+  .#{$breakpoint}m-pad {
+    margin: var(--padding);
   }
 
-  .#{$breakpoint}m-mob {
-    margin: $padding-mobile;
-  }
-
-  .#{$breakpoint}p-desk {
-    margin: $padding-desktop;
-  }
-
-  .#{$breakpoint}p-mob {
-    margin: $padding-mobile;
+  .#{$breakpoint}p-pad {
+    padding: var(--padding);
   }
 
   // margin left right
-  .#{$breakpoint}mx-desk,
-  .#{$breakpoint}ml-desk {
-    margin-left: $padding-desktop;
+  .#{$breakpoint}mx-pad,
+  .#{$breakpoint}ml-pad {
+    margin-left: var(--padding);
   }
 
-  .#{$breakpoint}mx-desk,
-  .#{$breakpoint}mr-desk {
-    margin-right: $padding-desktop;
-  }
-
-  .#{$breakpoint}mx-mob,
-  .#{$breakpoint}ml-mob {
-    margin-left: $padding-mobile;
-  }
-
-  .#{$breakpoint}mx-mob,
-  .#{$breakpoint}mr-mob {
-    margin-right: $padding-mobile;
+  .#{$breakpoint}mx-pad,
+  .#{$breakpoint}mr-pad {
+    margin-right: var(--padding);
   }
 
   // margin top bottom
-  .#{$breakpoint}my-desk,
-  .#{$breakpoint}mt-desk {
-    margin-top: $padding-desktop;
+  .#{$breakpoint}my-pad,
+  .#{$breakpoint}mt-pad {
+    margin-top: var(--padding);
   }
 
-  .#{$breakpoint}my-desk,
-  .#{$breakpoint}mb-desk {
-    margin-bottom: $padding-desktop;
+  .#{$breakpoint}my-pad,
+  .#{$breakpoint}mb-pad {
+    margin-bottom: var(--padding);
   }
-
-  .#{$breakpoint}my-mob,
-  .#{$breakpoint}mt-mob {
-    margin-top: $padding-mobile;
-  }
-
-  .#{$breakpoint}my-mob,
-  .#{$breakpoint}mb-mob {
-    margin-bottom: $padding-mobile;
-  }
-
-
 
   // padding left right
-  .#{$breakpoint}px-desk,
-  .#{$breakpoint}pl-desk {
-    padding-left: $padding-desktop;
+  .#{$breakpoint}px-pad,
+  .#{$breakpoint}pl-pad {
+    padding-left: var(--padding);
   }
 
-  .#{$breakpoint}px-desk,
-  .#{$breakpoint}pr-desk {
-    padding-right: $padding-desktop;
-  }
-
-  .#{$breakpoint}px-mob,
-  .#{$breakpoint}pl-mob {
-    padding-left: $padding-mobile;
-  }
-
-  .#{$breakpoint}px-mob,
-  .#{$breakpoint}pr-mob {
-    padding-right: $padding-mobile;
+  .#{$breakpoint}px-pad,
+  .#{$breakpoint}pr-pad {
+    padding-right: var(--padding);
   }
 
   // padding top bottom
-  .#{$breakpoint}py-desk,
-  .#{$breakpoint}pt-desk {
-    padding-top: $padding-desktop;
+  .#{$breakpoint}py-pad,
+  .#{$breakpoint}pt-pad {
+    padding-top: var(--padding);
   }
 
-  .#{$breakpoint}py-desk,
-  .#{$breakpoint}pb-desk {
-    padding-bottom: $padding-desktop;
+  .#{$breakpoint}py-pad,
+  .#{$breakpoint}pb-pad {
+    padding-bottom: var(--padding);
   }
 
-  .#{$breakpoint}py-mob,
-  .#{$breakpoint}pt-mob {
-    padding-top: $padding-mobile;
+  // four sides
+  .#{$breakpoint}m-line {
+    margin: $line-height * 1em;
   }
 
-  .#{$breakpoint}py-mob,
-  .#{$breakpoint}pb-mob {
-    padding-bottom: $padding-mobile;
+  .#{$breakpoint}p-line {
+    padding: $line-height * 1em;
+  }
+
+  // margin left right
+  .#{$breakpoint}mx-line,
+  .#{$breakpoint}ml-line {
+    margin-left: $line-height * 1em;
+  }
+
+  .#{$breakpoint}mx-line,
+  .#{$breakpoint}mr-line {
+    margin-right: $line-height * 1em;
+  }
+
+  // margin top bottom
+  .#{$breakpoint}my-line,
+  .#{$breakpoint}mt-line {
+    margin-top: $line-height * 1em;
+  }
+
+  .#{$breakpoint}my-line,
+  .#{$breakpoint}mb-line {
+    margin-bottom: $line-height * 1em;
+  }
+
+  // padding left right
+  .#{$breakpoint}px-line,
+  .#{$breakpoint}pl-line {
+    padding-left: $line-height * 1em;
+  }
+
+  .#{$breakpoint}px-line,
+  .#{$breakpoint}pr-line {
+    padding-right: $line-height * 1em;
+  }
+
+  // padding top bottom
+  .#{$breakpoint}py-line,
+  .#{$breakpoint}pt-line {
+    padding-top: $line-height * 1em;
+  }
+
+  .#{$breakpoint}py-line,
+  .#{$breakpoint}pb-line {
+    padding-bottom: var(--padding);
   }
 }
 

@@ -1,0 +1,12 @@
+:root {
+  --padding: 1em;
+  --header-height: 3em;
+  --full-height: calc(100vh - var(--header-height));
+  --padded-full-height: calc(var(--full-height) - (2 * var(--padding)));
+  --homepage-section-gap: 4.5em;
+  @include media-query($medium-up) {
+    --padding: 2.25em;
+    --header-height: 4.5em;
+    --homepage-section-gap: 9.75em;
+  }
+}

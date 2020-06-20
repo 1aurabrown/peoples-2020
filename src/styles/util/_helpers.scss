@@ -23,7 +23,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   direction: ltr;
-  grid-gap: $padding-desktop;
+  grid-gap: var(--padding);
 
   &.no-gap {
     grid-gap: unset;
@@ -32,7 +32,6 @@
   @include media-query($small) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    grid-gap: $padding-mobile;
   }
 
   > .grid-item {
@@ -79,17 +78,33 @@
   transform: translateX(-50%);
 }
 
+// full height minus header
 .min-full-height {
-  @include min-full-height;
+  min-height: var(--full-height);
 }
 
 .max-full-height {
-  @include max-full-height;
+  max-height: var(--full-height);
 }
 
 .full-height {
-  @include full-height;
+  height: var(--full-height);
 }
+
+// full height minus header and padding
+
+.min-padded-full-height {
+  min-height: var(--padded-full-height);
+}
+
+.max-padded-full-height {
+  max-height: var(--padded-full-height);
+}
+
+.padded-full-height {
+  height: var(--padded-full-height);
+}
+
 
 .half-width {
   width: 50%;
@@ -97,19 +112,6 @@
     width: 100%;
   }
 }
-
-.mr-d {
-  @include media-query($medium-up) {
-    margin-right: $padding-desktop;
-  }
-}
-
-.ml-d {
-  @include media-query($medium-up) {
-    margin-left: $padding-desktop;
-  }
-}
-
 
 /*============= Helpers ================*/
 
@@ -210,4 +212,8 @@
 
 .strikethrough {
   @include faux-strikethrough;
+}
+
+.max-w-large {
+  max-width: $grid-large;
 }

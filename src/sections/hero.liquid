@@ -1,11 +1,11 @@
 {% assign settings = section.settings %}
 
 <section class="section">
-  <div class="hero fdc jcc aic full-height rel lazyload" data-bgset="{% include 'responsive-bg-image', image: settings.background_image %}">
+  <div class="hero fdc jcc aic padded-full-height rel lazyload" data-bgset="{% include 'responsive-bg-image', image: settings.background_image %}">
     <div class="content ac tc-white z1">
       <h2 class="h1">{{ settings.heading }}</h2>
       {% if settings.button_text != blank and settings.button_url != blank %}
-        <a class="button-white button--large" href="{{ settings.button_url }}">{{ settings.button_text}}</a>
+        <a class="button-white button--large mt-pad" href="{{ settings.button_url }}">{{ settings.button_text}}</a>
       {% endif %}
     </div>
   </div>

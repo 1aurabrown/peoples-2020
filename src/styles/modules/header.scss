@@ -1,4 +1,10 @@
-$header-desktop-spacing: 4rem;
+:root {
+  --nav-spacing: 2rem;
+
+  @include media-query($widescreen) {
+    --nav-spacing: 4rem;
+  }
+}
 
 .header-wrapper {
   position: sticky;
@@ -8,10 +14,10 @@ $header-desktop-spacing: 4rem;
 
 .header {
   border-bottom: 1px solid $black;
-  height: $header-height-mobile;
+  height: var(--header-height);
 
   &__inner {
-    padding: 0 $padding-mobile;
+    padding: 0 var(--padding);
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -49,15 +55,10 @@ $header-desktop-spacing: 4rem;
   }
 
   @include media-query($large-up) {
-    height: $header-height-desktop;
-
-    &__inner {
-      padding: 0 $padding-desktop;
-    }
 
     &__left {
       li:not(:first-child) {
-        margin-left: $header-desktop-spacing / 2;
+        margin-left: var(--nav-spacing);
       }
     }
 
@@ -65,29 +66,12 @@ $header-desktop-spacing: 4rem;
       justify-content: flex-end;
 
       li:not(:last-child) {
-        margin-right: $header-desktop-spacing / 2;
+        margin-right: var(--nav-spacing);
       }
     }
 
     .header__hamburger {
       display: none;
-    }
-  }
-
-  @include media-query($widescreen) {
-
-    &__left {
-      li:not(:first-child) {
-        margin-left: $header-desktop-spacing;
-      }
-    }
-
-    &__right {
-      justify-content: flex-end;
-
-      li:not(:last-child) {
-        margin-right: $header-desktop-spacing;
-      }
     }
   }
 

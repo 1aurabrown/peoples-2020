@@ -1,14 +1,10 @@
-.footer {
-  margin-top: 4.5rem;
-}
-
 .footer__top {
   border-top: $standard-border;
   direction: rtl;
   text-align: left;
   grid-gap: 0;
   @include media-query($small) {
-    padding: 3em $padding-mobile;
+    padding: 3em var(--padding);
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-gap: 2em;

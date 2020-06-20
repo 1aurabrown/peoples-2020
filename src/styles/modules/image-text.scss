@@ -1,3 +1,9 @@
+.image-with-text {
+  @include media-query($small) {
+    grid-gap: .75em;
+  }
+}
+
 .image-with-text__image {
   img {
     width: 100%;
@@ -6,20 +12,12 @@
 }
 
 .image-with-text__heading {
-  margin-bottom: 1.5em;
+  margin-bottom: $line-height;
 }
 
 .image-with-text__text {
-  .button {
-    margin-top: 1.5em;
-  }
   @include media-query($medium-up) {
     font-size: 1.25rem;
-    padding-bottom: .5em;
-
-    .button {
-      margin-bottom: .5em;
-    }
   }
   @include media-query($large-up) {
 
@@ -31,10 +29,4 @@
     }
 
   }
-
-  @include media-query($small) {
-    font-size: calc(1rem); // 16px;
-    padding-top: $padding-mobile;
-  }
-
 }

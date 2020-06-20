@@ -1,6 +1,6 @@
 button {
   border: 0;
-  background: unset;
+  background: inherit;
 }
 
 input,
@@ -24,9 +24,9 @@ a {
     }
 
     &:active {
-      color: unset;
+      color: inherit;
       img {
-        opacity: unset;
+        opacity: inherit;
       }
     }
   }

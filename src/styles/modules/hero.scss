@@ -4,12 +4,6 @@
   @include media-query($small) {
     padding: 3rem;
   }
-  .button {
-    margin-top: 1.5em;
-    @include media-query($medium-up) {
-      margin-top: 2em;
-    }
-  }
 }
 
 .hero .content {

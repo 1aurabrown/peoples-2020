@@ -1,6 +1,6 @@
 .footer__copyright {
   border-top: 1px solid $white;
-  padding: .7rem $padding-desktop;
+  padding: .7rem var(--padding);
 
   @include media-query($small) {
     flex-direction: column-reverse;

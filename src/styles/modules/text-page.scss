@@ -1,7 +1,39 @@
-.text-page {
-  margin: 4em 0 3em;
+.shopify-policy__container {
+  @extend .max-w-large;
+}
 
-  &__content {
-    margin-top: 1.5em;
+.text-page,
+.shopify-policy__container {
+  margin: 4em auto 3em;
+  padding: 0;
+}
+
+.text-page__title,
+.shopify-policy__title {
+  text-align: left;
+  @include uppercase;
+}
+
+.text-page__content,
+.shopify-policy__body {
+  margin-top: $line-height;
+
+  strong,
+  b {
+    font-weight: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 3em 0 $line-height;
+    font-size: 1em;
+    @include uppercase;
+  }
+  p {
+    margin: $line-height 0
   }
 }
