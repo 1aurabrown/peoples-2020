@@ -28,3 +28,115 @@
 }
 
 
+/*================ General Helpers ================*/
+@mixin responsive-helpers($breakpoint: '') {
+  // sass-lint:disable no-important
+
+  // four sides
+  .#{$breakpoint}m-desk {
+    margin: $padding-desktop;
+  }
+
+  .#{$breakpoint}m-mob {
+    margin: $padding-mobile;
+  }
+
+  .#{$breakpoint}p-desk {
+    margin: $padding-desktop;
+  }
+
+  .#{$breakpoint}p-mob {
+    margin: $padding-mobile;
+  }
+
+  // margin left right
+  .#{$breakpoint}mx-desk,
+  .#{$breakpoint}ml-desk {
+    margin-left: $padding-desktop;
+  }
+
+  .#{$breakpoint}mx-desk,
+  .#{$breakpoint}mr-desk {
+    margin-right: $padding-desktop;
+  }
+
+  .#{$breakpoint}mx-mob,
+  .#{$breakpoint}ml-mob {
+    margin-left: $padding-mobile;
+  }
+
+  .#{$breakpoint}mx-mob,
+  .#{$breakpoint}mr-mob {
+    margin-right: $padding-mobile;
+  }
+
+  // margin top bottom
+  .#{$breakpoint}my-desk,
+  .#{$breakpoint}mt-desk {
+    margin-top: $padding-desktop;
+  }
+
+  .#{$breakpoint}my-desk,
+  .#{$breakpoint}mb-desk {
+    margin-bottom: $padding-desktop;
+  }
+
+  .#{$breakpoint}my-mob,
+  .#{$breakpoint}mt-mob {
+    margin-top: $padding-mobile;
+  }
+
+  .#{$breakpoint}my-mob,
+  .#{$breakpoint}mb-mob {
+    margin-bottom: $padding-mobile;
+  }
+
+
+
+  // padding left right
+  .#{$breakpoint}px-desk,
+  .#{$breakpoint}pl-desk {
+    padding-left: $padding-desktop;
+  }
+
+  .#{$breakpoint}px-desk,
+  .#{$breakpoint}pr-desk {
+    padding-right: $padding-desktop;
+  }
+
+  .#{$breakpoint}px-mob,
+  .#{$breakpoint}pl-mob {
+    padding-left: $padding-mobile;
+  }
+
+  .#{$breakpoint}px-mob,
+  .#{$breakpoint}pr-mob {
+    padding-right: $padding-mobile;
+  }
+
+  // padding top bottom
+  .#{$breakpoint}py-desk,
+  .#{$breakpoint}pt-desk {
+    padding-top: $padding-desktop;
+  }
+
+  .#{$breakpoint}py-desk,
+  .#{$breakpoint}pb-desk {
+    padding-bottom: $padding-desktop;
+  }
+
+  .#{$breakpoint}py-mob,
+  .#{$breakpoint}pt-mob {
+    padding-top: $padding-mobile;
+  }
+
+  .#{$breakpoint}py-mob,
+  .#{$breakpoint}pb-mob {
+    padding-bottom: $padding-mobile;
+  }
+}
+
+
+
+
+

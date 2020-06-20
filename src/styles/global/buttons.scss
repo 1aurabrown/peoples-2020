@@ -3,16 +3,42 @@ button {
   background: unset;
 }
 
+input,
+textarea,
+select,
 button,
 a {
-  @include focus-outline;
+  &:focus {
+    outline: none;
+  // @include focus-outline;
+  }
+}
+
+
+a {
+  &:focus {
+    color: gray;
+
+    img {
+      opacity: 50%;
+    }
+
+    &:active {
+      color: unset;
+      img {
+        opacity: unset;
+      }
+    }
+  }
 }
 
 input,
+textarea,
+select,
 .button {
   &:focus {
     outline: none;
-    border-color: gray;
+    border: 1px solid gray;
   }
 }
 

@@ -4,6 +4,7 @@
 
 @include responsive-display-helper;
 @include responsive-text-align-helper;
+@include responsive-helpers;
 
 /*================ Build Responsive Grid Classes ================*/
 @each $breakpoint in $breakpoints-has-widths {
@@ -13,6 +14,7 @@
   @include media-query($breakpoint) {
     @include responsive-display-helper('#{$breakpoint}--');
     @include responsive-text-align-helper('#{$breakpoint}--');
+    @include responsive-helpers('#{$breakpoint}--');
   }
 }
 
