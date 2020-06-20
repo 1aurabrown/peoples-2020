@@ -1,6 +1,6 @@
 :root {
   .pagination {
-    --pagination-gap: 7px;
+    --pagination-gap: 8px;
     --pagination-top-space: 1em;
     --pagination-size: 24px;
     @include media-query($medium-up) {
@@ -13,6 +13,9 @@
 
 .pagination {
   margin-top: var(--pagination-top-space);
+  a {
+    @include enlarge-click;
+  }
 }
 
 .page,
