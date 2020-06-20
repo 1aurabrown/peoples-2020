@@ -52,6 +52,13 @@
     margin-left: var(--padding);
   }
 
+  .-#{$breakpoint}ml-pad {
+    margin-left: -(var(--padding));
+  }
+  .-#{$breakpoint}mt-pad {
+    margin-top: -(var(--padding));
+  }
+
   .#{$breakpoint}mx-pad,
   .#{$breakpoint}mr-pad {
     margin-right: var(--padding);
@@ -97,6 +104,14 @@
 
   .#{$breakpoint}p-line {
     padding: $line-height * 1em;
+  }
+
+  .-#{$breakpoint}ml-line {
+    margin-left: $line-height * -1em;
+  }
+
+  .-#{$breakpoint}mt-line {
+    margin-top: $line-height * -1em;
   }
 
   // margin left right

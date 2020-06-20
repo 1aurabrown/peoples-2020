@@ -1,7 +1,7 @@
 <div class="footer__top half-grid no-gap">
     <div class="footer__newsletter footer__half">
       <form class="inline-block">
-        <label for="email" class="block mb05 uppercase">Sign Up</label>
+        <label for="email" class="block mb1 uppercase">Sign Up</label>
         <input type="email" id="email" placeholder="enter your email">
       </form>
     </div>
@@ -10,7 +10,7 @@
       {% if linklists[nav].links.size > 0 %}
         <ul class="links inline-block">
           {% for link in linklists[nav].links %}
-            <li class="my025"><a href="{{ link.url }}" class="uppercase">{{ link.title }}</a></li>
+            <li><a href="{{ link.url }}" class="uppercase">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
       {% endif %}
@@ -21,7 +21,7 @@
           {%- assign social_handle = social | handleize -%}
           {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
           {% if settings[social_link] != blank %}
-            <li class="my025">
+            <li>
               <a class="uppercase" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
                 {{ social }}
               </a>
