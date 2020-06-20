@@ -25,10 +25,6 @@
   direction: ltr;
   grid-gap: var(--padding);
 
-  &.no-gap {
-    grid-gap: unset;
-  }
-
   @include media-query($small) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -37,6 +33,10 @@
   > .grid-item {
     grid-column: span 1;
   }
+}
+
+.no-gap {
+  grid-gap: unset;
 }
 
 .grid-reverse {
