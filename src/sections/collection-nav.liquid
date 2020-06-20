@@ -1,11 +1,20 @@
 <div class="collection-nav uppercase f fdr aic jcb">
-  <div class="large-up--hide collection-nav__title">{{ collection.title }}</div>
+  <h1 class="large-up--hide collection-nav__title">{{ collection.title }}</h1>
   <ul class="f fdr aic">
     {% for block in section.blocks %}
       {% if collection.all_tags contains block.settings.tag %}
         <li>
+
+          {% capture tag_url %}
+            {% if current_tags contains block.settings.tag %}
+              {{ collection.url }}
+            {% else %}
+              {{ collection.url | append: '/' | append: block.settings.tag }}
+            {% endif %}
+          {% endcapture %}
+
           <a class="collection-nav__tag-link {% if current_tags contains block.settings.tag %}faux-underline{% endif %}"
-            href="{{ collection.url | append: '/' | append: block.settings.tag }}"
+            href="{{ tag_url }}"
             rel="nofollow"
             >
             {{ block.settings.text }}
