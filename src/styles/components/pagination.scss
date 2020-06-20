@@ -1,0 +1,48 @@
+:root {
+  .pagination {
+    --pagination-gap: 7px;
+    --pagination-top-space: 1em;
+    --pagination-size: 24px;
+    @include media-query($medium-up) {
+      --pagination-top-space: 2em;
+      --pagination-gap: 10px;
+      --pagination-size: 36px;
+    }
+  }
+}
+
+.pagination {
+  margin-top: var(--pagination-top-space);
+}
+
+.page,
+.prev,
+.next {
+  width: var(--pagination-size);
+  height: var(--pagination-size);
+  vertical-align: middle;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 calc(var(--pagination-gap) / 2);
+
+  &.current {
+    border: 1px solid $black;
+    border-radius: 50%;
+
+  }
+
+}
+
+.prev, .next {
+  position: absolute;
+}
+
+.prev {
+  right: calc(100% + var(--pagination-gap);
+}
+
+.next {
+  left: calc(100% + var(--pagination-gap);
+}

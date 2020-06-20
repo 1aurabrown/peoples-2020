@@ -32,6 +32,11 @@
 @mixin responsive-helpers($breakpoint: '') {
   // sass-lint:disable no-important
 
+  .#{$breakpoint}mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   // four sides
   .#{$breakpoint}m-pad {
     margin: var(--padding);

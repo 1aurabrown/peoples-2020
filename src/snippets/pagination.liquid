@@ -1,3 +1,7 @@
-<div class="pagination">
-  {{ paginate | default_pagination }}
-</div>
+{% if paginate.pages > 1 %}
+  <div class="pagination jcc aic fdr">
+    <div class="rel jcc aic fdr mt-pad">
+      {{ paginate | default_pagination, next: '›', previous: '‹' }}
+    </div>
+  </div>
+{% endif %}
