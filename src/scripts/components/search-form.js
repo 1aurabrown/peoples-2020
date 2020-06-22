@@ -1,10 +1,11 @@
 import Vue from 'vue';
 
 Vue.component('search-form', {
+  props: ['alwaysOpen'],
   data: function () {
     return {
       id: null,
-      active: false,
+      active: !!this.alwaysOpen,
       searchText: '',
       searchPlaceholder: theme.strings.searchPlaceholder,
       searchSubmit: theme.strings.searchSubmit
@@ -17,13 +18,18 @@ Vue.component('search-form', {
           {{ searchPlaceholder }}
         </label>
 
-        <input type="search"
-        name="q"
-        :id="'search-input-' + this.uid"
-        v-model="searchText">
+        <div class="rel">
+          <input type="search"
+          ref="input"
+          class="p025"
+          name="q"
+          placeholder="search"
+          :id="'search-input-' + this.uid"
+          v-model="searchText"/>
 
 
-        <button type="button" class="cursor-pointer search-form__clear" @click="clickedClear">X</button>
+          <button type="button" class="cursor-pointer abs y top right bottom" @click="clickedClear">&times;</button>
+        </div>
 
         <button type="submit" class="no-js button">
           <span class="icon-fallback-text">{{ searchSubmit }}</span>
@@ -38,8 +44,13 @@ Vue.component('search-form', {
   `,
 
   watch: {
-    active() {
+    active(val) {
       this.clearInput()
+      if (val === true) {
+        setTimeout(() => {
+          this.$refs.input.focus()
+        }, 10)
+      }
     }
   },
 
@@ -53,13 +64,16 @@ Vue.component('search-form', {
     },
 
     close() {
+      if (this.alwaysOpen) return
       this.active = false;
     },
 
     clickedClear() {
       if (this.searchText.length > 0) {
         this.clearInput()
+        this.$refs.input.focus()
       } else {
+        if (this.alwaysOpen) return
         this.active = false
       }
     }

@@ -9,9 +9,9 @@
   }
 
   &__list {
-    margin-top: -$line-height;
+    margin-top: -$line-height * 1em;
     li {
-      padding-top: $line-height;
+      padding-top: $line-height * 1em;
     }
   }
 

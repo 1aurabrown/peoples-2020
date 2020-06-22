@@ -1,7 +1,47 @@
-<h1>Search for "my product"</h1>
-  <form action="/search" method="get" role="search">
-    <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}">
-  </form>
+<div class="search-page large-text-page">
+  <div class="large-text-page__top">
 
-<div class="list-view-items">
+    {% if search.performed %}
+      <h1>
+        {% if search.results_count > 1 %}
+          {{ 'general.search.results_with_count.other' | t: terms: search.terms, count: search.results_count }}
+
+        {% elsif search.results_count == 1 %}
+          {{ 'general.search.results_with_count.one' | t: terms: search.terms, count: search.results_count }}
+
+        {% else %}
+          {{ 'general.search.no_results_html' | t: terms: search.terms, count: search.results_count }}
+        {% endif %}
+      </h1>
+    {% else %}
+      <h1>{{ 'general.search.title' | t }}</h1>
+      <div class="mt1 pb-1">
+        <search-form :always-open="true"></search-form>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="large-text-page__content">
+    {% if search.performed == false or search.results_count == 0 %}
+      {% section 'featured-collections' %}
+    {% else %}
+      {% paginate search.results by 3 %}
+        <div class="collection__grid">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              <product-card :product='{{ item | json }}' :link='{{ item.url | within: collection | json }}' :options='{{ item.options_with_values | json }}'></product-card>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% include 'pagination' %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
 </div>
+
+
+
+
+

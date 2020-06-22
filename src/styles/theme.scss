@@ -33,18 +33,19 @@
 // ***** Modules
 // *************************************
 @import './modules/header';
-@import './modules/hamburger.scss';
+@import './modules/search-page';
+@import './modules/hamburger';
 @import './modules/hero';
 @import './modules/image-text';
 @import './modules/text-page';
+@import './modules/large-text-page';
 @import './modules/footer-top';
-@import './modules/footer-location.scss';
-@import './modules/footer-copyright.scss';
+@import './modules/footer-location';
+@import './modules/footer-copyright';
 
 // *************************************
 // ***** Components
 // *************************************
-@import './components/search-form';
 @import './components/pagination';
 @import './components/navigation';
 @import './components/mobile-nav';

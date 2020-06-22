@@ -1,8 +1,12 @@
-<div class="text-page">
-  <h1 class="text-page__title">{{ 'general.404.title' | t }}</h1>
-  <div class="text-page__content">
-    <p>The page you requested could not be found.</p>
+<div class="large-text-page">
+  <div class="large-text-page__top">
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <div class="mt1">
+      <p>The page you requested could not be found.</p>
+    </div>
+  </div>
+  <div class="large-text-page__content">
+    {% section 'featured-collections' %}
   </div>
 </div>
 
-{% section 'featured-collections' %}

@@ -1,13 +1,7 @@
 <div class="collection">
   {% section 'collection-nav' %}
   {% paginate collection.products by 3 %}
-    <div class="collection__grid">
-      {% for product in collection.products %}
-        <product-card :product='{{ product | json }}' :link='{{ product.url | within: collection | json }}' :options='{{ product.options_with_values | json }}'></product-card>
-      {% else %}
-        <p>no matches</p>
-      {% endfor %}
-    </div>
+    {% include 'product-grid', products: collection.products %}
 
     {% include 'pagination' %}
   {% endpaginate %}
