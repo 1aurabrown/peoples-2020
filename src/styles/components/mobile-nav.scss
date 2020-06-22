@@ -2,12 +2,16 @@
   top: var(--header-height);
   transition: transform $transition-duration $transition-timing;
   transform: translateX(0);
-  padding: calc(2 * var(--padding));
-
+  padding: calc(3 * var(--padding));
   @include media-query($medium-up) {
+    max-width: 400px;
+    border-right: 1px solid $black;
     padding: var(--padding);
   }
 
+  &__inner {
+    font-size: 1.5em;
+  }
   &__list {
     margin-top: -$line-height * 1em;
     li {

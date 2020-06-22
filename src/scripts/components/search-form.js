@@ -21,14 +21,14 @@ Vue.component('search-form', {
         <div class="rel">
           <input type="search"
           ref="input"
-          class="p025"
+          class="x p025"
           name="q"
           placeholder="search"
           :id="'search-input-' + this.uid"
           v-model="searchText"/>
 
 
-          <button type="button" class="cursor-pointer abs y top right bottom" @click="clickedClear">&times;</button>
+          <button type="button" class="pr05 cursor-pointer abs y top right bottom" @click="clickedClear"><span style="vertical-align: text-top" class="inline-block">&times;</span></button>
         </div>
 
         <button type="submit" class="no-js button">
