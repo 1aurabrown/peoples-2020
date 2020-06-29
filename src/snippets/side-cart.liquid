@@ -1,5 +1,5 @@
-<transition name="slide-left">
-  <div v-cloak v-if="visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc" v-click-outside="{exclude: ['cart-button'], handler: function() { modalController.dismissModal('cart')} }">
+<transition v-cloak name="slide-left">
+  <div v-cloak v-show="visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc" v-click-outside="{exclude: ['cart-button'], handler: function() { modalController.dismissModal('cart')} }">
     <div class="side-cart__header f aic jcb">
       <h2 class="uppercase">Cart</h2>
       <button class="cursor-pointer hamburger is-active" type="button" v-on:click="dismissModal('cart')">
@@ -10,12 +10,12 @@
     </div>
 
     <div class="side-cart__inner x f-1">
-      <template v-if="cart.state && cart.state.items.length > 0">
+      <template v-if="cart.state && cart.state.items && cart.state.items.length > 0">
         <cart-item
           v-for="(item, index) in cart.state.items"
-          v-bind:item="item"
-          v-bind:index="index"
-          v-bind:key="item.id"></cart-item>
+          :item="item"
+          :index="index"
+          :key="item.id"></cart-item>
       </template>
     </div>
 

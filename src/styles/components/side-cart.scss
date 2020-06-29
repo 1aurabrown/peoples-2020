@@ -2,6 +2,7 @@
   transition: transform $transition-duration $transition-timing;
   transform: translateX(0);
   border: 1px solid $black;
+  width: 100%;
 
   &.slide-left-enter,
   &.slide-left-leave-to {
