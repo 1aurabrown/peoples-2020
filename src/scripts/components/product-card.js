@@ -65,8 +65,8 @@ Vue.component('product-card', {
         <div
           v-show="!hover"
           class="z1 product-card__info abs x y fill bg-white">
-          <h3>{{ product.title }}</h3>
-          <product-price :variant="currentVariant"></product-price>
+          <h3 class="uppercase">{{ product.title }}</h3>
+          <formatted-price :price="currentVariant.price"></formatted-price>
         </div>
 
         <div aria-hidden="true" class="product-card__form" :class="{ 'hidden': !hover }">

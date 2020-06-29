@@ -6,7 +6,7 @@ import '../components/product-form'
 import '../components/color-options'
 import '../components/size-options'
 import '../components/product-card'
-import '../components/product-price'
+import '../components/formatted-price'
 import '../components/responsive-image-img-tag'
 import '../components/responsive-crop-image'
 

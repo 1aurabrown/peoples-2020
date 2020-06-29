@@ -2,18 +2,18 @@ import Vue from 'vue';
 import slugify from 'slugify';
 
 Vue.component('swatch', {
-  props: ['selected', 'value'],
+  props: ['className', 'selected', 'value'],
   data: function () {
     return {}
   },
-  methods: {
-    className(value) {
-      const classes = ['swatch', slugify(value)]
+  computed: {
+    classes() {
+      const classes = ['swatch', this.className, slugify(this.value)]
       if (this.selected) classes.push('active')
       return classes.join(' ')
     }
   },
   template: `
-    <span :class="className(value)"></span>
+    <span :class="classes"></span>
   `
 })

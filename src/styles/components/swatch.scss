@@ -1,28 +1,27 @@
-@mixin swatch-medium() {
-  .swatch, .size {
-    font-size: .875rem;
-    width: 1.5rem;
-    margin-right: .5rem;
-  }
-}
 
 @mixin swatch-large() {
-  .swatch, .size {
+  .swatch, .size, .circle {
     font-size: 1rem;
     width: 2.25rem;
-    margin-right: .75rem;
   }
 }
 
-.swatch, .size {
+@mixin swatch-medium() {
+  .swatch, .size, .circle {
+    font-size: var(--text-small);
+    width: 1.5rem;
+  }
+}
+.swatch, .size, .circle {
   --option-border-color: #{$black};
   font-size: .6875rem;
   width: 1.125rem;
-  margin-right: .25rem;
   position: relative;
   border-radius: 50%;
   display: block;
-  cursor: pointer;
+  label & {
+    cursor: pointer;
+  }
 
   &::before,
   &::after {
@@ -54,7 +53,7 @@
   }
 }
 
-.size {
+.size, .circle {
   text-transform: uppercase;
   letter-spacing: 0;
   &::before {
@@ -64,21 +63,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    content: attr(data-size)
+    content: attr(data-content)
   }
 }
 
-input[type=radio]:focus + label,
-input[type=radio]:checked + label {
-  .size {
+
+.size {
+  input[type=radio]:focus + label &,
+  input[type=radio]:checked + label &,
+  &.active {
     &::after {
       border: 1px solid var(--option-border-color);
     }
   }
 }
 
-input[type=radio]:checked + label {
-  .swatch {
+.circle::after {
+  border: 1px solid var(--option-border-color);
+}
+
+.swatch {
+  input[type=radio]:checked + label &,
+  &.active {
     border: 1px solid var(--option-border-color);
     &::after {
       inset: 2px;
@@ -86,9 +92,9 @@ input[type=radio]:checked + label {
   }
 }
 
-input[type=radio]:focus + label {
-  .swatch,
-  .size {
+.swatch,
+.size {
+  input[type=radio]:focus + label & {
     --option-border-color: gray;
   }
 }

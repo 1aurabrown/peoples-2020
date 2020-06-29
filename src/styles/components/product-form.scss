@@ -1,5 +1,14 @@
 .product-form {
   &__options {
+    .color-options {
+      order: -1;
+    }
+    .swatch {
+      margin-right: .5em
+    }
+    .size {
+      margin-left: .5em
+    }
   }
   &__button {
 

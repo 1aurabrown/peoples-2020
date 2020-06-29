@@ -1,4 +1,4 @@
-import { getState, addItem, removeItem } from '@shopify/theme-cart'
+import { getState, addItem, removeItem, updateItem } from '@shopify/theme-cart'
 import modalController from './modal-controller'
 
 class Cart {
@@ -7,24 +7,50 @@ class Cart {
     this.getState()
   }
 
+  clearError() {
+    this.error = null;
+  }
+
   getState() {
+    this.clearError()
     getState().then( state => {
       this.state = state
       return state
     })
+    .catch((res) => {
+      this.error = res.statusText.length > 0 ? res.statusText : "There was an error retreiving your cart."
+    })
   }
 
   addItem(id, options) {
+    this.clearError()
     addItem(id, options)
     .then( () => this.getState())
+    .catch((res) => {
+      this.error = res.statusText.length > 0 ? res.statusText : "The item could not be added to your cart."
+    })
     .then( () => {
       modalController.invokeModal('cart')
     })
   }
 
+  updateItem(key, options) {
+    this.clearError()
+    updateItem(key, options).then( state => {
+      this.state = state
+    })
+    .catch((res) => {
+      this.error = res.statusText.length > 0 ? res.statusText : "The item could not be updates."
+    })
+  }
+
   removeItem(key) {
+    this.clearError()
     removeItem(key).then( state => {
       this.state = state
+    })
+    .catch((res) => {
+      this.error = res.statusText.length > 0 ? res.statusText : "The item could not be removed from your cart."
     })
   }
 }

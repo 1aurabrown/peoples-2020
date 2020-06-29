@@ -6,7 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   @include media-query($small) {
-    font-size: .875rem; // 14px
+    font-size: var(--text-small); // 14px
   }
 }
 
@@ -54,3 +54,8 @@ p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
+
+.text-small {
+  font-size: var(--text-small)
+}
+
