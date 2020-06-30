@@ -14,7 +14,7 @@ Vue.component('product-card', {
     hover(val) {
       setTimeout(() => {
         this.formDisabled = !val
-      }, 100)
+      }, 10)
     }
   },
   computed: {

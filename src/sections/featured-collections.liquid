@@ -1,4 +1,4 @@
-<section class="featured-collections half-grid">
+<section class="featured-collections half-grid tc-white">
   {% for block in section.blocks %}
     {% assign block_collection = collections[block.settings['collection']] %}
     {% assign image = block.settings.image %}
@@ -8,7 +8,7 @@
     <a class="y" href="{{ block_collection.url }}">
       <div class="grid-item rel x y max-padded-full-height">
         <div class="abs f jcc aic z1 fill x y">
-          <h2 class="ac h1 tc-white">{{ block.settings.text }}</h2>
+          <h2 class="ac h1">{{ block.settings.text }}</h2>
         </div>
         <responsive-img-tag
           alt="{{ block_collection.title }}"

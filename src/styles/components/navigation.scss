@@ -11,6 +11,6 @@
   @extend .nav-link;
 
   &::after {
-    border: 1px solid $black;
+    border: $standard-border;
   }
 }

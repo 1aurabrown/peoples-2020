@@ -12,6 +12,7 @@
 }
 
 .footer__half {
+  direction: ltr;
   @include media-query($small) {
     padding: 0;
   }
@@ -52,11 +53,4 @@
 .footer__newsletter form {
   width: 100%;
   max-width: 300px;
-
-  input {
-    @include reset-input;
-    width: 100%;
-    border-bottom: $standard-border;
-    padding-bottom: 4px;
-  }
 }

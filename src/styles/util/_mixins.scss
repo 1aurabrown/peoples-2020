@@ -82,20 +82,6 @@
   clip: auto;
 }
 
-
-// Reset Input
-@mixin reset-input {
-  appearance: none;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  width: auto;
-  padding: 0;
-  line-height: normal;
-  text-align: left;
-}
-
 @mixin enlarge-click {
   position: relative;
 
@@ -108,10 +94,11 @@
 
 @mixin focus-outline {
   &:focus {
-  @include enlarge-click;
+    --border-color: #{$gray};
+    @include enlarge-click;
     outline: none;
     &::after {
-      border: 1px solid gray;
+      border: $standard-border;
     }
   }
 }

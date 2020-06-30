@@ -9,6 +9,7 @@ import '../components/product-card'
 import '../components/formatted-price'
 import '../components/responsive-image-img-tag'
 import '../components/responsive-crop-image'
+import '../components/x-button'
 
 import cart from '../components/cart'
 

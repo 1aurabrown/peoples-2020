@@ -1,54 +1,41 @@
-button {
-  border: 0;
-  background: inherit;
+a,
+a:visited,
+a:active,
+a:focus
+{
+  color: var(--text-color);
 }
 
 input,
 textarea,
 select,
+a,
 button,
-a {
-  &:focus {
-    outline: none;
-  // @include focus-outline;
+.button {
+  &:focus:not(:active) {
+    --border-color: #{$gray};
+    --text-color: #{$gray};
+    color: var(--text-color);
   }
 }
 
-
 a {
-  &:focus {
-    color: gray;
+  &:focus:not(:active) {
+    outline: none;
 
     img {
       opacity: 50%;
     }
-
-    &:active {
-      color: inherit;
-      img {
-        opacity: inherit;
-      }
-    }
   }
 }
 
-input,
-textarea,
-select,
-.button {
-  &:focus {
-    outline: none;
-    border: 1px solid gray;
-  }
-}
 
+.button,
 .button {
+  display: inline-block;
   @include uppercase;
-  @include reset-input;
-  background-color: transparent;
-  appearance: button;
-  border: 1px solid $black;
-  color: $black;
+  background: transparent;
+  border: $standard-border;
   text-align: center;
   padding: .1em 2.4em 0;
   line-height: 2.3em;
@@ -67,8 +54,13 @@ select,
   }
 }
 
+button:disabled {
+  --text-color: #{$gray};
+  --border-color: #{$gray};
+}
+
 .button-white {
   @extend .button;
-  color: $white;
-  border-color: $white;
+  @extend .tc-white;
+  @extend .border-white;
 }

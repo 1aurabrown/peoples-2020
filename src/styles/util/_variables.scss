@@ -6,7 +6,7 @@ $white: #fff;
 $gray: #9a9a9a;
 
 // Borders
-$standard-border: 1px solid $black;
+$standard-border: 1px solid var(--border-color);
 
 // Transitions
 $transition-duration: 250ms;

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>button / x</title>
+    <g id="button-/-x" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Group" stroke="#000000" stroke-width="2">
+            <line x1="1" y1="14" x2="14" y2="1" id="Line"></line>
+            <line x1="1" y1="14" x2="14" y2="1" id="Line" transform="translate(7.500000, 7.500000) scale(1, -1) translate(-7.500000, -7.500000) "></line>
+        </g>
+    </g>
+</svg>

@@ -13,7 +13,6 @@
   }
 }
 .swatch, .size, .circle {
-  --option-border-color: #{$black};
   font-size: .6875rem;
   width: 1.125rem;
   position: relative;
@@ -49,7 +48,7 @@
     content: '';
   }
   &::after {
-    border: 1px solid var(--option-border-color);
+    border: $standard-border;
   }
 }
 
@@ -73,19 +72,19 @@
   input[type=radio]:checked + label &,
   &.active {
     &::after {
-      border: 1px solid var(--option-border-color);
+      border: $standard-border;
     }
   }
 }
 
 .circle::after {
-  border: 1px solid var(--option-border-color);
+  border: $standard-border;
 }
 
 .swatch {
   input[type=radio]:checked + label &,
   &.active {
-    border: 1px solid var(--option-border-color);
+    border: $standard-border;
     &::after {
       inset: 2px;
     }
@@ -95,6 +94,6 @@
 .swatch,
 .size {
   input[type=radio]:focus + label & {
-    --option-border-color: gray;
+    --border-color: #{$gray};
   }
 }

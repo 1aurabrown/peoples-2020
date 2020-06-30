@@ -5,13 +5,14 @@
   padding: calc(3 * var(--padding));
   @include media-query($medium-up) {
     max-width: 400px;
-    border-right: 1px solid $black;
+    border-right: $standard-border;
     padding: var(--padding);
   }
 
   &__inner {
     font-size: 1.5em;
   }
+
   &__list {
     margin-top: -$line-height * 1em;
     li {

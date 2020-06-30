@@ -30,10 +30,10 @@
         {% if template.name == 'index' %}
           <h1>
         {% else %}
-          <div class="h1">
+          <div>
         {% endif %}
-            <a href="/" class="logo-image block">
-              <img src="{{ 'logo.svg' | asset_url }}" />
+            <a title="{{ section.settings.title }}" href="/" class="header__title block uppercase">
+              {{ section.settings.title }}
             </a>
         {% if template.name == 'index' %}
           </h1>
@@ -57,6 +57,12 @@
       {
         "type": "header",
         "content": "Header"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Header Text",
+        "default": "Peoples"
       },
       {
         "type": "link_list",

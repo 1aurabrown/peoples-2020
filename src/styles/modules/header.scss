@@ -13,7 +13,7 @@
 }
 
 .header {
-  border-bottom: 1px solid $black;
+  border-bottom: $standard-border;
   height: var(--header-height);
 
   &__inner {
@@ -35,13 +35,13 @@
     align-items: center;
   }
 
+  &__title {
+    font-size: 1.75rem;
+  }
+
   @include media-query($medium-down) {
     &__left {
       display: none;
-    }
-
-    &__center {
-      width: 7rem;
     }
 
     &__right {
@@ -51,6 +51,12 @@
       li:not(:last-child) {
         display: none;
       }
+    }
+  }
+
+  @include media-query($medium-up) {
+    &__title {
+      font-size: 2.25rem;
     }
   }
 

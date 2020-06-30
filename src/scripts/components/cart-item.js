@@ -10,8 +10,8 @@ Vue.component('cart-item', {
   template: `
     <div class="cart-item">
       <div class="cart-item__inner rel" >
-        <button class="z1 abs bg-white top left cursor-pointer cart-item__remove" type="button" @click.prevent="removeItem">
-          <span>&times;</span>
+        <button class="z1 abs bg-white f aic jcc top p025 left enlarge-click cursor-pointer cart-item__remove" type="button" @click="removeItem">
+          <x-button></x-button>
         </button>
         <a class="block" :href="item.url" :title="item.title">
           <div class="block cart-item__image">
@@ -34,9 +34,9 @@ Vue.component('cart-item', {
             <size :selected="true" :value="size"></size>
           </div>
           <div class="f jcc aic mr075">
-            <button @click.prevent="decrease" class="mx025 cursor-pointer">-</button>
-            <span class="cart-item__count circle active" :data-content="item.quantity"></span>
-            <button @click.prevent="increase" class="mx025 cursor-pointer">+</button>
+            <button @click.prevent="decrease" class="mx025 cursor-pointer enlarge-click">-</button>
+            <span class="mx05 cart-item__count circle active" :data-content="item.quantity"></span>
+            <button @click.prevent="increase" class="mx025 cursor-pointer enlarge-click">+</button>
           </div>
         </div>
       </div>
@@ -45,6 +45,7 @@ Vue.component('cart-item', {
   `,
   created() {
     // Pre-fetch images and cache them.
+    if (!this.item.image) return
     const image = new Image()
     image.src = this.item.image
   },
@@ -69,7 +70,6 @@ Vue.component('cart-item', {
       })
     },
     removeItem() {
-      debugger
       cart.removeItem(this.item.key)
     }
   }

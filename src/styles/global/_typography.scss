@@ -20,11 +20,21 @@ p {
 /*============= Helpers ================*/
 
 .tc-white {
-  color: $white;
+  --text-color: #{$white};
+  color: var(--text-color);
 }
 
 .tc-black {
-  color: $black;
+  --text-color: #{$black};
+  color: var(--text-color);
+}
+
+.border-white {
+  --border-color: #{$white};
+}
+
+.border-black {
+  --border-color: #{$black};
 }
 
 .uppercase {
