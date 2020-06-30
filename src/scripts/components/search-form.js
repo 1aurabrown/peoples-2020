@@ -28,7 +28,9 @@ Vue.component('search-form', {
           v-model="searchText"/>
 
 
-          <button type="button" class="cursor-pointer abs y top right bottom" @click="clickedClear"><span style="vertical-align: text-top" class="inline-block">&times;</span></button>
+          <button type="button" class="py05 cursor-pointer abs y top right bottom" @click="clickedClear">
+            <x-button></x-button>
+          </button>
         </div>
 
         <button type="submit" class="no-js button">
