@@ -1,5 +1,5 @@
 <transition v-cloak name="slide-right">
-  <div v-cloak v-if="modalController.visibleModal === 'mobileNav'" class="mobile-nav z10 x right left bottom fix bg-white large-up--hide" v-click-outside="{exclude: ['hamburger'], handler: function() { modalController.dismissModal('mobileNav')} }">
+  <div v-cloak v-if="modalController.visibleModal === 'mobileNav'" class="mobile-nav z10 x right left bottom fix bg-white large-up--hide">
     <div class="mobile-nav__inner x y f fdc jcb">
       {% include 'header_left_menu', position: 'mobile-nav' %}
       {% include 'header_right_menu', position: 'mobile-nav' %}

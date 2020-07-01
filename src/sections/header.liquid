@@ -44,7 +44,9 @@
       </header>
 
       {% include 'header_right_menu', class: 'header__right f jce', position: 'header' %}
-      {% include 'side-cart' %}
+      {% if template != "cart" %}
+        {% include 'side-cart' %}
+      {% endif %}
     </div>
   </div>
 </section>

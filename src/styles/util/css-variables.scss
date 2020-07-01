@@ -7,28 +7,11 @@
   --full-height: calc(100vh - var(--header-height));
   --padded-full-height: calc(var(--full-height) - (2 * var(--padding)));
   --homepage-section-gap: 4.5em;
-  --cart-item-spacing: var(--padding);
-  --cart-cols: 1;
-  --cart-col-width: 1;
-  --cart-item-width: calc(#{var(--cart-col-width)} * (100vw - #{var(--cart-item-spacing)} - 2px));
+
 
   @include media-query($medium-up) {
-    --cart-item-spacing: 1.5rem;
-    --cart-cols: 2;
-    --cart-col-width: 1 / 3;
     --padding: 2.25em;
     --header-height: 4.5em;
     --homepage-section-gap: 9.75em;
-  }
-
-  @include media-query($large-up) {
-    --cart-cols: 2;
-    --cart-col-width: 1 / 4;
-  }
-
-  @include media-query($widescreen) {
-    --cart-item-spacing: var(--padding);
-    --cart-cols: 2;
-    --cart-col-width: 1 / 4;
   }
 }

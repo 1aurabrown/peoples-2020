@@ -12,7 +12,7 @@ Vue.component('search-form', {
     }
   },
   template: `
-    <div class="search-form" v-click-outside="{ handler: close }">
+    <div class="search-form">
       <form v-show="active" class="search-form__form" action="/search" method="get" role="search">
         <label :for="'search-input-' + this.uid" class="label-hidden">
           {{ searchPlaceholder }}
