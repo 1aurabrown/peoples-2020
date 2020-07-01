@@ -2,7 +2,7 @@
   <div v-cloak v-show="visibleModal === 'cart'" class="side-cart z10 right top bottom y fix bg-white f fdc" v-click-outside="{exclude: ['cart-button'], handler: function() { modalController.dismissModal('cart')} }">
     <div class="side-cart__header f aic jcb f-0">
       <h2 class="uppercase">Cart</h2>
-      <button class="cursor-pointer" type="button" v-on:click="dismissModal('cart')">
+      <button class="cursor-pointer side-cart__close" type="button" v-on:click="dismissModal('cart')">
         <x-button></x-button>
       </button>
     </div>

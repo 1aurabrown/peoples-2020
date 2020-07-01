@@ -3,16 +3,43 @@
   padding-left: var(--cart-item-spacing);
   padding-top: var(--padding);
   width: var(--cart-item-width);
+  flex: auto 0 0;
+
   .swatch, .size {
     margin-right: .5em;
   }
-  flex: auto 0 0;
+
   &__remove {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
+    padding: 4px;
     border: $standard-border;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-9px, -9px, 0);
+  }
+
+  @include media-query($small) {
+    &__inner {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__image {
+      width: 40%;
+      flex: auto 0 0;
+      padding-right: var(--cart-item-spacing);
+    }
+
+    &__details {
+      width: 60%;
+      flex: auto 0 0;
+    }
+  }
+
+  @include media-query($medium) {
+    &__details {
+      margin-top: 1em;
+    }
   }
 }

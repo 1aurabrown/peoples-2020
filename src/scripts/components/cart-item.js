@@ -10,33 +10,36 @@ Vue.component('cart-item', {
   template: `
     <div class="cart-item">
       <div class="cart-item__inner rel" >
-        <button class="z1 abs bg-white f aic jcc top p025 left enlarge-click cursor-pointer cart-item__remove" type="button" @click="removeItem">
+        <button class="z1 abs bg-white f aic jcc top left enlarge-click cursor-pointer cart-item__remove" type="button" @click="removeItem">
           <x-button></x-button>
         </button>
-        <a class="block" :href="item.url" :title="item.title">
-          <div class="block cart-item__image">
-            <responsive-crop-image
-            :src="item.image"
-            :alt="item.title"
-            className="x"
-            placeholder-key="product-1"
-            :crop-aspect-ratio=".75"
-            ></responsive-crop-image>
-          </div>
-          <div class="cart-item__text mt1">
+        <a :href="item.url" :title="item.title" class="block cart-item__image">
+          <responsive-crop-image
+          :src="item.image"
+          :alt="item.title"
+          className="x"
+          placeholder-key="product-1"
+          :crop-aspect-ratio=".75"
+          ></responsive-crop-image>
+        </a>
+
+        <div class="cart-item__details">
+          <a class="block cart-item__text" :href="item.url" :title="item.title">
             <p class="uppercase">{{ item.product_title }}</p>
             <formatted-price :price="item.price"></formatted-price>
-          </div>
-        </a>
-        <div class="mt075 f jcb aic">
-          <div class="f jcs aic fdr">
-            <swatch :selected="false" :value="color"></swatch>
-            <size :selected="true" :value="size"></size>
-          </div>
-          <div class="f jcc aic mr075">
-            <button @click.prevent="decrease" class="mx025 cursor-pointer enlarge-click">-</button>
-            <span class="mx05 cart-item__count circle active" :data-content="item.quantity"></span>
-            <button @click.prevent="increase" class="mx025 cursor-pointer enlarge-click">+</button>
+          </a>
+
+          <div class="mt075 f jcb aic">
+            <div class="f jcs aic fdr">
+              <swatch :selected="false" :value="color"></swatch>
+              <size :selected="true" :value="size"></size>
+            </div>
+
+            <div class="f jcc aic mr075">
+              <button @click.prevent="decrease" class="mx025 cursor-pointer enlarge-click">-</button>
+              <span class="mx05 cart-item__count circle active" :data-content="item.quantity"></span>
+              <button @click.prevent="increase" class="mx025 cursor-pointer enlarge-click">+</button>
+            </div>
           </div>
         </div>
       </div>
