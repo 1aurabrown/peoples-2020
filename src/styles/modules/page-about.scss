@@ -1,0 +1,13 @@
+.page-about__heading {
+  margin: 5rem 0 3rem;
+}
+
+.page-about .image-with-text {
+  margin-bottom: calc(var(--homepage-section-gap) - var(--padding));
+
+  &:nth-of-type(even) {
+    direction: rtl;
+  }
+}
+
+
