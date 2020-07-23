@@ -60,10 +60,13 @@ body.template-cart {
 }
 
 .side-cart {
-  .cart {
+  width: 100%;
+  @include media-query($medium-up) {
     width: fit-content;
-    &__grid {
-      max-width: calc(#{var(--cart-cols) * #{var(--cart-item-width)}});
+    .cart {
+      &__grid {
+        max-width: calc(#{var(--cart-cols) * #{var(--cart-item-width)}});
+      }
     }
   }
 }
@@ -72,11 +75,17 @@ body.template-cart {
 .cart {
   border: $standard-border;
   border-width: var(--cart-border-width);
-
+  &__messages {
+    width: calc(var(--cart-item-width) - var(--cart-item-spacing));
+    margin-left: auto;
+  }
 
   &__inner {
     overflow-y: scroll;
     padding: var(--cart-item-spacing);
+  }
+
+  &__empty {
   }
 
   &__close {
@@ -95,8 +104,12 @@ body.template-cart {
   }
 
   &__bottom {
+    padding: var(--cart-item-spacing);
     border-top: $standard-border;
-
+    &__inner {
+      width: calc(var(--cart-item-width) - var(--cart-item-spacing));
+      margin-left: auto;
+    }
     .button {
       margin-top: 1em;
     }
@@ -115,23 +128,12 @@ body.template-cart {
 
     &__grid {
       display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
       flex-wrap: wrap;
     }
 
     &__bottom {
-      padding: var(--cart-item-spacing);
 
-      &__grid {
-        margin-left: calc(-1 * #{var(--cart-item-spacing)});
-      }
 
-      &__inner {
-        padding-left: var(--cart-item-spacing);
-        width: var(--cart-item-width);
-        margin-left: auto;
-      }
     }
   }
 }

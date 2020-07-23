@@ -44,6 +44,10 @@ class Cart {
     })
   }
 
+  hasItems() {
+    return (!!this.state && !!this.state.items && (this.state.items.length > 0))
+  }
+
   removeItem(key) {
     this.clearError()
     removeItem(key).then( state => {

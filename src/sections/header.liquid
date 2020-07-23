@@ -15,7 +15,7 @@
     <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
       <div class="header__hamburger f aic">
-        <button ref="hamburger" class="cursor-pointer hamburger order-first z-40 md:hidden" type="button" v-on:click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
+        <button ref="hamburger" class="cursor-pointer hamburger order-first z-40 md:hidden" type="button" @click="modalController.toggleModal('mobileNav')" :class="{'is-active': (modalController.visibleModal === 'mobileNav')}">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -54,7 +54,7 @@
 {% schema %}
   {
     "name": "Header",
-    "class": "header-wrapper z10",
+    "class": "header-wrapper z8",
     "settings": [
       {
         "type": "header",

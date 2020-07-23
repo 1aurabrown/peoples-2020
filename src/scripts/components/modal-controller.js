@@ -11,6 +11,7 @@ class ModalController  {
   }
 
   dismissModal(modal) {
+    console.log('dismiss')
     if (modal === this.visibleModal) {
       this.visibleModal = null
       releaseScroll()
@@ -18,6 +19,7 @@ class ModalController  {
   }
 
   toggleModal(modal) {
+    console.log('toggle')
     if (this.visibleModal === modal) {
       this.dismissModal(modal)
     } else {
