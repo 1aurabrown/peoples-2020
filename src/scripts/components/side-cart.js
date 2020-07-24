@@ -9,6 +9,11 @@ Vue.component('cart', {
       cart: cart
     }
   },
+  computed: {
+    hasItems() {
+      return cart.hasItems();
+    }
+  },
   methods: {
     dismissModal: function(modal) {
       modalController.dismissModal(modal)
@@ -24,23 +29,20 @@ Vue.component('cart', {
       </div>
 
       <div class="cart__inner f-1">
-        <div v-if="cart.error">
-          <p class="mb1">There was a problem! <span class="mb1" v-text="cart.error"></span></p>
+        <div class="cart__messages" v-if="cart.error || !hasItems">
+          <p v-if="cart.error" class="mb1">There was a problem! <span class="mb1" v-text="cart.error"></span></p>
+          <p v-if="!hasItems" class="mb1">Your cart is empty.</p>
         </div>
-        <div v-if="cart.state && cart.state.items && cart.state.items.length > 0" class="cart__grid">
+        <div v-if="hasItems" class="cart__grid">
           <cart-item
             v-for="(item, index) in cart.state.items"
             :item="item"
             :index="index"
             :key="item.id"></cart-item>
         </div>
-
-        <div v-else>
-          Your cart is empty.
-        </div>
       </div>
 
-      <div class="cart__bottom x right left bottom z1 bg-white">
+      <div v-if="hasItems" class="cart__bottom x right left bottom z1 bg-white">
         <div class="cart__bottom__grid">
           <div class="cart__bottom__inner">
             <div class="f aic jcb"><span>Subtotal</span><span>$100.00</span></div>
