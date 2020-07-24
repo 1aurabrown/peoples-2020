@@ -1,24 +1,31 @@
-<section data-section-id="{{ section.id }}" data-section-type="product">
+<section class="pdp" data-section-id="{{ section.id }}" data-section-type="product">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-  {% for image in product.images %}
-    {% include 'responsive-image', image: image, crop_aspect_ratio: 1 %}
+  <div class="pdp__split">
 
-  {% endfor %}
+    <!-- Images -->
+    <div class="pdp__images">
+      {% for image in product.images %}
+        <div class="pdp__image">
+          {% include 'responsive-image', image: image %}
+        </div>
+      {% endfor %}
+    </div>
 
-  <h1>{{ product.title }}</h1>
-  <p>{{ product.vendor }}</p>
 
-  <product-form
-    :product='{{ product | json }}'
-    :options='{{ product.options_with_values | json }}'
-    initial-variant-id="{{ current_variant.id }}">
-  </product-form>
+    <!-- Info -->
+    <div class="pdp__info">
 
-  <div class="rte">
-    {{ product.description }}
+      <product-info
+        initial-variant-id="{{ current_variant.id }}"
+        :product='{{ product | json }}'
+        :options='{{ product.options_with_values | json }}'>
+      </product-info>
+
+    </div>
+
   </div>
 
 </section>

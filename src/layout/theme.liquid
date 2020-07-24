@@ -50,8 +50,12 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
   <div id="app">
-    <div class="abs x y fill z9" v-if="visibleModal" @click="dismissModal(visibleModal)"></div>
+    <div class="fix x y fill z9" v-if="visibleModal" @click="dismissModal(visibleModal)"></div>
     {% section 'header' %}
+
+    {% if template != "cart" %}
+      {% include 'side-cart' %}
+    {% endif %}
 
     <main role="main" id="MainContent" class="body-wrapper min-full-height">
       {{ content_for_layout }}

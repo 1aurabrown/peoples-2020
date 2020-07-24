@@ -13,7 +13,7 @@ class Cart {
 
   getState() {
     this.clearError()
-    getState().then( state => {
+    return getState().then( state => {
       this.state = state
       return state
     })
@@ -24,7 +24,7 @@ class Cart {
 
   addItem(id, options) {
     this.clearError()
-    addItem(id, options)
+    return addItem(id, options)
     .then( () => this.getState())
     .catch((res) => {
       this.error = res.statusText.length > 0 ? res.statusText : "The item could not be added to your cart."
@@ -36,7 +36,7 @@ class Cart {
 
   updateItem(key, options) {
     this.clearError()
-    updateItem(key, options).then( state => {
+    return updateItem(key, options).then( state => {
       this.state = state
     })
     .catch((res) => {
@@ -50,7 +50,7 @@ class Cart {
 
   removeItem(key) {
     this.clearError()
-    removeItem(key).then( state => {
+    return removeItem(key).then( state => {
       this.state = state
     })
     .catch((res) => {

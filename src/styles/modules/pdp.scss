@@ -1,0 +1,23 @@
+.pdp {
+  &__image {
+    padding-top: var(--padding);
+  }
+  @include media-query($medium-up) {
+    &__split {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    &__images,
+    &__info {
+      width: 50%;
+      flex: auto 0 0;
+    }
+    &__info {
+      padding-left: var(--padding);
+      padding-top: var(--padding);
+      position: sticky;
+      top: var(--header-height);
+    }
+  }
+}
