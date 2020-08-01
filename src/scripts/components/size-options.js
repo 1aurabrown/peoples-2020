@@ -11,8 +11,8 @@ Vue.component('size-options', {
     slugify: slugify
   },
   template: `
-    <div class="size-options">
-      <template v-for="value in option.values">
+    <div class="size-options options-wrapper product-form__option">
+      <div class="options-item" v-for="value in option.values">
         <input type="radio"
           @change="$emit('change', option, value)"
           :id="$id('option' + option.position + '-' + slugify(value))"
@@ -25,7 +25,8 @@ Vue.component('size-options', {
           >
           <size :value="value" :selected="selectedValue === value"></size>
         </label>
-      </template>
+
+      </div>
     </div>
   `
 })

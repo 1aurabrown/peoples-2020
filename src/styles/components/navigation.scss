@@ -11,6 +11,6 @@
   @extend .nav-link;
 
   &::after {
-    border: $standard-border;
+    border: var(--border);
   }
 }

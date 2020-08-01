@@ -1,7 +1,5 @@
 .pdp-details {
-  @include media-query($medium-up) {
-    margin-top: 2.5rem;
-  }
+  margin-top: 2.5rem;
   &__heading {
   }
   &__content-wrapper {

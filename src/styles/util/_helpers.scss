@@ -223,5 +223,5 @@
 }
 
 .border-bottom {
-  border-bottom: $standard-border;
+  border-bottom: var(--border);
 }

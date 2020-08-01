@@ -2,6 +2,14 @@
   &__image {
     padding-top: var(--padding);
   }
+  &__form {
+    padding-top: 2.5em;
+    @include swatch-medium;
+    .product-form__button {
+      margin-top: 1.625em;
+    }
+  }
+
   @include media-query($medium-up) {
     &__split {
       display: flex;
@@ -18,6 +26,13 @@
       padding-top: var(--padding);
       position: sticky;
       top: var(--header-height);
+    }
+
+  }
+
+  @include media-query($large-up) {
+    &__form {
+      @include swatch-large
     }
   }
 }

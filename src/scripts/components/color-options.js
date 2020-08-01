@@ -11,8 +11,8 @@ Vue.component('color-options', {
     slugify: slugify
   },
   template: `
-    <div class="color-options">
-      <template v-for="value in option.values">
+    <div class="color-options options-wrapper product-form__option">
+      <div class="options-item" v-for="value in option.values">
         <input type="radio"
           @change="$emit('change', option, value)"
           :id="$id('option' + option.position + '-' + slugify(value))"
@@ -25,8 +25,7 @@ Vue.component('color-options', {
           >
           <swatch :value="value" :selected="selectedValue === value"></swatch>
         </label>
-      </template>
-
+      </div>
     </div>
   `
 })

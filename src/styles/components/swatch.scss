@@ -1,20 +1,7 @@
 
-@mixin swatch-large() {
-  .swatch, .size, .circle {
-    font-size: 1rem;
-    width: 2.25rem;
-  }
-}
-
-@mixin swatch-medium() {
-  .swatch, .size, .circle {
-    font-size: var(--text-small);
-    width: 1.5rem;
-  }
-}
 .swatch, .size, .circle {
-  font-size: .6875rem;
-  width: 1.125rem;
+  font-size: var(--option-font-size);
+  width: var(--option-circle-width);
   position: relative;
   border-radius: 50%;
   display: block;
@@ -48,7 +35,7 @@
     content: '';
   }
   &::after {
-    border: $standard-border;
+    border: var(--border);
   }
 }
 
@@ -72,21 +59,21 @@
   input[type=radio]:checked + label &,
   &.active {
     &::after {
-      border: $standard-border;
+      border: var(--border);
     }
   }
 }
 
 .circle::after {
-  border: $standard-border;
+  border: var(--border);
 }
 
 .swatch {
   input[type=radio]:checked + label &,
   &.active {
-    border: $standard-border;
+    border: var(--border);
     &::after {
-      inset: 2px;
+      margin: var(--color-swatch-inset);
     }
   }
 }

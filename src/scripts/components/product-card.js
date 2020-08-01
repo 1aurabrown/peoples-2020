@@ -76,7 +76,6 @@ Vue.component('product-card', {
             @variantChanged="variantChanged"
             :product="product"
             :options="options"
-            buttonClass="button--full"
             >
           </product-form>
         </div>

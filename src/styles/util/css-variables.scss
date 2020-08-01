@@ -1,5 +1,6 @@
 :root {
   --border-color: #{$black};
+  --border: 1px solid var(--border-color);
   --text-color: #{$black};
   --text-small: .875rem;
   --padding: 1em;
@@ -14,4 +15,26 @@
     --header-height: 4.5em;
     --homepage-section-gap: 9.75em;
   }
+}
+
+
+:root {
+  --option-font-size: .6875rem;
+  --option-circle-width: 1.125rem;
+  --option-circle-spacing: .5em;
+  --color-swatch-inset: 2px;
+  --option-group-spacing: calc(2 * var(--option-circle-spacing));
+}
+
+@mixin swatch-large {
+  --option-font-size: 1rem;
+  --option-circle-width: 2.25rem;
+  --option-circle-spacing: .625em;
+  --color-swatch-inset: 4px;
+}
+
+@mixin swatch-medium {
+  --option-font-size: var(--text-small);
+  --option-circle-width: 1.5rem;
+  --color-swatch-inset: 3px;
 }

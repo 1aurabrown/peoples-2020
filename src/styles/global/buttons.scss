@@ -35,7 +35,7 @@ a {
   display: inline-block;
   @include uppercase;
   background: transparent;
-  border: $standard-border;
+  border: var(--border);
   text-align: center;
   padding: .1em 2.4em 0;
   line-height: 2.3em;
@@ -49,9 +49,6 @@ a {
     }
   }
 
-  &--full {
-    width: 100%;
-  }
 }
 
 button:disabled {

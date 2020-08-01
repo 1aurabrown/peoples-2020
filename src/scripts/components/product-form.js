@@ -103,7 +103,7 @@ Vue.component('product-form', {
             @change="optionChanged">
           </size-options>
 
-          <select v-else @change="optionChanged(option, $event.target.value)">
+          <select class="product-form__option" v-else @change="optionChanged(option, $event.target.value)">
             <option v-for="value in option.values" :value="value">
               {{ value }}
             </option>
@@ -125,7 +125,7 @@ Vue.component('product-form', {
       </noscript>
 
       <add-to-cart-button
-        :className="(buttonClass ? buttonClass : '') + ' product-form__button'"
+        :className="(buttonClass ? buttonClass : '') + ' product-form__button x'"
         :disabled="disabled || !selectedVariant.available || inFlight"
         :buttonText="buttonText"></add-to-cart-button>
     </form>

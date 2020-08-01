@@ -5,7 +5,7 @@
   padding: calc(3 * var(--padding));
   @include media-query($medium-up) {
     max-width: 400px;
-    border-right: $standard-border;
+    border-right: var(--border);
     padding: var(--padding);
   }
 
