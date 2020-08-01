@@ -34,7 +34,7 @@ Vue.component('cart-item', {
               <div class="options-item">
                 <swatch :selected="false" :value="color"></swatch>
               </div>
-              <div class="option-item">
+              <div class="options-item">
                 <size :selected="true" :value="size"></size>
               </div>
             </div>

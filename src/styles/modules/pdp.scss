@@ -6,7 +6,13 @@
     padding-top: 2.5em;
     @include swatch-medium;
     .product-form__button {
-      margin-top: 1.625em;
+      margin-top: 1.25em;
+    }
+  }
+
+  @include media-query($small) {
+    &__info {
+      padding-top: 3em;
     }
   }
 
