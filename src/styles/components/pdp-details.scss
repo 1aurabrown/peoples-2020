@@ -1,0 +1,21 @@
+.pdp-details {
+  @include media-query($medium-up) {
+    margin-top: 2.5rem;
+  }
+  &__heading {
+  }
+  &__content-wrapper {
+    transition: max-height .25s;
+    max-height: 0px; // inital value gets overwritten by inline style
+    overflow: hidden;
+  }
+  &__content {
+    table,
+    p {
+      &:not(:first-child) {
+        margin-top: $line-height * 1em 0;
+      }
+    }
+  }
+
+}

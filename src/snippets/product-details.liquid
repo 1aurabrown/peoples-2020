@@ -1,0 +1,12 @@
+{% assign section_headings = product.metafields.accentuate.product_section_heading  %}
+{% assign section_contents = product.metafields.accentuate.product_section_content  %}
+
+
+{% assign section_headings = "Materials|Care" | split: "|" %}
+{% assign section_contents = "Materials Content Materials Content Materials Content Materials Content Materials Content Materials Content Materials Content Materials Content|Care Content Care Content Care Content Care Content Care Content Care Content Care Content" | split: "|" %}
+
+{% if section_headings.size > 0 and section_contents.size > 0 %}
+
+  <pdp-details :headings='{{ section_headings | json }}' :contents='{{ section_contents | json }}'></pdp-details>
+
+{% endif %}

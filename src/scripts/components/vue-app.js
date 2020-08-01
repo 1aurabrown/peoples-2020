@@ -11,6 +11,7 @@ import '../components/formatted-price'
 import '../components/responsive-image-img-tag'
 import '../components/responsive-crop-image'
 import '../components/x-button'
+import '../components/pdp-details'
 
 import cart from '../components/cart'
 import modalController from '../components/modal-controller'
