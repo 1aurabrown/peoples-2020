@@ -4,10 +4,7 @@ body {
   line-height: $line-height;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @include media-query($small) {
-    font-size: var(--text-small); // 14px
-  }
+  font-size: var(--font-size);
 }
 
 p {
@@ -39,6 +36,12 @@ p {
 
 .uppercase {
   @include uppercase;
+}
+
+.text-large {
+  @include media-query($medium-up) {
+    font-size: var(--text-large);
+  }
 }
 
 /*============= Elements ================*/

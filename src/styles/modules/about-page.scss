@@ -1,0 +1,5 @@
+.about-page {
+  &__section:not(:first-child) {
+    margin-top: var(--homepage-section-gap);
+  }
+}
