@@ -52,12 +52,12 @@ a {
   padding-right: var(--padding);
 }
 
-.template-index .index-section {
-  padding-top: var(--padding);
-  margin-top: calc(var(--homepage-section-gap) - var(--padding));
-
-  &:first-child {
-    margin-top: 0;
+.template-index {
+  .index-section {
+    margin-top: calc(var(--homepage-section-gap);
+  }
+  .index-section:first-child {
+    margin-top: var(--padding);
   }
 }
 

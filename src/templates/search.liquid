@@ -1,5 +1,5 @@
-<div class="search-page large-text-page">
-  <div class="large-text-page__top">
+<div class="search-page text-page">
+  <div class="text-large">
 
     {% if search.performed %}
       <h1>
@@ -22,7 +22,7 @@
 
   </div>
 
-  <div class="large-text-page__content">
+  <div class="text-page__content">
     {% if search.performed == false or search.results_count == 0 %}
       {% section 'featured-collections' %}
     {% else %}

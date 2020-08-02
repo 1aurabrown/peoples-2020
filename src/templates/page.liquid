@@ -1,6 +1,4 @@
-{% assign page = page.title | downcase %}
-{% if page == 'about' %}
-  {% section 'page-about' %}
-{% else %}
-  {% section 'page-template' %}
-{% endif %}
+<div class="text-page">
+  <h1 class="uppercase">{{ page.title }}</h1>
+  <div class="text-page__content text-page__body">{{ page.content }}</div>
+</div>
