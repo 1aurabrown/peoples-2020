@@ -1,30 +1,52 @@
-<section class="images-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %} {{ class_name }}">
+{% if images_with_text_index == blank %}
+  {% assign images_with_text_index = 1 %}
+{% else %}
+  {% assign images_with_text_index = images_with_text_index | plus: 1 %}
+{% endif %}
+<section class="images-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %} {{ class_name }}" >
 
-  <div class="images-with-text__images max-padded-full-height overflow-hidden f fdr y">
-    {% if settings.image != blank %}
-      <div class="images-with-text__image x y">
-        <responsive-img-tag
-          alt="{{ settings.heading }}"
-          class-name="x y"
-          :src='{{ settings.image | json }}'>
-        </responsive-img-tag>
-      </div>
-    {% else %}
-      {% for i in (1..5) %}
-        {% assign image_key = 'image_' | append: i %}
-        {% assign image_i = settings[image_key] %}
-        {% if image_i != blank %}
-          <div class="images-with-text__image x y">
-            <responsive-img-tag
-              alt="{{ settings.heading }}"
-              class-name="x y"
-              :src='{{ image_i | json }}'>
-            </responsive-img-tag>
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
+  {% if settings.image != blank %}
+
+    {% comment %}Single Image{% endcomment %}
+    <div class="images-with-text__image max-padded-full-height overflow-hidden x y">
+      {% include 'responsive-image-img-tag',
+        alt: settings.heading,
+        image_class:"x y",
+        image: settings.image %}
+    </div>
+
+  {% else %}
+
+    {% comment %}Multiple Images{% endcomment %}
+    <div class="overflow-hidden x y " data-vue-instance>
+      <swiper class="images-with-text__images overflow-hidden x y"
+      ref="swiperComponent"
+      :options="{
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        loop: true,
+        watchOverflow: true
+      }">
+
+        {% for i in (1..5) %}
+          {% assign image_key = 'image_' | append: i %}
+          {% assign image_i = settings[image_key] %}
+          {% if image_i != blank %}
+            <swiper-slide class="images-with-text__image swiper-slide x y">
+              <responsive-img-tag
+                alt="{{ settings.heading }}"
+                class-name="x y"
+                :src='{{ image_i | json }}'>
+              </responsive-img-tag>
+            </swiper-slide>
+          {% endif %}
+        {% endfor %}
+
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+  {% endif %}
 
   <div class="images-with-text__text al">
     <div class="images-with-text__content fdc jcb x y">

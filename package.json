@@ -28,6 +28,7 @@
     "svbstrate": "^4.1.1",
     "swiper": "^6.1.1",
     "vue": "^2.6.11",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-unique-id": "^3.1.0",
     "vue2-touch-events": "^2.2.1"
   },
