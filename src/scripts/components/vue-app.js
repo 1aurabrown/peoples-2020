@@ -14,10 +14,16 @@ import '../components/x-button'
 import cart from '../components/cart'
 import modalController from '../components/modal-controller'
 
+
+import { Swiper as Swiper, Pagination } from 'swiper'
+import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter'
+
 import Vue from 'vue'
 import Vue2TouchEvents from 'vue2-touch-events'
 import UniqueId from 'vue-unique-id'
 
+Swiper.use([Pagination])
+Vue.use(getAwesomeSwiper(Swiper))
 Vue.use(UniqueId)
 Vue.use(Vue2TouchEvents)
 
@@ -43,6 +49,7 @@ class App {
           return this.modalController.visibleModal
         }
       },
+
       delimiters: ['${', '}'],
       methods: {
         toggleModal: function(modal) {

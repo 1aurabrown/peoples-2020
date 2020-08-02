@@ -1,31 +1,48 @@
+{% if images_with_text_index == blank %}
+  {% assign images_with_text_index = 1 %}
+{% else %}
+  {% assign images_with_text_index = images_with_text_index | plus: 1 %}
+{% endif %}
 <section class="images-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %} {{ class_name }}">
 
-  <div class="images-with-text__images max-padded-full-height overflow-hidden f fdr y">
-    {% if settings.image != blank %}
-      <div class="images-with-text__image x y">
-        <responsive-img-tag
-          alt="{{ settings.heading }}"
-          class-name="x y"
-          :src='{{ settings.image | json }}'>
-        </responsive-img-tag>
-      </div>
-    {% else %}
+  {% if settings.image != blank %}
+    <div class="images-with-text__image max-padded-full-height overflow-hidden x y">
+      <responsive-img-tag
+        alt="{{ settings.heading }}"
+        class-name="x y"
+        :src='{{ settings.image | json }}'>
+      </responsive-img-tag>
+    </div>
+
+   {% else %}
+
+    <swiper class="images-with-text__images max-padded-full-height overflow-hidden x y"
+    ref="swiperComponent"
+    :options="{
+      pagination: {
+        el: '.swiper-pagination'
+      },
+      loop: true,
+      watchOverflow: true
+    }">
+
       {% for i in (1..5) %}
         {% assign image_key = 'image_' | append: i %}
         {% assign image_i = settings[image_key] %}
         {% if image_i != blank %}
-          <div class="images-with-text__image x y">
+          <swiper-slide class="images-with-text__image swiper-slide x y">
             <responsive-img-tag
               alt="{{ settings.heading }}"
               class-name="x y"
               :src='{{ image_i | json }}'>
             </responsive-img-tag>
-          </div>
+          </swiper-slide>
         {% endif %}
       {% endfor %}
-    {% endif %}
-  </div>
 
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+  {% endif %}
   <div class="images-with-text__text al">
     <div class="images-with-text__content fdc jcb x y">
 

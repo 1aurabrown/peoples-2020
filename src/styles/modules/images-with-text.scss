@@ -9,8 +9,11 @@
   direction: ltr;
 }
 
+.swiper-slide {
+  flex-shrink: 0
+}
+
 .images-with-text__image {
-  flex-shrink: 0;
   img {
     width: 100%;
     object-fit: cover;
