@@ -1,9 +1,8 @@
 import Vue from 'vue';
-import cart from './cart';
 import { find } from 'lodash';
 
 Vue.component('cart-item', {
-  props: ['item'],
+  props: ['cart', 'item'],
   data: function () {
     return {}
   },
@@ -66,17 +65,17 @@ Vue.component('cart-item', {
   },
   methods: {
     increase() {
-      cart.updateItem(this.item.key, {
+      this.cart.updateItem(this.item.key, {
         quantity: this.item.quantity + 1
       })
     },
     decrease() {
-      cart.updateItem(this.item.key, {
+      this.cart.updateItem(this.item.key, {
         quantity: this.item.quantity - 1
       })
     },
     removeItem() {
-      cart.removeItem(this.item.key)
+      this.cart.removeItem(this.item.key)
     }
   }
 })

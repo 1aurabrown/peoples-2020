@@ -14,12 +14,13 @@ import {focusHash, bindInPageLinks} from '@shopify/theme-a11y'
 import {load} from '@shopify/theme-sections'
 
 // Global
-import {app} from './components/vue-app'
+import {registerVueInstances} from './core/vue-setup'
 
 document.addEventListener("DOMContentLoaded", function(event) {
   load('*');
   // Common a11y fixes
   focusHash();
   bindInPageLinks();
+  registerVueInstances({ selector: '[data-vue-instance]' })
 });
 

@@ -40,17 +40,8 @@
   class="overflow-hidden rel p0 {{ wrapper_class }}">
 
   <div class="overflow-hidden p0 x" style="{{ styles }}">
-
-    <responsive-img-tag
-      :src='{{ image | json }}'
-      :crop-aspect-ratio='{{ crop_aspect_ratio | json }}'
-      fit="{{ fit }}"
-      alt="{{ alt }}"
-      :default-width='{{ defaultWidth | json }}'
-      class-name="x y fill abs {{ image_class }}"
-      placeholder-key="{{ placeholder_key }}"
-    ></responsive-img-tag>
-
+    {% assign image_class = 'x y fill abs ' | append: image_class %}
+    {% include 'responsive-image-img-tag' %}
   </div>
 </div>
 

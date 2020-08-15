@@ -3,12 +3,11 @@
 
 <section class="image-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %}">
 
-  <div class="image-with-text__image y max-padded-full-height">
-    <responsive-img-tag
-      alt="{{ section.settings.heading }}"
-      class-name="x y"
-      :src='{{ image | json }}'>
-    </responsive-img-tag>
+  <div class="images-with-text__image max-padded-full-height overflow-hidden x y">
+    {% include 'responsive-image-img-tag',
+      alt: section.settings.heading,
+      image_class:"x y",
+      image: section.settings.image %}
   </div>
 
   <div class="image-with-text__text al small--mt-line medium-up--mb-line">

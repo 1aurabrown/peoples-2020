@@ -4,7 +4,6 @@ Vue.component('search-form', {
   props: ['alwaysOpen'],
   data: function () {
     return {
-      id: null,
       active: !!this.alwaysOpen,
       searchText: '',
       searchPlaceholder: theme.strings.searchPlaceholder,

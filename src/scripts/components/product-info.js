@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import isTouch from './is-touch'
+import isTouch from '../core/is-touch'
 
 Vue.component('product-info', {
-  props: ['product', 'options', 'initialVariantId'],
+  props: ['cart', 'product', 'options', 'initialVariantId'],
   data: function() {
     return {
       price: '',
@@ -29,6 +29,7 @@ Vue.component('product-info', {
             @variantChanged="variantChanged"
             :product="product"
             :options="options"
+            :cart="cart"
             :initial-variant-id="initialVariantId"
             >
           </product-form>

@@ -1,4 +1,4 @@
-<section class="pdp" data-section-id="{{ section.id }}" data-section-type="product">
+<section class="pdp" data-section-id="{{ section.id }}" data-section-type="product" data-vue-instance>
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
@@ -15,13 +15,13 @@
 
     </div>
 
-
     <!-- Info -->
     <div class="pdp__info">
 
       <product-info
         initial-variant-id="{{ current_variant.id }}"
         :product='{{ product | json }}'
+        :cart="cart"
         :options='{{ product.options_with_values | json }}'>
       </product-info>
 

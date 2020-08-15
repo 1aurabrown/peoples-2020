@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import isTouch from './is-touch'
+import isTouch from '../core/is-touch'
 
 Vue.component('product-card', {
-  props: ['product', 'link', 'options'],
+  props: ['cart', 'product', 'link', 'options'],
   data: function() {
     return {
       currentVariant: {},
@@ -76,6 +76,8 @@ Vue.component('product-card', {
             @variantChanged="variantChanged"
             :product="product"
             :options="options"
+            :cart="cart"
+            buttonClass="button--full"
             >
           </product-form>
         </div>

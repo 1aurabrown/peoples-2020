@@ -10,7 +10,8 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
-<section data-section-id="{{ section.id }}" data-section-type="header">
+<section data-section-id="{{ section.id }}" data-section-type="header" data-vue-instance>
+  <div class="fix x y fill z9" v-if="modalController.visibleModal" @click="modalController.dismissModal(modalController.visibleModal)"></div>
   <div class="header">
     <div class="header__inner y">
       {% comment %} TO DO: Add class of 'is-active' on click {% endcomment %}
@@ -44,6 +45,15 @@
       </header>
 
       {% include 'header_right_menu', class: 'header__right f jce', position: 'header' %}
+      {% if template != "cart" %}
+
+        <transition v-cloak name="slide-left">
+          <div v-show="modalController.visibleModal === 'cart'" class="side-cart z10 right top bottom y fix">
+            <cart :cart="cart" :modal-controller="modalController" :header=true></cart>
+          </div>
+        </transition>
+
+      {% endif %}
     </div>
   </div>
 </section>
