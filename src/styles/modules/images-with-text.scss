@@ -1,0 +1,48 @@
+.images-with-text {
+  @include media-query($small) {
+    grid-gap: .75em;
+  }
+  align-items: stretch;
+}
+
+.images-with-text__images {
+  direction: ltr;
+}
+
+.swiper-slide {
+  flex-shrink: 0
+}
+
+.images-with-text__image {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.images-with-text__heading {
+  margin-bottom: $line-height * 1em;
+}
+
+.images-with-text__text {
+  margin: ($line-height * 1em) 0 0;
+
+  @include media-query($medium-up) {
+    margin: 1em 0;
+  }
+
+  @include media-query($large-up) {
+    padding-left: 15%;
+
+    .grid-reverse & {
+      padding-right: 15%;
+      padding-left: 0;
+    }
+
+  }
+}
+
+.images-with-text__button {
+  margin-top: $line-height * 1em;
+}
+

@@ -11,6 +11,7 @@
 @import '~svbstrate/src/lib/positioning.css';
 @import '~svbstrate/src/lib/spacing.css';
 @import '~svbstrate/src/lib/z-index.css';
+@import '~swiper/swiper-bundle.css';
 
 // *************************************
 // ***** Util
@@ -37,9 +38,9 @@
 @import './modules/hamburger';
 @import './modules/hero';
 @import './modules/pdp';
-@import './modules/image-text';
+@import './modules/images-with-text';
+@import './modules/about-page';
 @import './modules/text-page';
-@import './modules/large-text-page';
 @import './modules/footer-top';
 @import './modules/footer-location';
 @import './modules/footer-copyright';

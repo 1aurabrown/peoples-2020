@@ -1,0 +1,76 @@
+{% if images_with_text_index == blank %}
+  {% assign images_with_text_index = 1 %}
+{% else %}
+  {% assign images_with_text_index = images_with_text_index | plus: 1 %}
+{% endif %}
+<section class="images-with-text half-grid {% if layout == 'right' %} grid-reverse {% endif %} {{ class_name }}" >
+
+  {% if settings.image != blank %}
+
+    {% comment %}Single Image{% endcomment %}
+    <div class="images-with-text__image max-padded-full-height overflow-hidden x y">
+      {% include 'responsive-image-img-tag',
+        alt: settings.heading,
+        image_class:"x y",
+        image: settings.image %}
+    </div>
+
+  {% else %}
+
+    {% comment %}Multiple Images{% endcomment %}
+    <div class="overflow-hidden x y " data-vue-instance>
+      <swiper class="images-with-text__images overflow-hidden x y"
+      ref="swiperComponent"
+      :options="{
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        loop: true,
+        watchOverflow: true
+      }">
+
+        {% for i in (1..5) %}
+          {% assign image_key = 'image_' | append: i %}
+          {% assign image_i = settings[image_key] %}
+          {% if image_i != blank %}
+            <swiper-slide class="images-with-text__image swiper-slide x y">
+              <responsive-img-tag
+                alt="{{ settings.heading }}"
+                class-name="x y"
+                :src='{{ image_i | json }}'>
+              </responsive-img-tag>
+            </swiper-slide>
+          {% endif %}
+        {% endfor %}
+
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+  {% endif %}
+
+  <div class="images-with-text__text al">
+    <div class="images-with-text__content fdc jcb x y">
+
+      {% if settings.heading != blank %}
+        <h2 class="images-with-text__heading uppercase">{{ settings.heading | escape }}</h2>
+      {% endif %}
+
+      <div class="images-with-text__p">
+        {% if settings.text != blank %}
+          <div>{{ settings.text }}</div>
+        {% endif %}
+
+        {% if settings.button_label != blank and settings.button_link != blank %}
+          <a href="{{ settings.button_link }}" class="button images-with-text__button">
+            {{ settings.button_label | escape }}
+          </a>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% assign settings = blank %}
+{% assign layout = blank %}
+{% assign class_name = blank %}
