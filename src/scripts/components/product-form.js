@@ -5,7 +5,8 @@ Vue.component('product-form', {
   props: ['cart', 'disabled', 'product', 'initialVariantId', 'options', 'buttonClass'],
   data: function () {
     return {
-      selectedVariant:{}
+      selectedVariant:{},
+      inFlight: false
     }
   },
 
@@ -17,7 +18,10 @@ Vue.component('product-form', {
   methods: {
     submit() {
       this.$emit('submit')
-      this.cart.addItem(this.selectedVariant.id, { quantity: 1 })
+      this.inFlight = true;
+      this.cart.addItem(this.selectedVariant.id, { quantity: 1 }).then( () => {
+        this.inFlight = false;
+      })
     },
 
     selectedOptionValue(option) {
@@ -75,7 +79,7 @@ Vue.component('product-form', {
   template: `
     <form
       class="product-form"
-      :disabled="disabled"
+      :disabled="disabled || inFlight"
       @submit.prevent="submit"
       :class="{ 'pointer-none': disabled }"
       action="/cart/add"
@@ -98,7 +102,7 @@ Vue.component('product-form', {
             @change="optionChanged">
           </size-options>
 
-          <select v-else @change="optionChanged(option, $event.target.value)">
+          <select class="product-form__option" v-else @change="optionChanged(option, $event.target.value)">
             <option v-for="value in option.values" :value="value">
               {{ value }}
             </option>
@@ -120,8 +124,8 @@ Vue.component('product-form', {
       </noscript>
 
       <add-to-cart-button
-        :className="buttonClass + ' product-form__button'"
-        :disabled="disabled || !selectedVariant.available"
+        :className="(buttonClass ? buttonClass : '') + ' product-form__button x'"
+        :disabled="disabled || !selectedVariant.available || inFlight"
         :buttonText="buttonText"></add-to-cart-button>
     </form>
   `

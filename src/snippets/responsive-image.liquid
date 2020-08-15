@@ -27,9 +27,11 @@
 {%- assign aspect_ratio_fallback = crop_aspect_ratio | default: image.aspect_ratio | default: 1 -%}
 
 
-{%- capture styles -%}
-padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
-{%- endcapture -%}
+{% unless no_padding == true %}
+  {%- capture styles -%}
+  padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
+  {%- endcapture -%}
+{% endunless %}
 
 {%- comment -%} data-aspectratio: aspect ratio of image file {%- endcomment -%}
 {%- comment -%} visual aspect ratio shoud be set via image wrapper's padding-bottom {%- endcomment -%}
@@ -51,3 +53,4 @@ padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
 {%- assign image = blank -%}
 {%- assign fit = blank -%}
 {%- assign styles = blank -%}
+{%- assign no_padding = blank %}

@@ -31,7 +31,7 @@
   margin: 0 calc(var(--pagination-gap) / 2);
 
   &.current {
-    border: $standard-border;
+    border: var(--border);
     border-radius: 50%;
 
   }

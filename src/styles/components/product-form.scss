@@ -1,14 +1,16 @@
 .product-form {
+
+  // spacing between product option groups, eg. size, color
   &__options {
     .color-options {
       order: -1;
     }
-    .swatch {
-      margin-right: .5em
-    }
-    .size {
-      margin-left: .5em
-    }
+    margin-top: calc(-1 * var(--option-group-spacing));
+    margin-left: calc(-1 * var(--option-group-spacing));
+  }
+  &__option {
+    padding-left: var(--option-group-spacing);
+    padding-top: var(--option-group-spacing);
   }
   &__button {
 

@@ -98,7 +98,7 @@
     @include enlarge-click;
     outline: none;
     &::after {
-      border: $standard-border;
+      border: var(--border);
     }
   }
 }

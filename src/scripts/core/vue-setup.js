@@ -25,6 +25,8 @@ import '../components/responsive-image-img-tag'
 import '../components/responsive-crop-image'
 import '../components/x-button'
 import '../components/side-cart'
+import '../components/pdp-details'
+import '../components/product-info'
 
 const vueData = {
   cart: cart,

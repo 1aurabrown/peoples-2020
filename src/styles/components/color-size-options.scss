@@ -1,4 +1,5 @@
-.color-options, .size-options {
+.color-options,
+.size-options {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -8,5 +9,15 @@
     &:focus {
       outline: none;
     }
+  }
+}
+
+// spacing between swatchces & size circles
+.options-wrapper {
+  margin-left: calc(-1 * var(--option-circle-spacing));
+  margin-top: calc(-1 * var(--option-circle-spacing));
+  .options-item {
+    padding-left: var(--option-circle-spacing);
+    padding-top: var(--option-circle-spacing);
   }
 }

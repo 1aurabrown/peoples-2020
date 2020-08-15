@@ -1,5 +1,5 @@
 .footer__top {
-  border-top: $standard-border;
+  border-top: var(--border);
   direction: rtl;
   text-align: left;
   grid-gap: 0;
@@ -32,7 +32,7 @@
     }
   }
   @include media-query($medium-up) {
-    border-right: $standard-border;
+    border-right: var(--border);
   }
 
   @include media-query($medium-down) {

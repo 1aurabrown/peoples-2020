@@ -35,7 +35,7 @@ Vue.component('cart', {
         <div class="cart__bottom__grid">
           <div class="cart__bottom__inner">
             <div class="f aic jcb"><span>Subtotal</span><span>$100.00</span></div>
-            <button class="button button--full">Checkout</button>
+            <button class="button x">Checkout</button>
           </div>
         </div>
       </div>

@@ -5,17 +5,13 @@
   width: 100%;
   flex: auto 0 0;
 
-  .swatch, .size {
-    margin-right: .5em;
-  }
-
   &__remove {
     position: absolute;
     width: 19px;
     height: 19px;
     border-radius: 50%;
     padding: 4px;
-    border: $standard-border;
+    border: var(--border);
     transform: translate3d(-9px, -9px, 0);
   }
 

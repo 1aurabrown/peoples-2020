@@ -73,7 +73,7 @@ body.template-cart {
 
 
 .cart {
-  border: $standard-border;
+  border: var(--border);
   border-width: var(--cart-border-width);
   &__messages {
     width: calc(var(--cart-item-width) - var(--cart-item-spacing));
@@ -93,7 +93,7 @@ body.template-cart {
   }
 
   &__header {
-    border-bottom: $standard-border;
+    border-bottom: var(--border);
     height: calc(var(--header-height) - var(--cart-border-width));
     padding: 0 var(--cart-item-spacing);
   }
@@ -105,7 +105,7 @@ body.template-cart {
 
   &__bottom {
     padding: var(--cart-item-spacing);
-    border-top: $standard-border;
+    border-top: var(--border);
     &__inner {
       width: calc(var(--cart-item-width) - var(--cart-item-spacing));
       margin-left: auto;

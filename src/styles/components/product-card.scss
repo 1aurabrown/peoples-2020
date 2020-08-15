@@ -6,7 +6,7 @@
 
   }
   &__form {
-    border: $standard-border;
+    border: var(--border);
     padding: .75em .5em .5em;
     .product-form__button {
       margin-top: .75em;

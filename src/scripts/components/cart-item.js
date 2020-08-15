@@ -29,11 +29,14 @@ Vue.component('cart-item', {
           </a>
 
           <div class="mt075 f jcb aic">
-            <div class="f jcs aic fdr">
-              <swatch :selected="false" :value="color"></swatch>
-              <size :selected="true" :value="size"></size>
+            <div class="f jcs aic fdr options-wrapper">
+              <div class="options-item">
+                <swatch :selected="false" :value="color"></swatch>
+              </div>
+              <div class="options-item">
+                <size :selected="true" :value="size"></size>
+              </div>
             </div>
-
             <div class="f jcc aic mr075">
               <button @click.prevent="decrease" class="mx025 cursor-pointer enlarge-click">-</button>
               <span class="mx05 cart-item__count circle active" :data-content="item.quantity"></span>

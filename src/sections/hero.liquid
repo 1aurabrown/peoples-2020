@@ -1,7 +1,8 @@
 {% assign settings = section.settings %}
 
 <section class="section">
-  <div class="hero fdc jcc aic padded-full-height rel lazyload" data-bgset="{% include 'responsive-bg-image', image: settings.background_image %}">
+  <div class="hero fdc jcc aic padded-full-height rel">
+    {% include 'responsive-image', image: settings.background_image, alt: settings.heading, wrapper_class: 'x y fill abs', no_padding: true %}
     <div class="content ac tc-white z1">
       <h2 class="h1">{{ settings.heading }}</h2>
       {% if settings.button_text != blank and settings.button_url != blank %}
