@@ -1,0 +1,70 @@
+
+{%- assign default_width = default_width | default: 500 -%}
+{%- assign img_url_string = default_width | append: 'x' -%}
+
+{%- if crop_aspect_ratio != blank -%}
+  {%- assign default_height = default_width | times: crop_aspect_ratio | round -%}
+  {%- assign img_url_string = img_url_string | append: default_height -%}
+  {%- assign default_image_url = image | img_url: img_url_string -%}
+  {% if fit == 'cover' %}
+    {%- assign default_image_url = default_image_url | crop: 'center' -%}
+  {%- endif -%}
+
+{%- else -%}
+  {%- assign default_image_url = image | img_url: img_url_string -%}
+{%- endif -%}
+
+
+{%- assign img_url_template = image | img_url: '1x1' -%}
+{%- if crop_aspect_ratio != blank -%}
+
+  {%- if fit == 'cover' -%}
+    {%- assign img_url_template = img_url_template | crop: 'center' -%}
+  {%- endif -%}
+
+  {%- assign img_url_template = img_url_template  | replace: '_1x1.', '_{width}x{height}.' -%}
+
+{%- else -%}
+  {%- assign img_url_template = img_url_template | replace: '_1x1.', '_{width}x.' -%}
+{%- endif -%}
+
+{%- comment -%} Limit image widths to valid options based on image.width {%- endcomment -%}
+{%- assign image_widths = '180,360,540,720,900,1080,1296,1512,1728,1944,2160,2376,2592,2808,3024' | split: ',' -%}
+{%- capture image_widths -%}
+  {%- for width in image_widths -%}
+    {%- comment -%} Check if image width is less or equal to width {%- endcomment -%}
+    {%- assign width_num = width | plus: 0 | round -%}
+    {%- if image.width >= width_num -%}{{ width_num }},{%- endif -%}
+  {%- endfor -%}
+  {{ image.width }}
+{%- endcapture -%}
+{%- assign image_widths = image_widths | strip -%}
+
+{%- if image.src != blank -%}
+<img
+    class="lazyload object-{{ fit | default: 'cover' }} {{ image_class }} "
+    style="{{ img_styles }}"
+    src="{{ default_image_url }}"
+    data-src="{{ img_url_template }}"
+    data-widths="[{{ image_widths }}]"
+    data-aspectratio="{{ crop_aspect_ratio | default: image.aspect_ratio }}"
+    data-sizes="auto"
+    alt="{{ alt | default: image.alt | default: page.title | escape }}" {{ image_attributes }}
+  />
+{%- else -%}
+
+  <img class="border object-{{ fit | default: 'cover' }} {{ image_class }} "
+  style="{{ img_styles }}"
+  src="data:image/svg+xml;utf8,{{ placeholder_key | default: 'image' | placeholder_svg_tag | escape }}" />
+{%- endif -%}
+
+{% assign default_image_url = blank %}
+{% assign img_url_template = blank %}
+{% assign crop_aspect_ratio = blank %}
+{% assign image_attributes = blank %}
+{% assign image_class = blank %}
+{% assign image_widths = blank %}
+{% assign image = blank %}
+{% assign default_width = blank %}
+{% assign default_height = blank %}
+{% assign img_url_string = blank %}

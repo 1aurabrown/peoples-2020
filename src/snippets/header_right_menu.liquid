@@ -25,7 +25,7 @@
     {% include 'navigation-menu', nav: section.settings.right_menu %}
 
     <li {% if template =='cart' %}class="nav-link nav-link--active"{% endif %}>
-      <a href="/cart" {% if position == "header" %}ref="cart-button"{% endif %} class="header__cart" @click.prevent="toggleModal('cart')">
+      <a href="/cart" {% if position == "header" %}ref="cart-button"{% endif %} class="header__cart" @click.prevent="modalController.toggleModal('cart')">
         {{ 'layout.cart.title' | t }}
         [<span v-text='(cart.state.item_count != undefined) ? cart.state.item_count : {{ cart.item_count }}'></span>]
       </a>

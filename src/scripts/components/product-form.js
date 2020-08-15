@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import { find } from 'lodash';
-import cart from './cart';
 
 Vue.component('product-form', {
-  props: ['disabled', 'product', 'initialVariantId', 'options', 'buttonClass'],
+  props: ['cart', 'disabled', 'product', 'initialVariantId', 'options', 'buttonClass'],
   data: function () {
     return {
       selectedVariant:{}
@@ -18,7 +17,7 @@ Vue.component('product-form', {
   methods: {
     submit() {
       this.$emit('submit')
-      cart.addItem(this.selectedVariant.id, { quantity: 1 })
+      this.cart.addItem(this.selectedVariant.id, { quantity: 1 })
     },
 
     selectedOptionValue(option) {
