@@ -1,4 +1,4 @@
-<section data-section-id="{{ section.id }}" data-section-type="product">
+<section data-section-id="{{ section.id }}" data-section-type="product" data-vue-instance>
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
@@ -14,6 +14,7 @@
   <product-form
     :product='{{ product | json }}'
     :options='{{ product.options_with_values | json }}'
+    :cart="cart"
     initial-variant-id="{{ current_variant.id }}">
   </product-form>
 

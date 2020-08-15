@@ -1,29 +1,17 @@
 import Vue from 'vue';
-import modalController from './modal-controller';
-import cart from './cart';
 
 Vue.component('cart', {
-  props: ['header', 'visible', 'modalController'],
-  data: function () {
-    return {
-      cart: cart
-    }
-  },
+  props: ['header', 'modalController', 'cart'],
   computed: {
     hasItems() {
-      return cart.hasItems();
-    }
-  },
-  methods: {
-    dismissModal: function(modal) {
-      modalController.dismissModal(modal)
+      return this.cart.hasItems();
     }
   },
   template: `
     <div v-cloak class="cart bg-white f fdc y">
       <div v-if="header" class="cart__header f aic jcb f-0">
         <h2 class="uppercase">Cart</h2>
-        <button class="cursor-pointer cart__close" type="button" v-on:click="dismissModal('cart')">
+        <button class="cursor-pointer cart__close" type="button" v-on:click="modalController.dismissModal('cart')">
           <x-button></x-button>
         </button>
       </div>
@@ -38,6 +26,7 @@ Vue.component('cart', {
             v-for="(item, index) in cart.state.items"
             :item="item"
             :index="index"
+            :cart="cart"
             :key="item.id"></cart-item>
         </div>
       </div>
