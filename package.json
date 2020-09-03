@@ -20,7 +20,7 @@
     "@shopify/theme-product-form": "^3.0.3",
     "@shopify/theme-sections": "^3.0.3",
     "core-js": "^3.6.4",
-    "lazysizes": "^5.2.0",
+    "lazysizes": "^5.2.1",
     "lodash": "^4.17.19",
     "quicklink": "^2.0.0-alpha",
     "regenerator-runtime": "^0.13.5",
