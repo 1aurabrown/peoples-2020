@@ -21,7 +21,7 @@
     "@shopify/theme-sections": "^3.0.3",
     "core-js": "^3.6.4",
     "lazysizes": "^5.2.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "quicklink": "^2.0.0-alpha",
     "regenerator-runtime": "^0.13.5",
     "slugify": "^1.4.0",
